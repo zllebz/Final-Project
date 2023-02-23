@@ -1,7 +1,53 @@
 <?php
 $title = 'ใบงานที่ 1';
-require_once '../db/connect.php';
 include('header.php');
+require_once "../db/connect.php";
+
+echo '
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
+
+if ((isset($_GET["submit"]))) {
+    $tap1 = $_GET['villagename'];
+    $tap2 = $_GET['location'];
+    $tap3 = $_GET['location_map'];
+    $tap4 = $_GET['religion'];
+    $tap5 = $_GET['population'];
+    $tap6 = $_GET['numarea'];
+    $tap7 = $_GET['education_service'];
+    $tap8 = $_GET['education_name'];
+    $tap9 = $_GET['local_government'];
+    $tap10 = $_GET['hospital'];
+    $tap11 = $_GET['police_station'];
+    $tap12 = $_GET['image'];
+    $tap13 = $_GET['pdf'];
+    $status = $controller->insert1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13);
+    if($status){
+        echo '<script>
+             setTimeout(function() {
+              swal({
+                  title: "บันทึกข้อมูลสำเร็จ",
+                  text: "กรุณารอระบบบันทึก",
+                  type: "success"
+              }, function() {
+                  window.location = "register.php"; //หน้าที่ต้องการให้กระโดดไป
+              });
+            }, 1000);
+        </script>';
+    }else{
+       echo '<script>
+             setTimeout(function() {
+              swal({
+                  title: "เกิดข้อผิดพลาด",
+                  type: "error"
+              }, function() {
+                  window.location = "login.php"; //หน้าที่ต้องการให้กระโดดไป
+              });
+            }, 1000);
+        </script>';
+    }
+}
 ?>
 
 <body>
@@ -55,15 +101,15 @@ include('header.php');
                         <input type="text" class="form-control" name="police_station">
                     </div>
                     <div class="mb-3">
-                        <label for="formFile" class="form-label">อัพโหลดเอกสาร PDF</label>
-                        <input class="form-control" type="file"  name="pdf">
-                    </div>
-                    <div class="mb-3">
                         <label for="formFile" class="form-label">แผนที่หมู่บ้าน</label>
                         <input class="form-control" type="file"  name="image">
                     </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">อัพโหลดเอกสาร PDF</label>
+                        <input class="form-control" type="file"  name="pdf">
+                    </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">บันทึกข้อมูล</button>
+                        <button type="submit" name="submit" class="btn btn-primary">บันทึกข้อมูล</button>
                     </div>
                 </form>
             </div>
@@ -71,89 +117,3 @@ include('header.php');
     </div>
 </body>
 </html>
-<?php
-//-------------------------------------จุดเชื่อมเว้ย--------------------------------------------------
-  //print_r($_POST); //ตรวจสอบมี input อะไรบ้าง และส่งอะไรมาบ้าง 
- //ถ้ามีค่าส่งมาจากฟอร์ม
-//print_r($_GET);
-    if(isset($_GET['villagename']) 
-    && isset($_GET['location']) 
-    && isset($_GET['location_map']) 
-    && isset($_GET['religion'])
-    && isset($_GET['population']) 
-    && isset($_GET['numarea']) 
-    && isset($_GET['education_service']) 
-    && isset($_GET['education_name']) 
-    && isset($_GET['local_government']) 
-    && isset($_GET['hospital']) 
-    && isset($_GET['police_station']) 
-    && isset($_GET['pdf']) 
-    && isset($_GET['image']) 
-    ){
-    require_once '../db/connect.php';
-    echo '
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
-    
-    //ประกาศตัวแปรรับค่าจากฟอร์ม
-    $tap1 = $_GET['villagename'];
-    $tap2 = $_GET['location'];
-    $tap3 = $_GET['location_map'];
-    $tap4 = $_GET['religion'];
-    $tap5 = $_GET['population'];
-    $tap6 = $_GET['numarea'];
-    $tap7 = $_GET['education_service'];
-    $tap8 = $_GET['education_name'];
-    $tap9 = $_GET['local_government'];
-    $tap10 = $_GET['hospital'];
-    $tap11 = $_GET['police_station'];
-    $tap12 = $_GET['pdf'];
-    $tap13 = $_GET['image'];
- 
-
-              $stmt = $pdo->prepare("INSERT INTO tbl_worksheet_1 (villagename, location, location_map, religion, population, numarea, education_service, education_name
-              , local_government, hospital, police_station, pdf, image)
-              VALUES (:villagename, :location, :location_map, :religion, :population, :numarea, :education_service, :education_name
-              , :local_government, :hospital, :police_station, :pdf, :image)");
-              $stmt->bindParam(':villagename', $tap1, PDO::PARAM_STR);
-              $stmt->bindParam(':location', $tap2, PDO::PARAM_STR);
-              $stmt->bindParam(':location_map', $tap3 , PDO::PARAM_STR);
-              $stmt->bindParam(':religion', $tap4 , PDO::PARAM_STR);
-              $stmt->bindParam(':population', $tap5 , PDO::PARAM_STR);
-              $stmt->bindParam(':numarea', $tap6 , PDO::PARAM_STR);
-              $stmt->bindParam(':education_service', $tap7 , PDO::PARAM_STR);
-              $stmt->bindParam(':education_name', $tap8 , PDO::PARAM_STR);
-              $stmt->bindParam(':local_government', $tap9 , PDO::PARAM_STR);
-              $stmt->bindParam(':hospital', $tap10 , PDO::PARAM_STR);
-              $stmt->bindParam(':police_station', $tap11 , PDO::PARAM_STR);
-              $stmt->bindParam(':pdf', $tap12 , PDO::PARAM_STR);
-              $stmt->bindParam(':image', $tap13 , PDO::PARAM_STR);
-              $result = $stmt->execute();
-              if($result){
-                  echo '<script>
-                       setTimeout(function() {
-                        swal({
-                            title: "บันทึกข้อมูลสำเร็จ",
-                            text: "กรุณารอระบบบันทึก",
-                            type: "success"
-                        }, function() {
-                            window.location = "register.php"; //หน้าที่ต้องการให้กระโดดไป
-                        });
-                      }, 1000);
-                  </script>';
-              }else{
-                 echo '<script>
-                       setTimeout(function() {
-                        swal({
-                            title: "เกิดข้อผิดพลาด",
-                            type: "error"
-                        }, function() {
-                            window.location = "login.php"; //หน้าที่ต้องการให้กระโดดไป
-                        });
-                      }, 1000);
-                  </script>';
-              }
-              $pdo = null; //close connect db
-    } //isset 
-?>

@@ -1,6 +1,51 @@
 <?php
 $title = 'ใบงานที่ 9';
 include('header.php');
+require_once "../db/connect.php";
+
+echo '
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
+
+if ((isset($_GET["submit"]))) {
+    $tap1 = $_GET['archeology_site'];
+    $tap2 = $_GET['important_resources'];
+    $tap3 = $_GET['archeology_record'];
+    $tap4 = $_GET['name_resources'];
+    $tap5 = $_GET['image'];
+    $tap6 = $_GET['pdf'];
+
+
+
+    //$tap13 = $_GET['pdf'];
+    $status = $controller->insert9($tap1, $tap2, $tap3, $tap4, $tap5, $tap6);
+    if ($status) {
+        echo '<script>
+             setTimeout(function() {
+              swal({
+                  title: "บันทึกข้อมูลสำเร็จ",
+                  text: "กรุณารอระบบบันทึก",
+                  type: "success"
+              }, function() {
+                  window.location = "register.php"; //หน้าที่ต้องการให้กระโดดไป
+              });
+            }, 1000);
+        </script>';
+    } else {
+        echo '<script>
+             setTimeout(function() {
+              swal({
+                  title: "เกิดข้อผิดพลาด",
+                  type: "error"
+              }, function() {
+                  window.location = "login.php"; //หน้าที่ต้องการให้กระโดดไป
+              });
+            }, 1000);
+        </script>';
+    }
+}
+
 ?>
 
 <body>
@@ -27,14 +72,14 @@ include('header.php');
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">รูปภาพ</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" type="file" name="image">
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">อัพโหลดเอกสาร PDF</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" type="file" name="pdf">
                     </div>
                     <div class="col-12">
-                        <a type="submit" href="#" class="btn btn-primary">บันทึกข้อมูล</a>
+                    <button type="submit" name="submit" class="btn btn-primary">บันทึกข้อมูล</button>
                     </div>
                 </form>
             </div>

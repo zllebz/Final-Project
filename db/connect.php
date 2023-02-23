@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = ""; //ไม่ได้ตั้งรหัสผ่านก็ลบ  yourpassword ออก
+$password = ""; 
 
 
 try {
@@ -14,6 +14,7 @@ try {
 }
 
 require_once "../db/controller.php";
+
 
 $controller = new Controller($pdo);
 //Set ว/ด/ป เวลา ให้เป็นของประเทศไทย

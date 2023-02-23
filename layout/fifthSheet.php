@@ -1,6 +1,53 @@
 <?php
 $title = 'ใบงานที่ 2';
 include('header.php');
+require_once "../db/connect.php";
+
+echo '
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
+
+if ((isset($_GET["submit"]))) {
+    $tap1 = $_GET['data_plant'];
+    $tap2 = $_GET['food'];
+    $tap3 = $_GET['medicine_people'];
+    $tap4 = $_GET['medicine_animal'];
+    $tap5 = $_GET['furniture'];
+    $tap6 = $_GET['insecticide'];
+    $tap7 = $_GET['cultures'];
+    $tap8 = $_GET['religion'];
+    $tap9 = $_GET['other'];
+    $tap10 = $_GET['image1'];
+    $tap11 = $_GET['image2'];
+    $tap12 = $_GET['pdf'];
+    //$tap13 = $_GET['pdf'];
+    $status = $controller->insert5($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12);
+    if($status){
+        echo '<script>
+             setTimeout(function() {
+              swal({
+                  title: "บันทึกข้อมูลสำเร็จ",
+                  text: "กรุณารอระบบบันทึก",
+                  type: "success"
+              }, function() {
+                  window.location = "register.php"; //หน้าที่ต้องการให้กระโดดไป
+              });
+            }, 1000);
+        </script>';
+    }else{
+       echo '<script>
+             setTimeout(function() {
+              swal({
+                  title: "เกิดข้อผิดพลาด",
+                  type: "error"
+              }, function() {
+                  window.location = "login.php"; //หน้าที่ต้องการให้กระโดดไป
+              });
+            }, 1000);
+        </script>';
+    }
+}
 ?>
 
 <body>
@@ -41,10 +88,6 @@ include('header.php');
                         <input type="text" class="form-control" name="cultures">
                     </div>
                     <div class="col-md-12">
-                        <label class="form-label">ปริมาณน้ำฝนเฉลี่ยต่อปี</label>
-                        <textarea class="form-control" name="rainfall" rows="3"></textarea>
-                    </div>
-                    <div class="col-md-12">
                         <label class="form-label">ความเกี่ยวข้องกับความเชื่อทางศาสนา</label>
                         <input type="text" class="form-control" name="religion">
                     </div>
@@ -54,18 +97,18 @@ include('header.php');
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">รูปภาพ</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" type="file" name="image1">
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">รูปภาพ</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" type="file" name="image2">
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">อัพโหลดเอกสาร PDF</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" type="file" name="pdf">
                     </div>
                     <div class="col-12">
-                        <a type="submit" href="#" class="btn btn-primary">บันทึกข้อมูล</a>
+                        <button type="submit" name="submit" class="btn btn-primary">บันทึกข้อมูล</button>
                     </div>
                 </form>
             </div>
