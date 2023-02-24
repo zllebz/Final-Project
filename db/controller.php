@@ -34,6 +34,17 @@ class Controller
     }
 
 
+    function datest()  // dropdown เลือกใบงาน addbasicdata.php ---firststorage.php
+    {
+        try {
+            $sql = "SELECT * FROM tbl_provinces";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 
 
 
@@ -42,39 +53,25 @@ class Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    function insertfirst($tap1, $tap2, $tap3, $tap4, $tap5, $tap6) //เพิ่มข้อมูลส่วนต้นของใบงาน
+    {
+        try {
+            $sql = "INSERT INTO tbl_firststorages (statement, doc_id, objective, equipment, process, exp_benefits)
+            VALUE (:statement, :doc_id, :objective, :equipment, :process, :exp_benefits)
+            ";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":statement", $tap1);
+            $stmt->bindParam(":doc_id", $tap2);
+            $stmt->bindParam(":objective", $tap3);
+            $stmt->bindParam(":equipment", $tap4);
+            $stmt->bindParam(":process", $tap5);
+            $stmt->bindParam(":exp_benefits", $tap6);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
 
 
     function insert1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13) //เพิ่มข้อมูลใบงานที่ 1
