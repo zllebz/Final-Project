@@ -59,10 +59,7 @@ if ((isset($_GET["submit"]))) {
                 <form class="row g-3 my-3">
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1">สาขา</label>
-                        <p>(สาขาเกษตรกรรม/ สาขาอุตสาหกรรมและหัตถกรรม /สาขาการแพทย์แผนไทย/ สาขาการจัดการทรัพยากรธรรมชาติและสิ่งแวดล้อม /สาขากองทุนและธุรกิจชุมชน/ สาขาสวัสดิการ /สาขาศิลปกรรม
-                            <br>/สาขาการจัดการองค์กร/ สาขาภาษาและวรรณกรรม/ สาขาศาสนาและประเพณี)
-                        </p>
-                        <input type="text" class="form-control" name="branch">
+                        <input type="text" class="form-control" name="branch"  placeholder="เช่น สาขาเกษตรกรรม / สาขาอุตสาหกรรมและหัตถกรรม / สาขาการแพทย์แผนไทย / สาขาการจัดการทรัพยากรธรรมชาติและสิ่งแวดล้อม">
                     </div>
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1" class="form-label">ชื่อภูมิปัญญาท้องถิ่น</label>

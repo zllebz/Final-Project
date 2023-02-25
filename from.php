@@ -2,6 +2,7 @@
 <?php
 $menu = "from";
  include("header.php"); ?>
+ 
 
 <script type="text/javascript">
         function readURL(input) {
@@ -47,8 +48,7 @@ $menu = "from";
 
               <div class="col-4">
                  <select name="a2" id="a2" class="form-control select2">
-                              <option value="" selected>-- เลือก --</option>
-                                   
+                              <option value="" selected>-- เลือก --</option>  
                                <option value="" >fordev22</option>
                                <option value="" >devbanban</option>
                                <option value="" >devtai</option>

@@ -10,7 +10,7 @@ $title = "ระบบจัดการแบบฟอร์มเอกสา�
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <div class="container-fluid">
-    <h1>ระบบจัดการแบบฟอร์มเอกสาร <i class="fas fa-file-alt"></i> </h1>
+    <h1>ระบบจัดการแบบฟอร์มเอกสาร</h1>
   </div><!-- /.container-fluid -->
 </section>
 
@@ -43,10 +43,11 @@ $title = "ระบบจัดการแบบฟอร์มเอกสา�
             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
               <thead>
                 <tr role="row" class="info">
-                  <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
+                  <th tabindex="0" rowspan="1" colspan="1" style="width: 4%;">ลำดับ</th>
                   <th tabindex="0" rowspan="1" colspan="1" style="width: 20%;">ชื่อเอกสาร</th>
-                  <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ควบคุม</th>
-                  <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">สถานะ</th>
+                  <th tabindex="0" rowspan="1" colspan="1" style="width: 8%;">พิมพ์เอกสาร</th>
+                  <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">จัดการ</th>
+
 
 
                 </tr>
@@ -55,7 +56,7 @@ $title = "ระบบจัดการแบบฟอร์มเอกสา�
 
                 <tr>
                   <td>
-                    1
+                    001
                   </td>
 
                   <td>
@@ -63,19 +64,25 @@ $title = "ระบบจัดการแบบฟอร์มเอกสา�
                   </td>
 
                   <td>
-                    <a href="#">จัดทำเอกสาร</a>
+                    <a href="#">พิมพ์เอกสาร</a>
                   </td>
 
                   <td>
-                  <a class="btn btn-danger btn-md" href="#" target="_blank">
-                    <i class="fas fa-trash-alt"></i>
-                  </a>
+                    <a class="btn btn-primary btn-xs" href="#">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <a class="btn btn-info btn-xs" href="#">
+                      <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a class="btn btn-danger btn-xs" href="#">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    2
+                    002
                   </td>
 
                   <td>
@@ -83,18 +90,25 @@ $title = "ระบบจัดการแบบฟอร์มเอกสา�
                   </td>
 
                   <td>
-                    <a href="#">จัดทำเอกสาร</a>
+                    <a href="#">พิมพ์เอกสาร</a>
                   </td>
+
                   <td>
-                  <a class="btn btn-danger btn-md" href="#" target="_blank">
-                    <i class="fas fa-trash-alt"></i>
-                  </a>
+                    <a class="btn btn-primary btn-xs" href="#">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <a class="btn btn-info btn-xs" href="#">
+                      <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a class="btn btn-danger btn-xs" href="#">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    3
+                    003
                   </td>
 
                   <td>
@@ -102,18 +116,25 @@ $title = "ระบบจัดการแบบฟอร์มเอกสา�
                   </td>
 
                   <td>
-                    <a href="#">จัดทำเอกสาร</a>
+                    <a href="#">พิมพ์เอกสาร</a>
                   </td>
+
                   <td>
-                  <a class="btn btn-danger btn-md" href="#" target="_blank">
-                    <i class="fas fa-trash-alt"></i>
-                  </a>
+                    <a class="btn btn-primary btn-xs" href="#">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <a class="btn btn-info btn-xs" href="#">
+                      <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a class="btn btn-danger btn-xs" href="#">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
                   </td>
                 </tr>
 
                 <tr>
                   <td>
-                    4
+                    004
                   </td>
 
                   <td>
@@ -121,12 +142,19 @@ $title = "ระบบจัดการแบบฟอร์มเอกสา�
                   </td>
 
                   <td>
-                    <a href="#">จัดทำเอกสาร</a>
+                    <a href="#">พิมพ์เอกสาร</a>
                   </td>
+
                   <td>
-                  <a class="btn btn-danger btn-md" href="#" target="_blank">
-                    <i class="fas fa-trash-alt"></i>
-                  </a>
+                    <a class="btn btn-primary btn-xs" href="#">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <a class="btn btn-info btn-xs" href="#">
+                      <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a class="btn btn-danger btn-xs" href="#">
+                      <i class="fas fa-trash-alt"></i>
+                    </a>
                   </td>
                 </tr>
 

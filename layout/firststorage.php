@@ -55,8 +55,9 @@ if ((isset($_GET["submit"]))) {
                         <textarea class="form-control" name="statement" rows="3"></textarea>
                     </div>
                     <div class="col-12">
-                    <label for="inputState" class="form-label">เลือกใบงาน</label>
+                    <label for="inputState" class="form-label" >ใบงาน</label>
                         <select name="doc_id" id="inputState" class="form-select">
+                        <option value="" selected disabled>-- กรุณาเลือก --</option>
                         <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                             <option value="<?php echo $row["doc_id"]; ?>"><?php echo $row["doc_name"] ?></option>
                             <?php } ?>

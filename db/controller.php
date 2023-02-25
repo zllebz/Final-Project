@@ -34,7 +34,7 @@ class Controller
     }
 
 
-    function datest()  // dropdown เลือกใบงาน addbasicdata.php ---firststorage.php
+    function provinces()  // dropdown
     {
         try {
             $sql = "SELECT * FROM tbl_provinces";
@@ -45,6 +45,34 @@ class Controller
             return false;
         }
     }
+
+    function amphures()  // dropdown
+    {
+        try {
+            $sql = "SELECT * FROM tbl_amphures";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function districts()  // dropdown
+    {
+        try {
+            $sql = "SELECT * FROM tbl_districts";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+
+
+
 
 
 

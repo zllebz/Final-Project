@@ -15,6 +15,7 @@ $result = $controller->prefixv();
                 <div class="col-md-2">
                         <label for="inputState" class="form-label">คำนำหน้า</label>
                         <select name="prefix_id" id="inputState" class="form-select">
+                        <option value="" selected disabled>-- กรุณาเลือก --</option>
                         <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                             <option value="<?php echo $row["prefix_id"]; ?>"><?php echo $row["prefix_name"] ?></option>
                             <?php } ?>
