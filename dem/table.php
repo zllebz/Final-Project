@@ -76,7 +76,7 @@ $result = $controller->getDatastore();
                     <a class="btn btn-warning btn-xs" href="#" target="_blank">
                       <i class="fas fa-pencil-alt"></i>
                     </a>
-                    <a class="btn btn-success btn-xs" href="../layout/firststorage.php">
+                    <a class="btn btn-success btn-xs" href="../layout/firststorage.php?id=<?php echo $row["data_store_id"]; ?>">
                       <i class="fas fa-file-alt"></i>
                     </a>
                   </td>

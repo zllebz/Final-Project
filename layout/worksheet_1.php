@@ -31,7 +31,7 @@ if ((isset($_GET["submit"]))) {
                   text: "กรุณารอระบบบันทึก",
                   type: "success"
               }, function() {
-                  window.location = "register.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "../dem/sheet_1.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 1000);
         </script>';
@@ -42,7 +42,7 @@ if ((isset($_GET["submit"]))) {
                   title: "เกิดข้อผิดพลาด",
                   type: "error"
               }, function() {
-                  window.location = "login.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "../layout/worksheet_1.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 1000);
         </script>';

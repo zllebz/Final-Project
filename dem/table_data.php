@@ -50,8 +50,8 @@ $result = $controller->getfirst();
             <thead>
               <tr role="row" class="info">
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ลำดับสถานที่ที่ลงพื้นที่</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ใบงาน</th>
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">รหัสสถานที่</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">คำชี้แจง</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">จัดการ</th>
               </tr>
@@ -60,8 +60,8 @@ $result = $controller->getfirst();
               <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                 <tr>
                   <td><?php echo $row["first_storage_id"]; ?></td>
-                  <td><?php echo $row["doc_name"]; ?></td>
                   <td><?php echo $row["data_store_id"]; ?></td>
+                  <td><?php echo $row["doc_name"]; ?></td>
                   <td><?php echo $row["statement"]; ?></td>
                   <td>
                     <a class="btn btn-info btn-xs" href="#" target="_blank">
@@ -69,6 +69,9 @@ $result = $controller->getfirst();
                     </a>
                     <a class="btn btn-warning btn-xs" href="#" target="_blank">
                       <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a class="btn btn-success btn-xs" href="../layout/worksheet_<?php echo $row['doc_id']; ?>.php?id=<?php echo $row["first_storage_id"]; ?>">
+                      <i class="fas fa-file-alt"></i>
                     </a>
                   </td>
                 </tr>

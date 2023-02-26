@@ -47,9 +47,9 @@ $result = $controller->getsheet1();
                     <?php echo $row["status"]; ?>
                   <td>
                     <a class="btn btn-info btn-xs" href="#" target="_blank">
-                      <i class="fas fa-eye"></i>
+                      <i class="fas fa-eye"></i> 
                     </a>
-                    <a class="btn btn-warning btn-xs" href="#" target="_blank">
+                    <a class="btn btn-warning btn-xs" href="../edit_view/worksheet_1.php?id=<?php echo $row["worksheet1_id"]; ?>">
                       <i class="fas fa-pencil-alt"></i>
                     </a>
                   </td>

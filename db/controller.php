@@ -244,11 +244,11 @@ class Controller
 
 
 
-    function insertfirst($tap1, $tap2, $tap3, $tap4, $tap5, $tap6) //เพิ่มข้อมูลส่วนต้นของใบงาน
+    function insertfirst($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7) //เพิ่มข้อมูลส่วนต้นของใบงาน
     {
         try {
-            $sql = "INSERT INTO tbl_firststorages (statement, doc_id, objective, equipment, process, exp_benefits)
-            VALUE (:statement, :doc_id, :objective, :equipment, :process, :exp_benefits)
+            $sql = "INSERT INTO tbl_firststorages (statement, doc_id, objective, equipment, process, exp_benefits,data_store_id)
+            VALUE (:statement, :doc_id, :objective, :equipment, :process, :exp_benefits, :data_store_id)
             ";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(":statement", $tap1);
@@ -257,6 +257,7 @@ class Controller
             $stmt->bindParam(":equipment", $tap4);
             $stmt->bindParam(":process", $tap5);
             $stmt->bindParam(":exp_benefits", $tap6);
+            $stmt->bindParam(":data_store_id", $tap7);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -286,6 +287,35 @@ class Controller
             $stmt->bindParam(':police_station', $tap11, PDO::PARAM_STR);
             $stmt->bindParam(':image', $tap12, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap13, PDO::PARAM_STR);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    function update1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14) //เพิ่มข้อมูลใบงานที่ 1
+    {
+        try {
+            $sql = "UPDATE tbl_worksheet_1 SET villagename:villagename, location:location,
+             location_map :location_map, religion : religion, population:population,numarea:numarea, 
+             education_service:education_service,education_name:education_name
+            , local_government:local_government, hospital:hospital, police_station:police_station,image:image, pdf:pdf WHERE worksheet1_id=:worksheet1_id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':villagename', $tap1, PDO::PARAM_STR);
+            $stmt->bindParam(':location', $tap2, PDO::PARAM_STR);
+            $stmt->bindParam(':location_map', $tap3, PDO::PARAM_STR);
+            $stmt->bindParam(':religion', $tap4, PDO::PARAM_STR);
+            $stmt->bindParam(':population', $tap5, PDO::PARAM_STR);
+            $stmt->bindParam(':numarea', $tap6, PDO::PARAM_STR);
+            $stmt->bindParam(':education_service', $tap7, PDO::PARAM_STR);
+            $stmt->bindParam(':education_name', $tap8, PDO::PARAM_STR);
+            $stmt->bindParam(':local_government', $tap9, PDO::PARAM_STR);
+            $stmt->bindParam(':hospital', $tap10, PDO::PARAM_STR);
+            $stmt->bindParam(':police_station', $tap11, PDO::PARAM_STR);
+            $stmt->bindParam(':image', $tap12, PDO::PARAM_STR);
+            $stmt->bindParam(':pdf', $tap13, PDO::PARAM_STR);
+            $stmt->bindParam(':worksheet1_id', $tap14, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -578,3 +608,4 @@ class Controller
         }
     }
 }
+
