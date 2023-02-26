@@ -4,8 +4,7 @@
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> ทดสอบ
-    </div>
-    <strong>Copyright &copy; 2022</strong> งานศิลปวัฒนธรรม คณะ
+    </div> งานศิลปวัฒนธรรม คณะ
 บริหารธุรกิจ มหาวิทยาลัยเทคโนโลยีราชมงคลพระนคร
     
   </footer>
@@ -21,20 +20,20 @@
 <!-- jQuery -->
 
 
-<script src="assets/plugins/jquery/jquery.min.js"></script>
+<script src="../assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <!-- http://fordev22.com/ -->
-<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables -->
-<script src="assets/plugins/datatables/jquery.dataTables.js"></script>
-<script src="assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
-<script src="assets/plugins/bootstrap-tagsinput/tagsinput.js?v=1"></script>
+<script src="../assets/plugins/datatables/jquery.dataTables.js"></script>
+<script src="../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<script src="../assets/plugins/bootstrap-tagsinput/tagsinput.js?v=1"></script>
 <!-- Select2 -->
 <!-- http://fordev22.com/ -->
-<script src="assets/plugins/select2/js/select2.full.min.js"></script>
+<script src="../assets/plugins/select2/js/select2.full.min.js"></script>
 
 <!-- AdminLTE App -->
-<script src="assets/dist/js/adminlte.min.js"></script>
+<script src="../assets/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="assets/dist/js/demo.js"></script> -->
 <!-- http://fordev22.com/ -->

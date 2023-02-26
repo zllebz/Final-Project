@@ -3,6 +3,15 @@ $title = 'แบบฟอร์มกรอกข้อมูลขั้นต�
 include('header.php');
 require_once "../db/connect.php";
 $result = $controller->documents();
+if (!isset($_GET["id"])) {
+    header("Location: layout/firststorage.php");
+} else {
+    $id = $_GET["id"];
+    $emp = $controller->getDataid($id);
+}
+
+?>
+<?php
 //print_r($_GET);
 echo '
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
@@ -25,7 +34,7 @@ if ((isset($_GET["submit"]))) {
                   text: "กรุณารอระบบบันทึก",
                   type: "success"
               }, function() {
-                  window.location = "register.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "../dem/table_data.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 1000);
         </script>';
@@ -36,7 +45,7 @@ if ((isset($_GET["submit"]))) {
                   title: "เกิดข้อผิดพลาด",
                   type: "error"
               }, function() {
-                  window.location = "login.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "firststorage.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 1000);
         </script>';
@@ -75,12 +84,11 @@ if ((isset($_GET["submit"]))) {
                         <label for="process" class="form-label">วิธีการ</label>
                         <textarea class="form-control" name="process"  rows="3"></textarea>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 mt-3">
                         <label for="exp_benefits" class="form-label">สิ่งที่ได้รับจากใบงาน</label>
                         <textarea class="form-control" name="exp_benefits" rows="3"></textarea>
                     </div>
-
-                    <div class="col-12">
+                    <div class="col-12 mt-3 ">
                         <button type="submit" name="submit" class="btn btn-primary">บันทึกข้อมูล</button>
                     </div>
                 </form>

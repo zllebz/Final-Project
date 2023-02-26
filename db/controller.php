@@ -70,6 +70,169 @@ class Controller
         }
     }
 
+    function getUser()
+    {
+        try {
+            $sql = "SELECT * FROM tbl_users";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getDatastore()
+    {
+        try {
+            $sql = "SELECT * FROM tbl_dataStores a INNER JOIN tbl_users b ON 
+            a.user_id = b.user_id ORDER BY a.data_store_id";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getfirst()
+    {
+        try {
+            $sql = "SELECT * FROM tbl_firststorages a INNER JOIN tbl_documents b ON 
+            a.doc_id = b.doc_id ORDER BY a.first_storage_id";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet1()
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_1";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet2()
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_2";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet3()
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_3";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet4()
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_4";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet5()
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_5";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet6()
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_6";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet7()
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_7";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet8()
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_8";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet9()
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_9";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getDataid($id)
+    {
+        try {
+            $sql = "SELECT * FROM tbl_datastores
+            WHERE data_store_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    
 
 
 

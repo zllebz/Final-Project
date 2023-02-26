@@ -1,9 +1,8 @@
 
 <?php
 $menu = "from";
- include("header.php"); ?>
- 
-
+?>
+<?php include ("../dem/header.php"); ?>
 <script type="text/javascript">
         function readURL(input) {
             if (input.files && input.files[0]) {
@@ -48,7 +47,8 @@ $menu = "from";
 
               <div class="col-4">
                  <select name="a2" id="a2" class="form-control select2">
-                              <option value="" selected>-- เลือก --</option>  
+                              <option value="" selected>-- เลือก --</option>
+                                   
                                <option value="" >fordev22</option>
                                <option value="" >devbanban</option>
                                <option value="" >devtai</option>
@@ -281,7 +281,7 @@ $menu = "from";
     <!-- /.content -->
 
     
-<?php include('footer.php'); ?>
+    <?php include('../dem/footer.php'); ?>
 
 <script>
   $(function () {

@@ -4,7 +4,7 @@ $menu = "food";
 
 ?>
 
-<?php include("header.php"); ?>
+<?php include ("../dem/header.php"); ?>
 
 
     <!-- Content Header (Page header) -->
@@ -118,7 +118,7 @@ $menu = "food";
     <!-- /.content -->
 
     
-<?php include('footer.php'); ?>
+    <?php include('../dem/footer.php'); ?>
 
 <script>
   $(function () {

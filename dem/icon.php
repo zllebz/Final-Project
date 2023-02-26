@@ -5,7 +5,7 @@ $menu = "icon";
 
 ?>
 
-<?php include("header.php"); ?>
+<?php include ("../dem/header.php"); ?>
 
 
     <!-- Content Header (Page header) -->
@@ -177,7 +177,7 @@ $menu = "icon";
     <!-- /.content -->
 
     
-<?php include('footer.php'); ?>
+    <?php include('../dem/footer.php'); ?>
 
 <script>
   $(function () {

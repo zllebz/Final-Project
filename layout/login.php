@@ -15,16 +15,17 @@
   <form action="" method="post">
     <div class="form-control">
       <label for="email">User</label>
-      <input type="text" name="user_name" autocomplete="off">
+      <input type="text" name="user_name" autocomplete="off" required>
     </div>
     <div class="form-control">
       <label for="password">Password</label>
-      <input type="password" id="password" name="user_password">
+      <input type="password" id="password" name="user_password" required>
       <i class="fa-solid fa-eye" id="eye"></i>
     </div>
     <div class="form-control">
       <button class="btn">Login</button>
     </div>
+    <a href="register.php">สมัครสมาชิก</a>
   </form>
   <script src="js/app.js"></script>
 </body>
@@ -63,7 +64,7 @@
         print_r($_SESSION);
  
        // exit();
-         header('Location: firstsheet.php'); //login ถูกต้องและกระโดดไปหน้าตามที่ต้องการ
+         header('Location: ../index.php'); //login ถูกต้องและกระโดดไปหน้าตามที่ต้องการ
      }else{ //ถ้า username or password ไม่ถูกต้อง
 
         echo '<script>

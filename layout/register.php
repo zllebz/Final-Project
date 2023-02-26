@@ -127,7 +127,7 @@ $result = $controller->prefixv();
                             title: "เกิดข้อผิดพลาด",
                             type: "error"
                         }, function() {
-                            window.location = "formRegister.php"; //หน้าที่ต้องการให้กระโดดไป
+                            window.location = "register.php"; //หน้าที่ต้องการให้กระโดดไป
                         });
                       }, 1000);
                   </script>';
