@@ -1,6 +1,6 @@
 <?php
 
-$menu = "sheet7";
+$menu = "sheet_7";
 $title = "ใบงานที่ 7";
 require_once "../db/connect.php";
 $result = $controller->getsheet7();
@@ -42,7 +42,12 @@ $result = $controller->getsheet7();
                   <td><?php echo $row["bio_data"]; ?></td>
                   <td><?php echo $row["image"]; ?></td>
                   <td><?php echo $row["pdf"]; ?></td>
-                  <td><?php echo $row["status"]; ?>
+                  <td><?php if($row["status"]== 0){
+                    echo '<i class="fas fa-circle" style="color:red;" ></i>';
+                  }else{
+                    echo '<i class="fas fa-circle" style="color:green;" ></i>';
+                  }
+                    ?>    
                   <td>
                     <a class="btn btn-info btn-xs" href="#" target="_blank">
                       <i class="fas fa-eye"></i>

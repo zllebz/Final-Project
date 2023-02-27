@@ -1,6 +1,6 @@
 <?php
 
-$menu = "sheet4";
+$menu = "sheet_4";
 $title = "ใบงานที่ 4";
 require_once "../db/connect.php";
 $result = $controller->getsheet4();
@@ -41,7 +41,12 @@ $result = $controller->getsheet4();
                   <td><?php echo $row["first_storage_id"]; ?></td>
                   <td><?php echo $row["village_history"]; ?></td>
                   <td><?php echo $row["way_life"]; ?></td>
-                  <td><?php echo $row["status"]; ?>
+                  <td><?php if($row["status"]== 0){
+                    echo '<i class="fas fa-circle" style="color:red;" ></i>';
+                  }else{
+                    echo '<i class="fas fa-circle" style="color:green;" ></i>';
+                  }
+                    ?>    
                   <td>
                     <a class="btn btn-info btn-xs" href="#" target="_blank">
                       <i class="fas fa-eye"></i>

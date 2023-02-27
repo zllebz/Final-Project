@@ -21,7 +21,7 @@ class Controller
         }
     }
 
-    function documents()  // dropdown เลือกใบงาน addbasicdata.php ---firststorage.php
+    function documents()  // dropdown เลือกใบงาน ---firststorage.php
     {
         try {
             $sql = "SELECT * FROM tbl_documents";
@@ -34,7 +34,7 @@ class Controller
     }
 
 
-    function provinces()  // dropdown
+    function provinces()  // dropdown จังหวัด
     {
         try {
             $sql = "SELECT * FROM tbl_provinces";
@@ -46,7 +46,7 @@ class Controller
         }
     }
 
-    function amphures()  // dropdown
+    function amphures()  // dropdown อำเภอ
     {
         try {
             $sql = "SELECT * FROM tbl_amphures";
@@ -58,7 +58,7 @@ class Controller
         }
     }
 
-    function districts()  // dropdown
+    function districts()  // dropdown ตำบล
     {
         try {
             $sql = "SELECT * FROM tbl_districts";
@@ -70,7 +70,7 @@ class Controller
         }
     }
 
-    function getUser()
+    function getUser() //แสดงข้อมูลผู้ใช้ แอดมิน
     {
         try {
             $sql = "SELECT * FROM tbl_users";
@@ -82,7 +82,7 @@ class Controller
         }
     }
 
-    function getDatastore()
+    function getDatastore() //ตารางข้อมูลสถานที่ที่สำรวจ
     {
         try {
             $sql = "SELECT * FROM tbl_dataStores a INNER JOIN tbl_users b ON 
@@ -95,7 +95,7 @@ class Controller
         }
     }
 
-    function getfirst()
+    function getfirst() //ส่วนต้น
     {
         try {
             $sql = "SELECT * FROM tbl_firststorages a INNER JOIN tbl_documents b ON 
@@ -108,7 +108,7 @@ class Controller
         }
     }
 
-    function getsheet1()
+    function getsheet1() //แสดงตารางชีต 1
     {
         try {
             $sql = "SELECT * FROM tbl_worksheet_1";
@@ -120,7 +120,7 @@ class Controller
         }
     }
 
-    function getsheet2()
+    function getsheet2() //แสดงตารางชีต 2
     {
         try {
             $sql = "SELECT * FROM tbl_worksheet_2";
@@ -132,7 +132,7 @@ class Controller
         }
     }
 
-    function getsheet3()
+    function getsheet3() //แสดงตารางชีต 3
     {
         try {
             $sql = "SELECT * FROM tbl_worksheet_3";
@@ -144,7 +144,7 @@ class Controller
         }
     }
 
-    function getsheet4()
+    function getsheet4() //แสดงตารางชีต 4
     {
         try {
             $sql = "SELECT * FROM tbl_worksheet_4";
@@ -156,7 +156,7 @@ class Controller
         }
     }
 
-    function getsheet5()
+    function getsheet5() //แสดงตารางชีต 5
     {
         try {
             $sql = "SELECT * FROM tbl_worksheet_5";
@@ -168,7 +168,7 @@ class Controller
         }
     }
 
-    function getsheet6()
+    function getsheet6() //แสดงตารางชีต 6
     {
         try {
             $sql = "SELECT * FROM tbl_worksheet_6";
@@ -180,7 +180,7 @@ class Controller
         }
     }
 
-    function getsheet7()
+    function getsheet7() //แสดงตารางชีต 7
     {
         try {
             $sql = "SELECT * FROM tbl_worksheet_7";
@@ -192,7 +192,7 @@ class Controller
         }
     }
 
-    function getsheet8()
+    function getsheet8() //แสดงตารางชีต 8
     {
         try {
             $sql = "SELECT * FROM tbl_worksheet_8";
@@ -204,7 +204,7 @@ class Controller
         }
     }
 
-    function getsheet9()
+    function getsheet9() //แสดงตารางชีต 9
     {
         try {
             $sql = "SELECT * FROM tbl_worksheet_9";
@@ -216,7 +216,7 @@ class Controller
         }
     }
 
-    function getDataid($id)
+    function getDataid($id) //รับ ID ของสถานที่ แล้วไปแสดงหน้า edit กับ view
     {
         try {
             $sql = "SELECT * FROM tbl_datastores
@@ -232,7 +232,21 @@ class Controller
         }
     }
 
-    
+    function getsheet1id($id) //รับ ID ของชีต1 แล้วไปแสดงหน้า edit กับ view
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_1
+            WHERE worksheet1_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 
 
 
@@ -244,7 +258,12 @@ class Controller
 
 
 
-    function insertfirst($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7) //เพิ่มข้อมูลส่วนต้นของใบงาน
+
+    //------------------------ ชุดคำสั่ง INSERT ของใบงาน 1-9 และ สถานที่ + ส่วนต้น -----------------------------------------//
+
+
+
+    function insertfirst($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7) //ส่วนต้น
     {
         try {
             $sql = "INSERT INTO tbl_firststorages (statement, doc_id, objective, equipment, process, exp_benefits,data_store_id)
@@ -294,35 +313,6 @@ class Controller
         }
     }
 
-    function update1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14) //เพิ่มข้อมูลใบงานที่ 1
-    {
-        try {
-            $sql = "UPDATE tbl_worksheet_1 SET villagename:villagename, location:location,
-             location_map :location_map, religion : religion, population:population,numarea:numarea, 
-             education_service:education_service,education_name:education_name
-            , local_government:local_government, hospital:hospital, police_station:police_station,image:image, pdf:pdf WHERE worksheet1_id=:worksheet1_id";
-            $stmt = $this->db->prepare($sql);
-            $stmt->bindParam(':villagename', $tap1, PDO::PARAM_STR);
-            $stmt->bindParam(':location', $tap2, PDO::PARAM_STR);
-            $stmt->bindParam(':location_map', $tap3, PDO::PARAM_STR);
-            $stmt->bindParam(':religion', $tap4, PDO::PARAM_STR);
-            $stmt->bindParam(':population', $tap5, PDO::PARAM_STR);
-            $stmt->bindParam(':numarea', $tap6, PDO::PARAM_STR);
-            $stmt->bindParam(':education_service', $tap7, PDO::PARAM_STR);
-            $stmt->bindParam(':education_name', $tap8, PDO::PARAM_STR);
-            $stmt->bindParam(':local_government', $tap9, PDO::PARAM_STR);
-            $stmt->bindParam(':hospital', $tap10, PDO::PARAM_STR);
-            $stmt->bindParam(':police_station', $tap11, PDO::PARAM_STR);
-            $stmt->bindParam(':image', $tap12, PDO::PARAM_STR);
-            $stmt->bindParam(':pdf', $tap13, PDO::PARAM_STR);
-            $stmt->bindParam(':worksheet1_id', $tap14, PDO::PARAM_STR);
-            $stmt->execute();
-            return true;
-        } catch (PDOException $e) {
-            return false;
-        }
-    }
-
 
     function insert2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12) //เพิ่มข้อมูลใบงานที่ 2
     {
@@ -340,12 +330,12 @@ class Controller
                 service, 
                 image, 
                 pdf)
-              VALUES (:agriculture, :garden, 
-              :farming, :number_animal,
-              :fishing, :b_industry, 
-              :m_industry, :s_industry, 
-              :commerce, :service, 
-              :image, :pdf)";
+                VALUES (:agriculture, :garden, 
+                :farming, :number_animal,
+                :fishing, :b_industry, 
+                :m_industry, :s_industry, 
+                :commerce, :service, 
+                :image, :pdf)";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':agriculture', $tap1, PDO::PARAM_STR);
             $stmt->bindParam(':garden', $tap2, PDO::PARAM_STR);
@@ -384,12 +374,12 @@ class Controller
                 geographic,
                 image, 
                 pdf)
-              VALUES (:terrain, :soilitype, 
-              :natural_water, :irrigation_water,
-              :weir_slows, :rainfall, 
-              :water_demand, :quality_water, 
-              :temperature, :amount_light, :geographic,
-              :image, :pdf)";
+                VALUES (:terrain, :soilitype, 
+                :natural_water, :irrigation_water,
+                :weir_slows, :rainfall, 
+                :water_demand, :quality_water, 
+                :temperature, :amount_light, :geographic,
+                :image, :pdf)";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':terrain', $tap1, PDO::PARAM_STR);
             $stmt->bindParam(':soilitype', $tap2, PDO::PARAM_STR);
@@ -448,7 +438,7 @@ class Controller
                 image1, 
                 image2, 
                 pdf)
-              VALUES (:data_plant, 
+                VALUES (:data_plant, 
                 :food, 
                 :medicine_people, 
                 :medicine_animal, 
@@ -495,7 +485,7 @@ class Controller
                 image,
                 pdf
                 )
-              VALUES (:animal_species, 
+                VALUES (:animal_species, 
                 :location_meet, 
                 :quantity, 
                 :history, 
@@ -556,7 +546,7 @@ class Controller
                 materials,
                 image, 
                 pdf)
-              VALUES ( 
+                VALUES ( 
                 :branch, 
                 :local_name, 
                 :copyright, 
@@ -607,5 +597,45 @@ class Controller
             return false;
         }
     }
+
+
+
+
+//---------------------------------------------- ชุดคำสั่ง UPDATE ของใบงาน 1-9 และ สถานที่ + ส่วนต้น -----------------------------------------//
+
+    function update1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13 , $tap14) //เพิ่มข้อมูลใบงานที่ 1
+    {
+        try {
+            $sql = "UPDATE tbl_worksheet_1 SET villagename=:villagename, location=:location, 
+            location_map=:location_map, religion=:religion ,
+            population=:population, numarea=:numarea ,
+            education_service=:education_service, education_name=:education_name ,
+            local_government=:local_government, hospital=:hospital ,
+            police_station=:police_station, image=:image ,
+            pdf=:pdf
+            WHERE worksheet1_id=:worksheet1_id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':villagename', $tap1, PDO::PARAM_STR);
+            $stmt->bindParam(':location', $tap2, PDO::PARAM_STR);
+            $stmt->bindParam(':location_map', $tap3, PDO::PARAM_STR);
+            $stmt->bindParam(':religion', $tap4, PDO::PARAM_STR);
+            $stmt->bindParam(':population', $tap5, PDO::PARAM_STR);
+            $stmt->bindParam(':numarea', $tap6, PDO::PARAM_STR);
+            $stmt->bindParam(':education_service', $tap7, PDO::PARAM_STR);
+            $stmt->bindParam(':education_name', $tap8, PDO::PARAM_STR);
+            $stmt->bindParam(':local_government', $tap9, PDO::PARAM_STR);
+            $stmt->bindParam(':hospital', $tap10, PDO::PARAM_STR);
+            $stmt->bindParam(':police_station', $tap11, PDO::PARAM_STR);
+            $stmt->bindParam(':image', $tap12, PDO::PARAM_STR);
+            $stmt->bindParam(':pdf', $tap13, PDO::PARAM_STR);
+            $stmt->bindParam(':worksheet1_id', $tap14, PDO::PARAM_STR);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
 }
+
+
 

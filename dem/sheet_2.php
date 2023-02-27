@@ -44,7 +44,12 @@ $result = $controller->getsheet2();
                   <td><?php echo $row["fishing"]; ?></td>
                   <td><?php echo $row["s_industry"]; ?></td>
                   <td>
-                    <?php echo $row["status"]; ?>
+                  <?php if($row["status"]== 0){
+                    echo '<i class="fas fa-circle" style="color:red;" ></i>';
+                  }else{
+                    echo '<i class="fas fa-circle" style="color:green;" ></i>';
+                  }
+                    ?>    
                   <td>
                     <a class="btn btn-info btn-xs" href="#" target="_blank">
                       <i class="fas fa-eye"></i>

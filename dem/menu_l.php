@@ -60,7 +60,7 @@
           </a>
           <ul class="nav nav-treeview" style="display: block;">
             <li class="nav-item">
-              <a href="sheet_1.php" class="nav-link" <?php if ($menu == "sheet_1") {
+              <a href="sheet_1.php" class="nav-link <?php if ($menu == "sheet_1") {
                                                       echo "active";
                                                     } ?>">
                 <i class="nav-icon fas fa-copy"></i>
@@ -68,27 +68,27 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="sheet_2.php" class="nav-link" <?php if ($menu == "sheet_2") {
+              <a href="sheet_2.php" class="nav-link <?php if ($menu == "sheet_2") {
                                                       echo "active";
-                                                    } ?>" class="nav-link">
+                                                    } ?>">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>ใบงานที่ 2</p>
               </a>
             </li>
         </li>
         <li class="nav-item">
-          <a href="sheet_3.php" class="nav-link "<?php if ($menu == "sheet_3") {
+          <a href="sheet_3.php" class="nav-link <?php if ($menu == "sheet_3") {
                                                   echo "active";
-                                                } ?>" class="nav-link">
+                                                } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 3</p>
           </a>
         </li>
 
         <li class="nav-item">
-          <a href="sheet_4.php " class="nav-link "<?php if ($menu == "sheet_4") {
+          <a href="sheet_4.php " class="nav-link <?php if ($menu == "sheet_4") {
                                                     echo "active";
-                                                  } ?>" class="nav-link">
+                                                  } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 4</p>
           </a>
@@ -96,39 +96,39 @@
         <li class="nav-item">
           <a href="sheet_5.php " class="nav-link <?php if ($menu == "sheet_5") {
                                                     echo "active";
-                                                  } ?>" class="nav-link">
+                                                  } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 5</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="sheet_6.php <?php if ($menu == "sheet_6") {
+          <a href="sheet_6.php " class="nav-link <?php if ($menu == "sheet_6") {
                                   echo "active";
-                                } ?>" class="nav-link">
+                                } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 6</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="sheet_7.php <?php if ($menu == "sheet_7") {
+          <a href="sheet_7.php" class="nav-link <?php if ($menu == "sheet_7") {
                                   echo "active";
-                                } ?>" class="nav-link">
+                                } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 7</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="sheet_8.php <?php if ($menu == "sheet_8") {
+          <a href="sheet_8.php" class="nav-link <?php if ($menu == "sheet_8") {
                                   echo "active";
-                                } ?>" class="nav-link">
+                                } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 8</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="sheet_9.php <?php if ($menu == "sheet_9") {
+          <a href="sheet_9.php " class="nav-link <?php if ($menu == "sheet_9") {
                                   echo "active";
-                                } ?>" class="nav-link">
+                                } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 9</p>
           </a>

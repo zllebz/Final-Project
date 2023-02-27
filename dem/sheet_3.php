@@ -1,6 +1,6 @@
 <?php
 
-$menu = "sheet3";
+$menu = "sheet_3";
 $title = "ใบงานที่ 3";
 require_once "../db/connect.php";
 $result = $controller->getsheet3();
@@ -43,7 +43,13 @@ $result = $controller->getsheet3();
                   <td><?php echo $row["terrain"]; ?></td>
                   <td><?php echo $row["soilitype"]; ?></td>
                   <td><?php echo $row["natural_water"]; ?></td>
-                  <td><?php echo $row["status"]; ?><td>
+                  <td>
+                    <?php if($row["status"]== 0){
+                    echo '<i class="fas fa-circle" style="color:red;" ></i>';
+                  }else{
+                    echo '<i class="fas fa-circle" style="color:green;" ></i>';
+                  }
+                    ?>    <td>
                     <a class="btn btn-info btn-xs" href="#" target="_blank">
                       <i class="fas fa-eye"></i>
                     </a>

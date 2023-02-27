@@ -44,12 +44,17 @@ $result = $controller->getsheet1();
                   <td><?php echo $row["location"]; ?></td>
                   <td><?php echo $row["location_map"]; ?></td>
                   <td>
-                    <?php echo $row["status"]; ?>
+                  <?php if($row["status"]== 0){
+                    echo '<i class="fas fa-circle" style="color:red;" ></i>';
+                  }else{
+                    echo '<i class="fas fa-circle" style="color:green;" ></i>';
+                  }
+                    ?>    
                   <td>
-                    <a class="btn btn-info btn-xs" href="#" target="_blank">
-                      <i class="fas fa-eye"></i> 
+                    <a class="btn btn-info btn-xs" href="../edit_view/v_sheet_1.php?id=<?php echo $row["worksheet1_id"]; ?>">
+                      <i class="fas fa-eye"></i>
                     </a>
-                    <a class="btn btn-warning btn-xs" href="../edit_view/worksheet_1.php?id=<?php echo $row["worksheet1_id"]; ?>">
+                    <a class="btn btn-warning btn-xs" href="../edit_view/e_sheet_1.php?id=<?php echo $row["worksheet1_id"]; ?>">
                       <i class="fas fa-pencil-alt"></i>
                     </a>
                   </td>
