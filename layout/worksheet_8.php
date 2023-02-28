@@ -1,7 +1,7 @@
 <?php
 $title = 'ใบงานที่ 8';
 include('header.php');
-require_once "../db/connect.php";
+require_once "../db/connect.php"; 
 
 echo '
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
@@ -121,7 +121,7 @@ if ((isset($_GET["submit"]))) {
                     </div>
 
                     <div class="col-md-12">
-                        <label for="exampleFormControlInput1" class="form-label">ชื่อภูมิปัญญาท้องถิ่น</label>
+                        <label for="exampleFormControlInput1" class="form-label">จุดเด่นของภูมิปัญญาท้องถิ่น</label>
                         <textarea class="form-control" name="local_highlights" rows="3"></textarea>
                     </div>
                     <div class="col-md-12">

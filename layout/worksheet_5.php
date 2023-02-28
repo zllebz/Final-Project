@@ -53,7 +53,7 @@ if ((isset($_GET["submit"]))) {
 <body>
 <div class="container">
         <div class="row">
-            <h3 class="my-3 text-center">ใบงานที่ 5 <br>เรื่อง การเก็บข้อมูลด้านกายภาพในท้องถิ่น</h3>
+            <h3 class="my-3 text-center">ใบงานที่ 5 <br>เรื่อง การเก็บข้อมูลการใช้ประโยชน์ของพืชในท้องถิ่น</h3>
             <div class="card border-0 shadow">
                 <form class="row g-3 my-3">
                     <div class="col-md-12">
@@ -63,7 +63,8 @@ if ((isset($_GET["submit"]))) {
                         <textarea class="form-control" name="data_plant" rows="3"></textarea>
                     </div>
                     <div class="col-md-12">
-                        <p>การใช้ประโยชน์ในท้องถิ่น (ระบุส่วนที่ใช้และวิธีการใช้)</p>
+                        <h3>การใช้ประโยชน์ในท้องถิ่น (ระบุส่วนที่ใช้และวิธีการใช้)</h3>
+                        <p>อาหาร</p>
                         <label for="exampleFormControlInput1" class="form-label">อาหาร</label>
                         <input type="text" class="form-control" name="food">
                     </div>

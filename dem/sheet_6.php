@@ -11,7 +11,7 @@ $result = $controller->getsheet6();
 <section class="content">
   <div class="card">
     <div class="card-header bg-navy">
-      <h3 class="card-title">ตารางระบบจัดการเอกสารเรื่องการเก็บข้อมูลการใช้ประโยชน์ของสัตว์ในท้องถิ่น</h3>
+      <h3 class="card-title">ตารางระบบจัดการเอกสารเรื่องการเก็บข้อมูลของสัตว์ในท้องถิ่น</h3>
     </div>
     <br>
     <div class="card-body p-1">
@@ -50,10 +50,10 @@ $result = $controller->getsheet6();
                   }
                     ?>    
                   <td>
-                    <a class="btn btn-info btn-xs" href="#" target="_blank">
+                  <a class="btn btn-info btn-xs" href="../edit_view/v_sheet_6.php?id=<?php echo $row["worksheet6_id"]; ?>">
                       <i class="fas fa-eye"></i>
                     </a>
-                    <a class="btn btn-warning btn-xs" href="#" target="_blank">
+                    <a class="btn btn-warning btn-xs" href="../edit_view/e_sheet_6.php?id=<?php echo $row["worksheet6_id"]; ?>">
                       <i class="fas fa-pencil-alt"></i>
                     </a>
                   </td>

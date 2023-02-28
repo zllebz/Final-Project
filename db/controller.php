@@ -248,8 +248,133 @@ class Controller
         }
     }
 
+    function getsheet2id($id) //รับ ID ของชีต2 แล้วไปแสดงหน้า edit กับ view
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_2
+            WHERE worksheet2_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 
+    function getsheet3id($id) //รับ ID ของชีต2 แล้วไปแสดงหน้า edit กับ view
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_3
+            WHERE worksheet3_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 
+    function getsheet4id($id) //รับ ID ของชีต2 แล้วไปแสดงหน้า edit กับ view
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_4
+            WHERE worksheet4_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet5id($id) //รับ ID ของชีต2 แล้วไปแสดงหน้า edit กับ view
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_5
+            WHERE worksheet5_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet6id($id) //รับ ID ของชีต2 แล้วไปแสดงหน้า edit กับ view
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_6
+            WHERE worksheet6_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet7id($id) //รับ ID ของชีต2 แล้วไปแสดงหน้า edit กับ view
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_7
+            WHERE worksheet7_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet8id($id) //รับ ID ของชีต2 แล้วไปแสดงหน้า edit กับ view
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_8
+            WHERE worksheet8_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet9id($id) //รับ ID ของชีต2 แล้วไปแสดงหน้า edit กับ view
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_9
+            WHERE worksheet9_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 
 
 
@@ -635,6 +760,166 @@ class Controller
             return false;
         }
     }
+
+
+    function update2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13) //เพิ่มข้อมูลใบงานที่ 2
+    {
+        try {
+            $sql = "UPDATE tbl_worksheet_2 SET agriculture=:agriculture, garden=:garden, 
+            farming=:farming, number_animal=:number_animal ,
+            fishing=:fishing, b_industry=:b_industry ,
+            m_industry=:m_industry, s_industry=:s_industry ,
+            commerce=:commerce, service=:service ,image=:image ,
+            pdf=:pdf
+            WHERE worksheet2_id=:worksheet2_id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':agriculture', $tap1, PDO::PARAM_STR);
+            $stmt->bindParam(':garden', $tap2, PDO::PARAM_STR);
+            $stmt->bindParam(':farming', $tap3, PDO::PARAM_STR);
+            $stmt->bindParam(':number_animal', $tap4, PDO::PARAM_STR);
+            $stmt->bindParam(':fishing', $tap5, PDO::PARAM_STR);
+            $stmt->bindParam(':b_industry', $tap6, PDO::PARAM_STR);
+            $stmt->bindParam(':m_industry', $tap7, PDO::PARAM_STR);
+            $stmt->bindParam(':s_industry', $tap8, PDO::PARAM_STR);
+            $stmt->bindParam(':commerce', $tap9, PDO::PARAM_STR);
+            $stmt->bindParam(':service', $tap10, PDO::PARAM_STR);
+            $stmt->bindParam(':image', $tap11, PDO::PARAM_STR);
+            $stmt->bindParam(':pdf', $tap12, PDO::PARAM_STR);
+            $stmt->bindParam(':worksheet2_id', $tap13, PDO::PARAM_STR);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    function update3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14) //เพิ่มข้อมูลใบงานที่ 3
+    {
+        try {
+            $sql = "UPDATE tbl_worksheet_3 SET terrain=:terrain, soilitype=:soilitype, 
+            natural_water=:natural_water, irrigation_water=:irrigation_water ,
+            weir_slows=:weir_slows, rainfall=:rainfall ,
+            water_demand=:water_demand, quality_water=:quality_water ,
+            temperature=:temperature, amount_light=:amount_light ,geographic=:geographic ,
+            image=:image ,pdf=:pdf
+            WHERE worksheet3_id=:worksheet3_id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':terrain', $tap1, PDO::PARAM_STR);
+            $stmt->bindParam(':soilitype', $tap2, PDO::PARAM_STR);
+            $stmt->bindParam(':natural_water', $tap3, PDO::PARAM_STR);
+            $stmt->bindParam(':irrigation_water', $tap4, PDO::PARAM_STR);
+            $stmt->bindParam(':weir_slows', $tap5, PDO::PARAM_STR);
+            $stmt->bindParam(':rainfall', $tap6, PDO::PARAM_STR);
+            $stmt->bindParam(':water_demand', $tap7, PDO::PARAM_STR);
+            $stmt->bindParam(':quality_water', $tap8, PDO::PARAM_STR);
+            $stmt->bindParam(':temperature', $tap9, PDO::PARAM_STR);
+            $stmt->bindParam(':amount_light', $tap10, PDO::PARAM_STR);
+            $stmt->bindParam(':geographic', $tap11, PDO::PARAM_STR);
+            $stmt->bindParam(':image', $tap12, PDO::PARAM_STR);
+            $stmt->bindParam(':pdf', $tap13, PDO::PARAM_STR);
+            $stmt->bindParam(':worksheet3_id', $tap14, PDO::PARAM_STR);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    function update4($tap1, $tap2, $tap3, $tap4, $tap5,$tap6) //เพิ่มข้อมูลใบงานที่ 4
+    {
+        try {
+            $sql = "UPDATE tbl_worksheet_4 SET village_history=:village_history, 
+            way_life=:way_life, 
+            life_recoed_life=:life_recoed_life,
+            image=:image ,pdf=:pdf
+            WHERE worksheet4_id=:worksheet4_id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":village_history", $tap1);
+            $stmt->bindParam(":way_life", $tap2);
+            $stmt->bindParam(":life_recoed_life", $tap3);
+            $stmt->bindParam(":image", $tap4);
+            $stmt->bindParam(":pdf", $tap5);
+            $stmt->bindParam(":worksheet4_id", $tap6);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    function update5($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13) //เพิ่มข้อมูลใบงานที่ 5
+    {
+        try {
+            $sql = "UPDATE tbl_worksheet_5 SET data_plant=:data_plant, 
+            food=:food, medicine_people=:medicine_people, 
+            medicine_animal=:medicine_animal, furniture=:furniture, 
+            insecticide=:insecticide, 
+            cultures=:cultures, 
+            religion=:religion, 
+            other=:other, 
+            image1=:image1,
+            image2=:image2 ,pdf=:pdf
+            WHERE worksheet5_id=:worksheet5_id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':data_plant', $tap1, PDO::PARAM_STR);
+            $stmt->bindParam(':food', $tap2, PDO::PARAM_STR);
+            $stmt->bindParam(':medicine_people', $tap3, PDO::PARAM_STR);
+            $stmt->bindParam(':medicine_animal', $tap4, PDO::PARAM_STR);
+            $stmt->bindParam(':furniture', $tap5, PDO::PARAM_STR);
+            $stmt->bindParam(':insecticide', $tap6, PDO::PARAM_STR);
+            $stmt->bindParam(':cultures', $tap7, PDO::PARAM_STR);
+            $stmt->bindParam(':religion', $tap8, PDO::PARAM_STR);
+            $stmt->bindParam(':other', $tap9, PDO::PARAM_STR);
+            $stmt->bindParam(':image1', $tap10, PDO::PARAM_STR);
+            $stmt->bindParam(':image2', $tap11, PDO::PARAM_STR);
+            $stmt->bindParam(':pdf', $tap12, PDO::PARAM_STR);
+            $stmt->bindParam(':worksheet5_id', $tap13, PDO::PARAM_STR);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+
+
+
+
+
+
+
+    function update6($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10) //เพิ่มข้อมูลใบงานที่ 6
+    {
+        try {
+            $sql = "UPDATE tbl_worksheet_6 SET animal_species=:animal_species, location_meet=:location_meet, 
+            quantity=:quantity, history=:history ,
+            feature=:feature, animal_owner=:animal_owner ,
+            informant_name=:informant_name, image=:image ,
+            pdf=:pdf
+            WHERE worksheet6_id=:worksheet6_id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':animal_species', $tap1, PDO::PARAM_STR);
+            $stmt->bindParam(':location_meet', $tap2, PDO::PARAM_STR);
+            $stmt->bindParam(':quantity', $tap3, PDO::PARAM_STR);
+            $stmt->bindParam(':history', $tap4, PDO::PARAM_STR);
+            $stmt->bindParam(':feature', $tap5, PDO::PARAM_STR);
+            $stmt->bindParam(':animal_owner', $tap6, PDO::PARAM_STR);
+            $stmt->bindParam(':informant_name', $tap7, PDO::PARAM_STR);
+            $stmt->bindParam(':image', $tap8, PDO::PARAM_STR);
+            $stmt->bindParam(':pdf', $tap9, PDO::PARAM_STR);
+            $stmt->bindParam(':worksheet6_id', $tap10, PDO::PARAM_STR);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+
+
+
+
+
 }
 
 

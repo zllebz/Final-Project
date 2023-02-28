@@ -53,7 +53,7 @@ if ((isset($_POST["submit"]))) {
                   title: "เกิดข้อผิดพลาด",
                   type: "error"
               }, function() {
-                  window.location = "../layout/worksheet_1.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "../edit_view/e_sheet_1.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 1000);
         </script>';

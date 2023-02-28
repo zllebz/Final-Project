@@ -53,7 +53,7 @@ if ((isset($_GET["submit"]))) {
 <body>
     <div class="container">
         <div class="row">
-            <h3 class="my-3 text-center">ใบงานที่ 6 <br>เรื่อง การเก็บข้อมูลการใช้ประโยชน์ของสัตว์ในท้องถิ่น</h3>
+            <h3 class="my-3 text-center">ใบงานที่ 6 <br>เรื่อง การเก็บข้อมูลของสัตว์ในท้องถิ่น</h3>
             <div class="card border-0 shadow">
                 <form class="row g-3 my-3">
                     <div class="col-md-12">

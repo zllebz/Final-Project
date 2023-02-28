@@ -56,7 +56,7 @@ if ((isset($_GET["submit"]))) {
                         <label for="exampleFormControlInput1" class="form-label">วิถีชีวิต</label>
                         <textarea class="form-control" name="way_life" rows="3"></textarea>
                     </div>
-                    <h5 class="md-3">แบบบักทึกข้อมูลวิถีชีวิต</h5>
+                    <h5 class="md-3">แบบบันทึกข้อมูลวิถีชีวิต</h5>
                     <p>คำชี้แจง ให้แต่ละกลุ่มสอบถาม/สัมภาษณ์ วิถีชีวิต รอบวัน/รอบสัปดาห์/รอบเดือน/รอบปี</p>
                     <div class="col-12">
                         <textarea class="form-control" name="life_recoed_life" rows="3" placeholder="ผู้ให้ข้อมูล"></textarea>

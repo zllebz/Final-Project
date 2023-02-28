@@ -50,10 +50,10 @@ $result = $controller->getsheet3();
                     echo '<i class="fas fa-circle" style="color:green;" ></i>';
                   }
                     ?>    <td>
-                    <a class="btn btn-info btn-xs" href="#" target="_blank">
+                    <a class="btn btn-info btn-xs" href="../edit_view/v_sheet_3.php?id=<?php echo $row["worksheet3_id"]; ?>">
                       <i class="fas fa-eye"></i>
                     </a>
-                    <a class="btn btn-warning btn-xs" href="#" target="_blank">
+                    <a class="btn btn-warning btn-xs" href="../edit_view/e_sheet_3.php?id=<?php echo $row["worksheet3_id"]; ?>">
                       <i class="fas fa-pencil-alt"></i>
                     </a>
                   </td>
