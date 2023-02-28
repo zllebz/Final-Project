@@ -376,6 +376,22 @@ class Controller
         }
     }
 
+    function getfirstid($id) //ส่วนต้น
+    {
+        try {
+            $sql = "SELECT * FROM tbl_firststorages
+            WHERE first_storage_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
 
 
 
@@ -410,13 +426,13 @@ class Controller
     }
 
 
-    function insert1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13) //เพิ่มข้อมูลใบงานที่ 1
+    function insert1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14) //เพิ่มข้อมูลใบงานที่ 1
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_1 (villagename, location, location_map, religion, population, numarea, education_service, education_name
-            , local_government, hospital, police_station, image, pdf)
+            , local_government, hospital, police_station, image, pdf ,first_storage_id)
             VALUES (:villagename, :location, :location_map, :religion, :population, :numarea, :education_service, :education_name
-            , :local_government, :hospital, :police_station,:image, :pdf)";
+            , :local_government, :hospital, :police_station,:image, :pdf , :first_storage_id)";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':villagename', $tap1, PDO::PARAM_STR);
             $stmt->bindParam(':location', $tap2, PDO::PARAM_STR);
@@ -431,6 +447,7 @@ class Controller
             $stmt->bindParam(':police_station', $tap11, PDO::PARAM_STR);
             $stmt->bindParam(':image', $tap12, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap13, PDO::PARAM_STR);
+            $stmt->bindParam(':first_storage_id', $tap13, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -726,9 +743,9 @@ class Controller
 
 
 
-//---------------------------------------------- ชุดคำสั่ง UPDATE ของใบงาน 1-9 และ สถานที่ + ส่วนต้น -----------------------------------------//
+    //---------------------------------------------- ชุดคำสั่ง UPDATE ของใบงาน 1-9 และ สถานที่ + ส่วนต้น -----------------------------------------//
 
-    function update1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13 , $tap14) //เพิ่มข้อมูลใบงานที่ 1
+    function update1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14) //เพิ่มข้อมูลใบงานที่ 1
     {
         try {
             $sql = "UPDATE tbl_worksheet_1 SET villagename=:villagename, location=:location, 
@@ -793,7 +810,7 @@ class Controller
         }
     }
 
-    function update3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14) //เพิ่มข้อมูลใบงานที่ 3
+    function update3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14) //เพิ่มข้อมูลใบงานที่ 3
     {
         try {
             $sql = "UPDATE tbl_worksheet_3 SET terrain=:terrain, soilitype=:soilitype, 
@@ -825,7 +842,7 @@ class Controller
         }
     }
 
-    function update4($tap1, $tap2, $tap3, $tap4, $tap5,$tap6) //เพิ่มข้อมูลใบงานที่ 4
+    function update4($tap1, $tap2, $tap3, $tap4, $tap5, $tap6) //เพิ่มข้อมูลใบงานที่ 4
     {
         try {
             $sql = "UPDATE tbl_worksheet_4 SET village_history=:village_history, 
@@ -916,11 +933,30 @@ class Controller
     }
 
 
+    function update11($tap1, $tap3, $tap4, $tap5, $tap6, $tap8) //ส่วนต้น
+    {
+        try {
+            $sql = "UPDATE tbl_firststorages SET statement=:statement,
+            objective=:objective, equipment=:equipment ,
+            process=:process, exp_benefits=:exp_benefits
+            WHERE first_storage_id=:first_storage_id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":statement", $tap1);
+            $stmt->bindParam(":objective", $tap3);
+            $stmt->bindParam(":equipment", $tap4);
+            $stmt->bindParam(":process", $tap5);
+            $stmt->bindParam(":exp_benefits", $tap6);
+            $stmt->bindParam(":first_storage_id", $tap8);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+
 
 
 
 
 }
-
-
-

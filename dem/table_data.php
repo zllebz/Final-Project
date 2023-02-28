@@ -64,10 +64,10 @@ $result = $controller->getfirst();
                   <td><?php echo $row["doc_name"]; ?></td>
                   <td><?php echo $row["statement"]; ?></td>
                   <td>
-                    <a class="btn btn-info btn-xs" href="#" target="_blank">
+                  <a class="btn btn-info btn-xs" href="../edit_view/v_first.php.php?id=<?php echo $row["first_storage_id"]; ?>">
                       <i class="fas fa-eye"></i>
                     </a>
-                    <a class="btn btn-warning btn-xs" href="#" target="_blank">
+                    <a class="btn btn-warning btn-xs" href="../edit_view/e_first.php?id=<?php echo $row["first_storage_id"]; ?>">
                       <i class="fas fa-pencil-alt"></i>
                     </a>
                     <a class="btn btn-success btn-xs" href="../layout/worksheet_<?php echo $row['doc_id']; ?>.php?id=<?php echo $row["first_storage_id"]; ?>">
