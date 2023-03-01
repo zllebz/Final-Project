@@ -2,26 +2,35 @@
 $title = 'ใบงานที่ 3';
 include('header.php');
 require_once '../db/connect.php';
+if (!isset($_GET["id"])) {
+    header("../dem/table_data.php");
+} else {
+    $id = $_GET["id"];
+    $result1 = $controller->getfirstid($id);
+}
+?>
+<?php
 echo '
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
 
-if ((isset($_GET["submit"]))) {
-    $tap1 = $_GET['terrain'];
-    $tap2 = $_GET['soilitype'];
-    $tap3 = $_GET['natural_water'];
-    $tap4 = $_GET['irrigation_water'];
-    $tap5 = $_GET['weir_slows'];
-    $tap6 = $_GET['rainfall'];
-    $tap7 = $_GET['water_demand'];
-    $tap8 = $_GET['quality_water'];
-    $tap9 = $_GET['temperature'];
-    $tap10 = $_GET['amount_light'];
-    $tap11 = $_GET['geographic'];
-    $tap12 = $_GET['image'];
-    $tap13 = $_GET['pdf'];
-    $status = $controller->insert3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13);
+if ((isset($_POST["submit"]))) {
+    $tap1 = $_POST['terrain'];
+    $tap2 = $_POST['soilitype'];
+    $tap3 = $_POST['natural_water'];
+    $tap4 = $_POST['irrigation_water'];
+    $tap5 = $_POST['weir_slows'];
+    $tap6 = $_POST['rainfall'];
+    $tap7 = $_POST['water_demand'];
+    $tap8 = $_POST['quality_water'];
+    $tap9 = $_POST['temperature'];
+    $tap10 = $_POST['amount_light'];
+    $tap11 = $_POST['geographic'];
+    $tap12 = $_POST['image'];
+    $tap13 = $_POST['pdf'];
+    $tap14 = $_POST['first_storage_id'];
+    $status = $controller->insert3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14);
     if($status){
         echo '<script>
              setTimeout(function() {
@@ -54,7 +63,8 @@ if ((isset($_GET["submit"]))) {
         <div class="row">
             <h3 class="my-3 text-center">ใบงานที่ 3 <br>เรื่อง การเก็บข้อมูลด้านกายภาพในท้องถิ่น</h3>
             <div class="card border-0 shadow">
-                <form class="row g-3 my-3">
+                <form class="row g-3 my-3" method="POST">
+                <input type="hidden" name="first_storage_id" value="<?php echo $result1["first_storage_id"] ?>" />
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1">สภาพภูมิประเทศ</label>
                         <input type="text" class="form-control" name="terrain" placeholder="เช่น เป็นที่ราบ ลุ่ม ลาดเอียง ภูเขา ป่าพรุ ป่าชายหาด ป่าชายเลน">

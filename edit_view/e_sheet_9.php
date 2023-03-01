@@ -2,13 +2,16 @@
 $title = 'ใบงานที่ 9';
 include('header.php');
 require_once "../db/connect.php";
+
 if (!isset($_GET["id"])) {
     header("../dem/table_data.php");
 } else {
     $id = $_GET["id"];
-    $result1 = $controller->getfirstid($id);
+    $result9 = $controller->getsheet9id($id);
 }
+
 ?>
+
 <?php
 echo '
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
@@ -22,12 +25,9 @@ if ((isset($_POST["submit"]))) {
     $tap4 = $_POST['name_resources'];
     $tap5 = $_POST['image'];
     $tap6 = $_POST['pdf'];
-    $tap7 = $_POST['first_storage_id'];
+    $tab7 = $_POST['worksheet9_id'];
 
-
-
-    //$tap13 = $_GET['pdf'];
-    $status = $controller->insert9($tap1, $tap2, $tap3, $tap4, $tap5, $tap6,$tap7);
+    $status = $controller->update9($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tab7);
     if ($status) {
         echo '<script>
              setTimeout(function() {
@@ -47,7 +47,7 @@ if ((isset($_POST["submit"]))) {
                   title: "เกิดข้อผิดพลาด",
                   type: "error"
               }, function() {
-                  window.location = "../layout/worksheet_9.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "../edit_view/e_sheet_9.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 1000);
         </script>';
@@ -61,31 +61,31 @@ if ((isset($_POST["submit"]))) {
         <div class="row">
             <h3 class="my-3 text-center">ใบงานที่ 9 <br>เรื่อง การเก็บข้อมูลแหล่งทรัพยากรและโบราณคดีในท้องถิ่น</h3>
             <div class="card border-0 shadow">
-            <form class="row g-3 my-3" method="POST">
-                    <input type="hidden" name="first_storage_id" value="<?php echo $result1["first_storage_id"] ?>" />
+                <form class="row g-3 my-3" method="POST">
+                <input type="hidden" name="worksheet9_id" value="<?php echo $result9["worksheet9_id"] ?>" />
                     <div class="col-md-12">
-                        <label for="exampleFormControlInput1">แหล่งโบราณคดี (ถ้ามี)</label>
-                        <textarea class="form-control" name="archeology_site" rows="3"></textarea>
+                        <label for="exampleFormControlInput1" class="form-label" >แหล่งโบราณคดี (ถ้ามี)</label>
+                        <textarea class="form-control" name="archeology_site" rows="3"><?php echo $result9["archeology_site"]?></textarea>
                     </div>
                     <div class="col-md-12">
-                        <label for="exampleFormControlInput1" class="form-label">แหล่งทรัพยากรที่สำคัญ</label>
-                        <textarea class="form-control" name="important_resources" rows="3" placeholder="(เช่น อุทยานฯ น้ำตก สวนเฉลิมพระเกียรติ สวนพฤกษศาสตร์ สวนป่า ฯ)"></textarea>
+                        <label for="exampleFormControlInput1" class="form-label">แหล่งทรัพยากรที่สำคัญ (เช่น อุทยานฯ น้ำตก สวนเฉลิมพระเกียรติ สวนพฤกษศาสตร์ สวนป่า ฯ)</label>
+                        <textarea class="form-control" name="important_resources" rows="3"><?php echo $result9["important_resources"]?></textarea>
                     </div>
                     <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">ข้อมูลแหล่งโบราณคดี</label>
-                        <textarea class="form-control" name="archeology_record" rows="3"></textarea>
+                        <textarea class="form-control" name="archeology_record" rows="3"><?php echo $result9["archeology_record"]?></textarea>
                     </div>
                     <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">แหล่งทรัพยากรที่สำคัญ</label>
-                        <textarea class="form-control" name="name_resources" rows="3"></textarea>
+                        <textarea class="form-control" name="name_resources" rows="3"><?php echo $result9["name_resources"]?></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">รูปภาพ</label>
-                        <input class="form-control" type="file" name="image">
+                        <input class="form-control" type="file" name="image" value="<?php echo $result9["image"] ?>" />
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">อัพโหลดเอกสาร PDF</label>
-                        <input class="form-control" type="file" name="pdf">
+                        <input class="form-control" type="file" name="pdf" value="<?php echo $result9["pdf"] ?>" />
                     </div>
                     <div class="col-12">
                     <button type="submit" name="submit" class="btn btn-primary">บันทึกข้อมูล</button>

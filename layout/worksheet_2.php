@@ -2,25 +2,34 @@
 $title = 'ใบงานที่ 2';
 include('header.php');
 require_once '../db/connect.php';
+if (!isset($_GET["id"])) {
+    header("../dem/table_data.php");
+} else {
+    $id = $_GET["id"];
+    $result1 = $controller->getfirstid($id);
+}
+?>
+<?php
 echo '
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
 
-if ((isset($_GET["submit"]))) {
-    $tap1 = $_GET['agriculture'];
-    $tap2 = $_GET['garden'];
-    $tap3 = $_GET['farming'];
-    $tap4 = $_GET['number_animal'];
-    $tap5 = $_GET['fishing'];
-    $tap6 = $_GET['b_industry'];
-    $tap7 = $_GET['m_industry'];
-    $tap8 = $_GET['s_industry'];
-    $tap9 = $_GET['commerce'];
-    $tap10 = $_GET['service'];
-    $tap11 = $_GET['image'];
-    $tap12 = $_GET['pdf'];
-    $status = $controller->insert2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12);
+if ((isset($_POST["submit"]))) {
+    $tap1 = $_POST['agriculture'];
+    $tap2 = $_POST['garden'];
+    $tap3 = $_POST['farming'];
+    $tap4 = $_POST['number_animal'];
+    $tap5 = $_POST['fishing'];
+    $tap6 = $_POST['b_industry'];
+    $tap7 = $_POST['m_industry'];
+    $tap8 = $_POST['s_industry'];
+    $tap9 = $_POST['commerce'];
+    $tap10 = $_POST['service'];
+    $tap11 = $_POST['image'];
+    $tap12 = $_POST['pdf'];
+    $tap13 = $_POST['first_storage_id'];
+    $status = $controller->insert2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12,$tap13);
     if($status){
         echo '<script>
              setTimeout(function() {
@@ -53,8 +62,9 @@ if ((isset($_GET["submit"]))) {
         <div class="row">
             <h3 class="my-3 text-center">ใบงานที่ 2 <br>เรื่อง การเก็บข้อมูลการประกอบอาชีพในท้องถิ่น</h3>
             <div class="card border-0 shadow">
-                <form class="row g-3 my-3">
+                <form class="row g-3 my-3" method="POST">
                     <h4>การประกอบอาชีพ</h4>
+                    <input type="hidden" name="first_storage_id" value="<?php echo $result1["first_storage_id"] ?>" />
                     <div class="col-md-12">
                         <h5>ด้านเกษตรกรรม</h5>
                         <br>

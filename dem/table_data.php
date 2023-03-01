@@ -3,7 +3,7 @@
 $menu = "table_data";
 $title = "ข้อมูลสถานที่ที่ลงพื้นที่";
 require_once "../db/connect.php";
-$result = $controller->getfirst();
+$result = $controller->getfirst2();
 ?>
 
 
@@ -50,7 +50,7 @@ $result = $controller->getfirst();
             <thead>
               <tr role="row" class="info">
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ลำดับสถานที่ที่ลงพื้นที่</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ชื่อสถานที่ที่ลงพื้นที่</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ใบงาน</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">คำชี้แจง</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">จัดการ</th>
@@ -60,11 +60,31 @@ $result = $controller->getfirst();
               <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                 <tr>
                   <td><?php echo $row["first_storage_id"]; ?></td>
-                  <td><?php echo $row["data_store_id"]; ?></td>
-                  <td><?php echo $row["doc_name"]; ?></td>
+                  <td><?php echo $row["data_store_local"]; ?></td>
+                  <td><?php if($row["doc_id"]== 1 ){
+                    echo "ใบงานที่ 1";
+                  } elseif($row["doc_id"]== 2 ){
+                    echo "ใบงานที่ 2";
+                  } elseif($row["doc_id"]== 3 ){
+                    echo "ใบงานที่ 3";
+                  } elseif($row["doc_id"]== 4 ){
+                    echo "ใบงานที่ 4";
+                  } elseif($row["doc_id"]== 5 ){
+                    echo "ใบงานที่ 5";
+                  } elseif($row["doc_id"]== 6 ){
+                    echo "ใบงานที่ 6";
+                  } elseif($row["doc_id"]== 7 ){
+                    echo "ใบงานที่ 7";
+                  } elseif($row["doc_id"]== 8 ){
+                    echo "ใบงานที่ 8";
+                  } elseif($row["doc_id"]== 9 ){
+                    echo "ใบงานที่ 9";
+                  } else{
+                    echo "ไม่ทราบ";
+                  };?></td>
                   <td><?php echo $row["statement"]; ?></td>
                   <td>
-                  <a class="btn btn-info btn-xs" href="../edit_view/v_first.php.php?id=<?php echo $row["first_storage_id"]; ?>">
+                  <a class="btn btn-info btn-xs" href="../edit_view/v_first.php?id=<?php echo $row["first_storage_id"]; ?>">
                       <i class="fas fa-eye"></i>
                     </a>
                     <a class="btn btn-warning btn-xs" href="../edit_view/e_first.php?id=<?php echo $row["first_storage_id"]; ?>">

@@ -108,6 +108,19 @@ class Controller
         }
     }
 
+    function getfirst2() //ส่วนต้น
+    {
+        try {
+            $sql = "SELECT * FROM tbl_firststorages a INNER JOIN tbl_datastores b ON 
+            a.data_store_id = b.data_store_id ORDER BY a.first_storage_id";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
     function getsheet1() //แสดงตารางชีต 1
     {
         try {
@@ -391,6 +404,9 @@ class Controller
             return false;
         }
     }
+    
+
+
 
 
 
@@ -456,7 +472,7 @@ class Controller
     }
 
 
-    function insert2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12) //เพิ่มข้อมูลใบงานที่ 2
+    function insert2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12,$tap13) //เพิ่มข้อมูลใบงานที่ 2
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_2 (
@@ -471,13 +487,13 @@ class Controller
                 commerce, 
                 service, 
                 image, 
-                pdf)
+                pdf,first_storage_id)
                 VALUES (:agriculture, :garden, 
                 :farming, :number_animal,
                 :fishing, :b_industry, 
                 :m_industry, :s_industry, 
                 :commerce, :service, 
-                :image, :pdf)";
+                :image, :pdf ,:first_storage_id)";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':agriculture', $tap1, PDO::PARAM_STR);
             $stmt->bindParam(':garden', $tap2, PDO::PARAM_STR);
@@ -491,6 +507,7 @@ class Controller
             $stmt->bindParam(':service', $tap10, PDO::PARAM_STR);
             $stmt->bindParam(':image', $tap11, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap12, PDO::PARAM_STR);
+            $stmt->bindParam(':first_storage_id', $tap13, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -499,7 +516,7 @@ class Controller
     }
 
 
-    function insert3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13) //เพิ่มข้อมูลใบงานที่ 3
+    function insert3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14) //เพิ่มข้อมูลใบงานที่ 3
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_3 (
@@ -515,13 +532,13 @@ class Controller
                 amount_light, 
                 geographic,
                 image, 
-                pdf)
+                pdf,first_storage_id)
                 VALUES (:terrain, :soilitype, 
                 :natural_water, :irrigation_water,
                 :weir_slows, :rainfall, 
                 :water_demand, :quality_water, 
                 :temperature, :amount_light, :geographic,
-                :image, :pdf)";
+                :image, :pdf,:first_storage_id)";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':terrain', $tap1, PDO::PARAM_STR);
             $stmt->bindParam(':soilitype', $tap2, PDO::PARAM_STR);
@@ -536,6 +553,7 @@ class Controller
             $stmt->bindParam(':geographic', $tap11, PDO::PARAM_STR);
             $stmt->bindParam(':image', $tap12, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap13, PDO::PARAM_STR);
+            $stmt->bindParam(':first_storage_id', $tap14, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -544,11 +562,11 @@ class Controller
     }
 
 
-    function insert4($tap1, $tap2, $tap3, $tap4, $tap5) //เพิ่มข้อมูลใบงานที่ 4
+    function insert4($tap1, $tap2, $tap3, $tap4, $tap5,$tap6) //เพิ่มข้อมูลใบงานที่ 4
     {
         try {
-            $sql = "INSERT INTO tbl_worksheet_4 (village_history, way_life, life_recoed_life, image, pdf)
-            VALUE (:village_history, :way_life, :life_recoed_life, :image, :pdf)
+            $sql = "INSERT INTO tbl_worksheet_4 (village_history, way_life, life_recoed_life, image, pdf,first_storage_id)
+            VALUE (:village_history, :way_life, :life_recoed_life, :image, :pdf,:first_storage_id)
             ";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(":village_history", $tap1);
@@ -556,6 +574,7 @@ class Controller
             $stmt->bindParam(":life_recoed_life", $tap3);
             $stmt->bindParam(":image", $tap4);
             $stmt->bindParam(":pdf", $tap5);
+            $stmt->bindParam(":first_storage_id", $tap6);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -564,7 +583,7 @@ class Controller
     }
 
 
-    function insert5($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12) //เพิ่มข้อมูลใบงานที่ 5
+    function insert5($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12,$tap13) //เพิ่มข้อมูลใบงานที่ 5
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_5 (
@@ -579,7 +598,7 @@ class Controller
                 other,
                 image1, 
                 image2, 
-                pdf)
+                pdf,first_storage_id)
                 VALUES (:data_plant, 
                 :food, 
                 :medicine_people, 
@@ -591,7 +610,7 @@ class Controller
                 :other,
                 :image1, 
                 :image2, 
-                :pdf)";
+                :pdf,:first_storage_id)";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':data_plant', $tap1, PDO::PARAM_STR);
             $stmt->bindParam(':food', $tap2, PDO::PARAM_STR);
@@ -605,6 +624,7 @@ class Controller
             $stmt->bindParam(':image1', $tap10, PDO::PARAM_STR);
             $stmt->bindParam(':image2', $tap11, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap12, PDO::PARAM_STR);
+            $stmt->bindParam(':first_storage_id', $tap13, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -613,7 +633,7 @@ class Controller
     }
 
 
-    function insert6($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9) //เพิ่มข้อมูลใบงานที่ 6
+    function insert6($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9,$tap10) //เพิ่มข้อมูลใบงานที่ 6
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_6 (
@@ -625,7 +645,7 @@ class Controller
                 animal_owner, 
                 informant_name, 
                 image,
-                pdf
+                pdf,first_storage_id
                 )
                 VALUES (:animal_species, 
                 :location_meet, 
@@ -635,7 +655,7 @@ class Controller
                 :animal_owner, 
                 :informant_name, 
                 :image,
-                :pdf
+                :pdf,:first_storage_id
                 )";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':animal_species', $tap1, PDO::PARAM_STR);
@@ -647,6 +667,7 @@ class Controller
             $stmt->bindParam(':informant_name', $tap7, PDO::PARAM_STR);
             $stmt->bindParam(':image', $tap8, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap9, PDO::PARAM_STR);
+            $stmt->bindParam(':first_storage_id', $tap10, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -655,16 +676,17 @@ class Controller
     }
 
 
-    function insert7($tap1, $tap2, $tap3) //เพิ่มข้อมูลใบงานที่ 7
+    function insert7($tap1, $tap2, $tap3,$tap4) //เพิ่มข้อมูลใบงานที่ 7
     {
         try {
-            $sql = "INSERT INTO tbl_worksheet_7 (bio_data, image, pdf)
-            VALUE (:bio_data,:image, :pdf)
+            $sql = "INSERT INTO tbl_worksheet_7 (bio_data, image, pdf,first_storage_id)
+            VALUE (:bio_data,:image, :pdf,:first_storage_id)
             ";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(":bio_data", $tap1);
             $stmt->bindParam(":image", $tap2);
             $stmt->bindParam(":pdf", $tap3);
+            $stmt->bindParam(":first_storage_id", $tap4);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -673,7 +695,7 @@ class Controller
     }
 
 
-    function insert8($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11) //เพิ่มข้อมูลใบงานที่ 8
+    function insert8($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11,$tap12) //เพิ่มข้อมูลใบงานที่ 8
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_8 (
@@ -687,7 +709,7 @@ class Controller
                 characteristic, 
                 materials,
                 image, 
-                pdf)
+                pdf,first_storage_id)
                 VALUES ( 
                 :branch, 
                 :local_name, 
@@ -699,7 +721,7 @@ class Controller
                 :characteristic,
                 :materials,
                 :image, 
-                :pdf)";
+                :pdf,:first_storage_id)";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':branch', $tap1, PDO::PARAM_STR);
             $stmt->bindParam(':local_name', $tap2, PDO::PARAM_STR);
@@ -712,6 +734,7 @@ class Controller
             $stmt->bindParam(':materials', $tap9, PDO::PARAM_STR);
             $stmt->bindParam(':image', $tap10, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap11, PDO::PARAM_STR);
+            $stmt->bindParam(':first_storage_id', $tap12, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -720,11 +743,11 @@ class Controller
     }
 
 
-    function insert9($tap1, $tap2, $tap3, $tap4, $tap5, $tap6) //เพิ่มข้อมูลใบงานที่ 9
+    function insert9($tap1, $tap2, $tap3, $tap4, $tap5, $tap6,$tap7) //เพิ่มข้อมูลใบงานที่ 9
     {
         try {
-            $sql = "INSERT INTO tbl_worksheet_9 (archeology_site,important_resources,archeology_record, name_resources, image, pdf)
-            VALUE (:archeology_site,:important_resources,:archeology_record,:name_resources, :image, :pdf)
+            $sql = "INSERT INTO tbl_worksheet_9 (archeology_site,important_resources,archeology_record, name_resources, image, pdf,first_storage_id)
+            VALUE (:archeology_site,:important_resources,:archeology_record,:name_resources, :image, :pdf,:first_storage_id)
             ";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(":archeology_site", $tap1);
@@ -733,6 +756,7 @@ class Controller
             $stmt->bindParam(":name_resources", $tap4);
             $stmt->bindParam(":image", $tap5);
             $stmt->bindParam(":pdf", $tap6);
+            $stmt->bindParam(":first_storage_id", $tap7);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -925,6 +949,75 @@ class Controller
             $stmt->bindParam(':image', $tap8, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap9, PDO::PARAM_STR);
             $stmt->bindParam(':worksheet6_id', $tap10, PDO::PARAM_STR);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    function update7($tap1, $tap2, $tap3, $tap4) //เพิ่มข้อมูลใบงานที่ 7
+    {
+        try {
+            $sql = "UPDATE tbl_worksheet_7 SET bio_data=:bio_data, image=:image, 
+            pdf=:pdf
+            WHERE worksheet7_id=:worksheet7_id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':bio_data', $tap1, PDO::PARAM_STR);
+            $stmt->bindParam(':image', $tap2, PDO::PARAM_STR);
+            $stmt->bindParam(':pdf', $tap3, PDO::PARAM_STR);
+            $stmt->bindParam(':worksheet7_id', $tap4, PDO::PARAM_STR);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    function update8($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12) //เพิ่มข้อมูลใบงานที่ 6
+    {
+        try {
+            $sql = "UPDATE tbl_worksheet_8 SET branch=:branch, local_name=:local_name, 
+            copyright=:copyright, type_wisdom=:type_wisdom,
+            local_highlights=:local_highlights, wisdom_details=:wisdom_details,
+            public_relations=:public_relations, characteristic=:characteristic,
+            materials=:materials, image=:image, pdf=:pdf
+            WHERE worksheet8_id=:worksheet8_id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':branch', $tap1, PDO::PARAM_STR);
+            $stmt->bindParam(':local_name', $tap2, PDO::PARAM_STR);
+            $stmt->bindParam(':copyright', $tap3, PDO::PARAM_STR);
+            $stmt->bindParam(':type_wisdom', $tap4, PDO::PARAM_STR);
+            $stmt->bindParam(':local_highlights', $tap5, PDO::PARAM_STR);
+            $stmt->bindParam(':wisdom_details', $tap6, PDO::PARAM_STR);
+            $stmt->bindParam(':public_relations', $tap7, PDO::PARAM_STR);
+            $stmt->bindParam(':characteristic', $tap8, PDO::PARAM_STR);
+            $stmt->bindParam(':materials', $tap9, PDO::PARAM_STR);
+            $stmt->bindParam(':image', $tap10, PDO::PARAM_STR);
+            $stmt->bindParam(':pdf', $tap11, PDO::PARAM_STR);
+            $stmt->bindParam(':worksheet8_id', $tap12, PDO::PARAM_STR);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    function update9($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7) //เพิ่มข้อมูลใบงานที่ 9
+    {
+        try {
+            $sql = "UPDATE tbl_worksheet_9 SET archeology_site=:archeology_site, important_resources=:important_resources, 
+            archeology_record=:archeology_record, name_resources=:name_resources,
+            image=:image, pdf=:pdf
+            WHERE worksheet9_id=:worksheet9_id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':archeology_site', $tap1, PDO::PARAM_STR);
+            $stmt->bindParam(':important_resources', $tap2, PDO::PARAM_STR);
+            $stmt->bindParam(':archeology_record', $tap3, PDO::PARAM_STR);
+            $stmt->bindParam(':name_resources', $tap4, PDO::PARAM_STR);
+            $stmt->bindParam(':image', $tap5, PDO::PARAM_STR);
+            $stmt->bindParam(':pdf', $tap6, PDO::PARAM_STR);
+            $stmt->bindParam(':worksheet9_id', $tap7, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {

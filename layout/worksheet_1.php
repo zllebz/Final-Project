@@ -66,7 +66,7 @@ if ((isset($_POST["submit"]))) {
             <h3 class="my-3 text-center">ใบงานที่ 1 <br>การเก็บข้อมูลพื้นฐานในท้องถิ่น</h3>
             <div class="card border-0 shadow">
                 <form class="row g-3 my-3" method="POST">
-                    <input type="text" name="first_storage_id" value="<?php echo $result1["first_storage_id"] ?>" />
+                    <input type="hidden" name="first_storage_id" value="<?php echo $result1["first_storage_id"] ?>" />
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1" class="form-label">ชื่อหมู่บ้าน</label>
                         <input type="text" class="form-control" placeholder="" name="villagename">

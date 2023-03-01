@@ -2,19 +2,27 @@
 $title = 'ใบงานที่ 4';
 include('header.php');
 require_once "../db/connect.php";
-
+if (!isset($_GET["id"])) {
+    header("../dem/table_data.php");
+} else {
+    $id = $_GET["id"];
+    $result1 = $controller->getfirstid($id);
+}
+?>
+<?php
 echo '
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
 
-if ((isset($_GET["submit"]))) {
-    $tap1 = $_GET["village_history"];
-    $tap2 = $_GET["way_life"];
-    $tap3 = $_GET["life_recoed_life"];
-    $tap4 = $_GET["image"];
-    $tap5 = $_GET["pdf"];
-    $status = $controller->insert4($tap1, $tap2, $tap3, $tap4, $tap5);
+if ((isset($_POST["submit"]))) {
+    $tap1 = $_POST["village_history"];
+    $tap2 = $_POST["way_life"];
+    $tap3 = $_POST["life_recoed_life"];
+    $tap4 = $_POST["image"];
+    $tap5 = $_POST["pdf"];
+    $tap6 = $_POST["first_storage_id"];
+    $status = $controller->insert4($tap1, $tap2, $tap3, $tap4, $tap5,$tap6);
     if($status){
         echo '<script>
              setTimeout(function() {
@@ -47,7 +55,8 @@ if ((isset($_GET["submit"]))) {
         <div class="row">
             <h3 class="my-3 text-center">ใบงานที่ 4 <br>เรื่อง การเก็บข้อมูลประวัติหมู่บ้าน ชุมชน วิถีชุมชน</h3>
             <div class="card border-0 shadow">
-                <form class="row g-3 my-3">
+            <form class="row g-3 my-3" method="POST">
+                    <input type="hidden" name="first_storage_id" value="<?php echo $result1["first_storage_id"] ?>" />
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1">ประวัติหมู่บ้าน</label>
                         <textarea class="form-control" name="village_history" rows="3"></textarea>

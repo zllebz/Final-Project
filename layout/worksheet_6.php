@@ -3,26 +3,33 @@ $title = 'ใบงานที่ 6';
 include('header.php');
 
 require_once "../db/connect.php";
-
+if (!isset($_GET["id"])) {
+    header("../dem/table_data.php");
+} else {
+    $id = $_GET["id"];
+    $result1 = $controller->getfirstid($id);
+}
+?>
+<?php
 echo '
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
 
-if ((isset($_GET["submit"]))) {
-    $tap1 = $_GET['animal_species'];
-    $tap2 = $_GET['location_meet'];
-    $tap3 = $_GET['quantity'];
-    $tap4 = $_GET['history'];
-    $tap5 = $_GET['feature'];
-    $tap6 = $_GET['animal_owner'];
-    $tap7 = $_GET['informant_name'];
-    $tap8 = $_GET['image'];
-    $tap9 = $_GET['pdf'];
-
+if ((isset($_POST["submit"]))) {
+    $tap1 = $_POST['animal_species'];
+    $tap2 = $_POST['location_meet'];
+    $tap3 = $_POST['quantity'];
+    $tap4 = $_POST['history'];
+    $tap5 = $_POST['feature'];
+    $tap6 = $_POST['animal_owner'];
+    $tap7 = $_POST['informant_name'];
+    $tap8 = $_POST['image'];
+    $tap9 = $_POST['pdf'];
+    $tap10 = $_POST['first_storage_id'];
 
     //$tap13 = $_GET['pdf'];
-    $status = $controller->insert6($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9);
+    $status = $controller->insert6($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9,$tap10);
     if($status){
         echo '<script>
              setTimeout(function() {
@@ -55,7 +62,8 @@ if ((isset($_GET["submit"]))) {
         <div class="row">
             <h3 class="my-3 text-center">ใบงานที่ 6 <br>เรื่อง การเก็บข้อมูลของสัตว์ในท้องถิ่น</h3>
             <div class="card border-0 shadow">
-                <form class="row g-3 my-3">
+                <form class="row g-3 my-3" method="POST">
+                    <input type="hidden" name="first_storage_id" value="<?php echo $result1["first_storage_id"] ?>" />
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1">ข้อมูลพันธุ์สัตว์</label>
                         <textarea class="form-control" name="animal_species" rows="3"></textarea>
