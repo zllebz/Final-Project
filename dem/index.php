@@ -63,10 +63,10 @@ $result = $controller->getUser();
                   <td><?php echo $row["user_create"]; ?></td>
 
                   <td>
-                    <a class="btn btn-info btn-xs" href="#" target="_blank">
+                  <a class="btn btn-info btn-xs" href="../edit_view/e_user.php?id=<?php echo $row["user_id"]; ?>">
                       <i class="fas fa-eye"></i>
                     </a>
-                    <a class="btn btn-warning btn-xs" href="#" target="_blank">
+                    <a class="btn btn-warning btn-xs" href="../edit_view/e_user.php?id=<?php echo $row["user_id"]; ?>">
                       <i class="fas fa-pencil-alt"></i>
                     </a>
                   </td>

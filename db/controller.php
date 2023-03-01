@@ -9,6 +9,22 @@ class Controller
         $this->db = $pdo;
     }
 
+    function testss() //คำนำหน้า register.php
+    {
+        try {
+            $sql = "SELECT * FROM provinces";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+
+
+    
+
     function prefixv() //คำนำหน้า register.php
     {
         try {
@@ -404,7 +420,26 @@ class Controller
             return false;
         }
     }
-    
+
+    function getuserid($id) //ส่วนต้น
+    {
+        try {
+            $sql = "SELECT * FROM tbl_users
+            WHERE user_id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+
+
+
 
 
 
@@ -1040,6 +1075,27 @@ class Controller
             $stmt->bindParam(":process", $tap5);
             $stmt->bindParam(":exp_benefits", $tap6);
             $stmt->bindParam(":first_storage_id", $tap8);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    function updateuser($tap1, $tap2, $tap3, $tap4, $tap5) //เพิ่มข้อมูลใบงานที่ 4
+    {
+        try {
+            $sql = "UPDATE tbl_users SET user_firstname=:user_firstname, 
+            user_lastname=:user_lastname, 
+            user_email=:user_email,
+            user_name=:user_name
+            WHERE user_id=:user_id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":user_firstname", $tap1);
+            $stmt->bindParam(":user_lastname", $tap2);
+            $stmt->bindParam(":user_email", $tap3);
+            $stmt->bindParam(":user_name", $tap4);
+            $stmt->bindParam(":user_id", $tap5);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {

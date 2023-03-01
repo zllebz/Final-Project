@@ -21,14 +21,14 @@ echo '
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
 
-if ((isset($_GET["submit"]))) {
-    $tap1 = $_GET['statement'];
-    $tap2 = $_GET['doc_id'];
-    $tap3 = $_GET['objective'];
-    $tap4 = $_GET['equipment'];
-    $tap5 = $_GET['process'];
-    $tap6 = $_GET['exp_benefits'];
-    $tap7 = $_GET['data_store_id'];
+if ((isset($_POST["submit"]))) {
+    $tap1 = $_POST['statement'];
+    $tap2 = $_POST['doc_id'];
+    $tap3 = $_POST['objective'];
+    $tap4 = $_POST['equipment'];
+    $tap5 = $_POST['process'];
+    $tap6 = $_POST['exp_benefits'];
+    $tap7 = $_POST['data_store_id'];
     $status = $controller->insertfirst($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7);
     if ($status) {
         echo '<script>
@@ -62,7 +62,7 @@ if ((isset($_GET["submit"]))) {
         <div class="row">
             <h3 class="my-5 text-center">แบบฟอร์มกรอกข้อมูลขั้นต้น</h3>
             <div class="card border-0 shadow">
-                <form class="row g-3 my-3">
+                <form class="row g-3 my-3" method="POST">
                     <input type="hidden" name="data_store_id" value="<?php echo $result1["data_store_id"] ?>" />
                     <div class="col-12">
                         <label for="statement" class="form-label">คำชี้แจง</label>
