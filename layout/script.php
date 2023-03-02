@@ -2,7 +2,7 @@
 <script type="text/javascript">
   $('#provinces').change(function() {
     var province_id = $(this).val();
-    console.log($(this).val());
+    //console.log($(this).val());
       $.ajax({
       type: "POST",
       url: "ajax_db.php",
@@ -40,6 +40,6 @@
           $('#zip_code').val(data)
       }
     });
-  
+
   });
 </script>

@@ -54,8 +54,7 @@ $result = $controller->getDatastore();
             <thead>
               <tr role="row" class="info">
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่สำรวจ</th>
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ตำบล อำเภอ จังหวัด</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">สถานที่สำรวจ</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ผู้จัดทำ</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วันที่</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">จัดการ</th>
@@ -66,7 +65,6 @@ $result = $controller->getDatastore();
                 <tr>
                   <td><?php echo $row["data_store_id"]; ?></td>
                   <td><?php echo $row["data_store_local"]; ?></td>
-                  <td><?php echo $row["districts_id"]; ?></td>
                   <td><?php echo $row["user_firstname"]; ?></td>
                   <td><?php echo $row["data_store_date"]; ?></td>
                   <td>

@@ -476,6 +476,23 @@ class Controller
         }
     }
 
+    function insertdata($tap1) //ส่วนต้น
+    {
+        try {
+            $sql = "INSERT INTO tbl_datastores (data_store_local)
+            VALUE (:data_store_local)
+            ";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":data_store_local", $tap1);
+
+
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
 
     function insert1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14) //เพิ่มข้อมูลใบงานที่ 1
     {
