@@ -48,7 +48,7 @@ $result = $controller->getDatastore();
       <h3 class="card-title">ตารางระบบจัดการเอกสถานที่</h3>
       <div align="right">
         <a href="../layout/datastores.php">
-          <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-user-plus"></i> เพิ่มข้อมูลการลงพื้นที่</button></a>
+          <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-plus-lg"></i> เพิ่มข้อมูลการลงพื้นที่</button></a>
 
       </div>
     </div>
@@ -89,7 +89,7 @@ $result = $controller->getDatastore();
                       <i class="fas fa-pencil-alt"></i>
                     </a>
                     <a class="btn btn-success btn-xs" href="../layout/firststorage.php?id=<?php echo $row["data_store_id"]; ?>">
-                      <i class="fas fa-file-alt"></i>
+                    <i class="bi bi-plus-lg"></i>
                     </a>
                   </td>
                 </tr>

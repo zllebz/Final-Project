@@ -28,12 +28,12 @@ if (isset($_GET['logout'])) {
         <li class="nav-header">เมนู</li>
 
         <li class="nav-item">
-          <?php if ($_SESSION['position_id'] == 1) {
-            echo '<a href="index.php" class="nav-link <?php if ($menu == "index") {
-                        echo "active";
-                      } ?>
-                        <i class="nav-icon fas fa-address-card"></i><p>ระบบจัดการสมาชิก</p></a>';
-          } ?>
+          <a href="index.php" class="nav-link <?php if ($menu == "index") {
+                                                            echo "active";
+                                                          } ?>">
+            <i class="nav-icon fas fa-address-card"></i>
+            <p>ระบบจัดการสมาชิก</p>
+          </a>
         </li>
 
         <li class="nav-item">
@@ -155,7 +155,7 @@ if (isset($_GET['logout'])) {
       <li class="nav-item">
         <a href="index.php?logout='1'" class="nav-link text-danger">
           <i class="nav-icon fas fa-power-off"></i>
-          <p>ออกจากระบบ</p> 
+          <p>ออกจากระบบ</p>
         </a>
       </li>
       </ul>

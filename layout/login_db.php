@@ -22,6 +22,7 @@
             $query = "SELECT * FROM tbl_users WHERE user_name = '$username' AND user_password = '$password'";
             $result = mysqli_query($conn, $query);
             $objResult = mysqli_fetch_array($result,MYSQLI_ASSOC);
+            mysqli_query($con, "SET NAMES 'utf8' ");
             if (mysqli_num_rows($result) == 1) {
                 $_SESSION['user_name'] = $objResult['user_name'];
                 $_SESSION['user_firstname'] = $objResult['user_firstname'];
@@ -30,18 +31,22 @@
                 $_SESSION['position_id'] = $objResult['position_id'];
                 $_SESSION['permission_id'] = $objResult['permission_id'];
                 $_SESSION['user_id'] = $objResult['user_id'];
-
-                
+                $_SESSION['user_create'] = $objResult['user_create'];
                 $_SESSION['success'] = "Your are now logged in";
-                header("location: ../dem/index.php");
+                if($_SESSION['permission_id'] == 1){
+                    header("location: ../dem/index.php");
+                }else{
+                    header("location: ../dem/check.php");
+                }
+                
             } else {
-                array_push($errors, "Wrong Username or Password");
-                $_SESSION['error'] = "Wrong Username or Password!";
+                array_push($errors, "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง");
+                $_SESSION['error'] = "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง";
                 header("location: ../layout/login.php");
             }
         } else {
-            array_push($errors, "Username & Password is required");
-            $_SESSION['error'] = "Username & Password is required";
+            array_push($errors, "กรอกชื่อผู้ใช้และรหัสผ่าน");
+            $_SESSION['error'] = "กรอกชื่อผู้ใช้และรหัสผ่าน";
             header("location: ../layout/login.php");
         }
     }

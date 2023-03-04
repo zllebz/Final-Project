@@ -16,7 +16,7 @@ include('../db/server.php');
 </head>
 
 <body>
-  <h1>Login</h1>
+  <h1>เข้าสู่ระบบ</h1>
   <form action="login_db.php" method="post">
     <?php if (isset($_SESSION['error'])) : ?>
       <div class="error">
@@ -29,16 +29,16 @@ include('../db/server.php');
       </div>
     <?php endif ?>
     <div class="form-control">
-      <label for="email">User</label>
+      <label for="email">ชื่อผู้ใช้</label>
       <input type="text" name="user_name">
     </div>
     <div class="form-control">
-      <label for="password">Password</label>
+      <label for="password">รหัสผ่าน</label>
       <input type="password" id="password" name="user_password">
       <i class="fa-solid fa-eye" id="eye"></i>
     </div>
     <div class="form-control">
-      <button type="submit" name="login_user" class="btn">Login</button>
+      <button type="submit" name="login_user" class="btn">เข้าสู่ระบบ</button>
     </div>
     <a href="register.php">สมัครสมาชิก</a>
   </form>

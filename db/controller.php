@@ -98,6 +98,18 @@ class Controller
         }
     }
 
+    function getcheckper() //แสดงข้อมูลผู้ใช้ แอดมิน
+    {
+        try {
+            $sql = "SELECT * FROM tbl_users WHERE permission_id = 0";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
     function getDatastore() //ตารางข้อมูลสถานที่ที่สำรวจ
     {
         try {
@@ -436,6 +448,7 @@ class Controller
             return false;
         }
     }
+
 
 
 
