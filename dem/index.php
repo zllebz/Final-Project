@@ -1,4 +1,20 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['user_name'])) {
+  $_SESSION['msg'] = "You must log in first";
+  header('location: ../layout/login.php');
+}
+
+if (isset($_GET['logout'])) {
+  session_destroy();
+  unset($_SESSION['user_name']);
+  header('location: layout/login.php');
+}
+
+?>
+
+<?php
 $menu = "index";
 $title = 'จัดการข้อมูลสมาชิก';
 include("../dem/header.php");
@@ -23,8 +39,7 @@ $result = $controller->getUser();
 
 
       <div align="right">
-        <a href="#"
-          type="button"></a>
+        <a href="#" type="button"></a>
 
       </div>
     </div>
@@ -63,9 +78,15 @@ $result = $controller->getUser();
                   <td><?php echo $row["user_create"]; ?></td>
 
                   <td>
-                  <a class="btn btn-info btn-xs" href="../edit_view/e_user.php?id=<?php echo $row["user_id"]; ?>">
+                    <a class="btn btn-info btn-xs" href="../edit_view/e_user.php?id=<?php echo $row["user_id"]; ?>">
                       <i class="fas fa-eye"></i>
                     </a>
+
+                    <?php if (isset($_SESSION['user_email'])) : ?>
+                      <p style="color:white">Welcome <strong><?php echo $_SESSION['user_email']; ?></strong></p>
+                    <?php endif ?>
+
+
                     <a class="btn btn-warning btn-xs" href="../edit_view/e_user.php?id=<?php echo $row["user_id"]; ?>">
                       <i class="fas fa-pencil-alt"></i>
                     </a>

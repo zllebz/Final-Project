@@ -5,9 +5,11 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link <?php if ($menu == "index"){echo "active";} ?>"  href="index.php"><i class="fas fa-home"></i> Home</a>
+        <a class="nav-link <?php if ($menu == "index") {
+                              echo "active";
+                            } ?>" href="index.php"><i class="fas fa-home"></i> Home</a>
       </li>
-      
+
     </ul>
 
 
@@ -15,11 +17,13 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item ">
         <a href="" class="nav-link ">
-          <i class="fa fa-power-off"></i> Logout
+          <?php if (isset($_SESSION['user_name'])) : ?>
+            <p style="color:white">Welcome <strong><?php echo $_SESSION['user_name']; ?></strong></p>
+          <?php endif ?>
         </a>
-        
+
       </li>
     </ul>
   </nav>
- <!--  http://fordev22.com/ -->
+  <!--  http://fordev22.com/ -->
   <!-- /.navbar -->
