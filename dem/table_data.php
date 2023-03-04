@@ -1,5 +1,17 @@
 <?php
+session_start();
 
+if (!isset($_SESSION['user_name'])) {
+  $_SESSION['msg'] = "You must log in first";
+  header('location: ../layout/login.php');
+}
+if (isset($_GET['logout'])) {
+  session_destroy();
+  unset($_SESSION['user_name']);
+  header('location: layout/login.php');  
+}
+?>
+<?php
 $menu = "table_data";
 $title = "ข้อมูลสถานที่ที่ลงพื้นที่";
 require_once "../db/connect.php";
@@ -16,16 +28,6 @@ $result = $controller->getfirst2();
     <h1>ข้อมูลส่วนต้นเอกสาร <i class="fas fa-file-alt"></i></h1>
   </div><!-- /.container-fluid -->
 </section>
-
-<!-- Main content -->
-<section class="content">
-
-
-
-
-
-
-
 
 
   <div class="card">
@@ -91,7 +93,7 @@ $result = $controller->getfirst2();
                       <i class="fas fa-pencil-alt"></i>
                     </a>
                     <a class="btn btn-success btn-xs" href="../layout/worksheet_<?php echo $row['doc_id']; ?>.php?id=<?php echo $row["first_storage_id"]; ?>">
-                      <i class="fas fa-file-alt"></i>
+                    <i class="bi bi-plus-lg"></i>
                     </a>
                   </td>
                 </tr>

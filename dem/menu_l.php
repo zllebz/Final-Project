@@ -1,3 +1,11 @@
+<?php
+ob_start();
+if (isset($_GET['logout'])) {
+  session_destroy();
+  unset($_SESSION['user_name']);
+  header('location: ../layout/login.php');
+}
+?>
 <aside class="main-sidebar sidebar-light-navy elevation-4">
   <!-- Brand Logo -->
   <a href="" class="brand-link bg-navy">
@@ -11,10 +19,6 @@
         <a href="#" class="d-block">หน้าผู้ดูแลระบบ</a>
       </div>
     </div>
-
-
-
-
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <!-- nav-compact -->
@@ -24,12 +28,12 @@
         <li class="nav-header">เมนู</li>
 
         <li class="nav-item">
-          <a href="index.php" class="nav-link <?php if ($menu == "index") {
-                                                echo "active";
-                                              } ?> ">
-            <i class="nav-icon fas fa-address-card"></i>
-            <p>ระบบจัดการสมาชิก</p>
-          </a>
+          <?php if ($_SESSION['position_id'] == 1) {
+            echo '<a href="index.php" class="nav-link <?php if ($menu == "index") {
+                        echo "active";
+                      } ?>
+                        <i class="nav-icon fas fa-address-card"></i><p>ระบบจัดการสมาชิก</p></a>';
+          } ?>
         </li>
 
         <li class="nav-item">
@@ -103,32 +107,32 @@
         </li>
         <li class="nav-item">
           <a href="sheet_6.php " class="nav-link <?php if ($menu == "sheet_6") {
-                                  echo "active";
-                                } ?>">
+                                                    echo "active";
+                                                  } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 6</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="sheet_7.php" class="nav-link <?php if ($menu == "sheet_7") {
-                                  echo "active";
-                                } ?>">
+                                                  echo "active";
+                                                } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 7</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="sheet_8.php" class="nav-link <?php if ($menu == "sheet_8") {
-                                  echo "active";
-                                } ?>">
+                                                  echo "active";
+                                                } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 8</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="sheet_9.php " class="nav-link <?php if ($menu == "sheet_9") {
-                                  echo "active";
-                                } ?>">
+                                                    echo "active";
+                                                  } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 9</p>
           </a>
@@ -149,13 +153,12 @@
 
       </div>
       <li class="nav-item">
-        <a href="http://fordev22.com/" class="nav-link text-danger">
+        <a href="index.php?logout='1'" class="nav-link text-danger">
           <i class="nav-icon fas fa-power-off"></i>
-          <p>ออกจากระบบ</p>
+          <p>ออกจากระบบ</p> 
         </a>
       </li>
       </ul>
     </nav>
-    <!-- http://fordev22.com/ -->
   </div>
 </aside>

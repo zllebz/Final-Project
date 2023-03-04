@@ -6,15 +6,16 @@ if (!isset($_SESSION['user_name'])) {
   header('location: ../layout/login.php');
 }
 
+if ($_SESSION['position_id'] == 2) {
+  $_SESSION['msg'] = "ไม่มีสิทธิเข้าถึง";
+  header('location: ../dem/table.php');
+}
+
 if (isset($_GET['logout'])) {
   session_destroy();
   unset($_SESSION['user_name']);
   header('location: layout/login.php');
 }
-
-?>
-
-<?php
 $menu = "index";
 $title = 'จัดการข้อมูลสมาชิก';
 include("../dem/header.php");
@@ -67,6 +68,7 @@ $result = $controller->getUser();
               </tr>
             </thead>
             <tbody>
+
               <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                 <tr>
                   <td><?php echo $row["user_id"]; ?></td>
@@ -78,18 +80,15 @@ $result = $controller->getUser();
                   <td><?php echo $row["user_create"]; ?></td>
 
                   <td>
-                    <a class="btn btn-info btn-xs" href="../edit_view/e_user.php?id=<?php echo $row["user_id"]; ?>">
-                      <i class="fas fa-eye"></i>
-                    </a>
+                    <?php if ($_SESSION['position_id'] == 1) {
+                      echo '<a class="btn btn-primary btn-xs" href="../edit_view/logfile.php?id=' . $row["user_id"] . '">' . '<i class="fas fa-eye"></i></a>';
+                    } ?>
+                    <?php if ($_SESSION['position_id'] == 1) {
+                      echo '<a class="btn btn-warning btn-xs" href="../edit_view/e_user.php?id=' . $row["user_id"] . '">' . '<i class="fas fa-pencil-alt"></i></a>';
+                    } ?>
 
-                    <?php if (isset($_SESSION['user_email'])) : ?>
-                      <p style="color:white">Welcome <strong><?php echo $_SESSION['user_email']; ?></strong></p>
-                    <?php endif ?>
 
 
-                    <a class="btn btn-warning btn-xs" href="../edit_view/e_user.php?id=<?php echo $row["user_id"]; ?>">
-                      <i class="fas fa-pencil-alt"></i>
-                    </a>
                   </td>
                 </tr>
               <?php } ?>

@@ -17,8 +17,8 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item ">
         <a href="" class="nav-link ">
-          <?php if (isset($_SESSION['user_name'])) : ?>
-            <p style="color:white">Welcome <strong><?php echo $_SESSION['user_name']; ?></strong></p>
+          <?php if (isset($_SESSION['user_firstname'])) : ?>
+            <p style="color:white">Welcome <strong><?php echo $_SESSION['user_firstname']; ?></strong></p>
           <?php endif ?>
         </a>
 
