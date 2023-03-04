@@ -5,7 +5,6 @@ if (!isset($_SESSION['user_name'])) {
   $_SESSION['msg'] = "You must log in first";
   header('location: ../layout/login.php');
 }
-
 if (isset($_GET['logout'])) {
   session_destroy();
   unset($_SESSION['user_name']);
@@ -13,7 +12,6 @@ if (isset($_GET['logout'])) {
 }
 ?>
 <?php
-
 $menu = "table_loc";
 $title = "ข้อมูลสถานที่ที่ลงพื้นที่";
 require_once "../db/connect.php";
@@ -33,13 +31,6 @@ $result = $controller->getDatastore();
 
 <!-- Main content -->
 <section class="content">
-
-
-
-
-
-
-
 
 
   <div class="card">
@@ -85,11 +76,12 @@ $result = $controller->getDatastore();
                     <a class="btn btn-info btn-xs" href="#" target="_blank">
                       <i class="fas fa-eye"></i>
                     </a>
-                    <a class="btn btn-warning btn-xs" href="#" target="_blank">
-                      <i class="fas fa-pencil-alt"></i>
-                    </a>
-                    <a class="btn btn-success btn-xs" href="../layout/firststorage.php?id=<?php echo $row["data_store_id"]; ?>">
-                    <i class="bi bi-plus-lg"></i>
+                    <?php if ($_SESSION['position_id'] == 1) {
+                      echo '<a class="btn btn-warning btn-xs" href="../edit_view/?id=' . $row["data_store_id"] . '">' . '<i class="fas fa-pencil-alt"></i></a>';
+                    } ?>
+                    <?php if ($_SESSION['position_id'] == 1) {
+                      echo '<a class="btn btn-success btn-xs" href="../layout/firststorage.php?id=' . $row["data_store_id"] . '">' . '<i class="bi bi-plus-lg"></i></a>';
+                    } ?>
                     </a>
                   </td>
                 </tr>

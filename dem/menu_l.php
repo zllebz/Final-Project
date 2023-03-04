@@ -16,7 +16,11 @@ if (isset($_GET['logout'])) {
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="info">
-        <a href="#" class="d-block">หน้าผู้ดูแลระบบ</a>
+        <a href="#" class="d-block"><?php if ($_SESSION['position_id'] == 1) {
+             echo '<p>เมนูผู้ดูแลระบบ</p>';
+            }else{
+              echo '<p>เมนูผู้ใช้งาน</p>';
+            }?></a>
       </div>
     </div>
     <!-- Sidebar Menu -->
@@ -27,12 +31,19 @@ if (isset($_GET['logout'])) {
                with font-awesome or any other icon font library -->
         <li class="nav-header">เมนู</li>
 
+
         <li class="nav-item">
           <a href="index.php" class="nav-link <?php if ($menu == "index") {
                                                             echo "active";
                                                           } ?>">
             <i class="nav-icon fas fa-address-card"></i>
-            <p>ระบบจัดการสมาชิก</p>
+            <?php if ($_SESSION['position_id'] == 1) {
+             echo '<p>ระบบจัดการสมาชิก</p>';
+            }else{
+              echo '<p>ส่วนจัดการ (เฉพาะผู้ดูแลระบบ)</p>';
+            }
+            
+            ?>
           </a>
         </li>
 

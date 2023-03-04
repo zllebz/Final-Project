@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['user_name'])) {
   $_SESSION['msg'] = "You must log in first";
   header('location: ../layout/login.php');
-}
+} 
 if (isset($_GET['logout'])) {
   session_destroy();
   unset($_SESSION['user_name']);
@@ -13,7 +13,7 @@ if (isset($_GET['logout'])) {
 ?>
 <?php
 $menu = "table_data";
-$title = "ข้อมูลสถานที่ที่ลงพื้นที่";
+$title = "ข้อมูลส่วนต้น";
 require_once "../db/connect.php";
 $result = $controller->getfirst2();
 ?>
@@ -27,7 +27,7 @@ $result = $controller->getfirst2();
   <div class="container-fluid">
     <h1>ข้อมูลส่วนต้นเอกสาร <i class="fas fa-file-alt"></i></h1>
   </div><!-- /.container-fluid -->
-</section>
+
 
 
   <div class="card">
@@ -89,12 +89,12 @@ $result = $controller->getfirst2();
                   <a class="btn btn-info btn-xs" href="../edit_view/v_first.php?id=<?php echo $row["first_storage_id"]; ?>">
                       <i class="fas fa-eye"></i>
                     </a>
-                    <a class="btn btn-warning btn-xs" href="../edit_view/e_first.php?id=<?php echo $row["first_storage_id"]; ?>">
-                      <i class="fas fa-pencil-alt"></i>
-                    </a>
-                    <a class="btn btn-success btn-xs" href="../layout/worksheet_<?php echo $row['doc_id']; ?>.php?id=<?php echo $row["first_storage_id"]; ?>">
-                    <i class="bi bi-plus-lg"></i>
-                    </a>
+                    <?php if ($_SESSION['position_id'] == 1) {
+                      echo '<a class="btn btn-warning btn-xs" href="../edit_view/e_first.php?id=' . $row["first_storage_id"] . '">' . '<i class="fas fa-pencil-alt"></i></a>';
+                    } ?>
+                    <?php if ($_SESSION['position_id'] == 1) {
+                      echo '<a class="btn btn-success btn-xs" href="../layout/worksheet_'.$row['doc_id'].'.php?id=' . $row["first_storage_id"] . '">' . '<i class="bi bi-plus-lg"></i></a>';
+                    } ?>
                   </td>
                 </tr>
               <?php } ?>

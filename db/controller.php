@@ -1112,13 +1112,13 @@ class Controller
         }
     }
 
-    function updateuser($tap1, $tap2, $tap3, $tap4, $tap5) //เพิ่มข้อมูลใบงานที่ 4
+    function updateuser($tap1, $tap2, $tap3, $tap4, $tap5,$tap6) //เพิ่มข้อมูลใบงานที่ 4
     {
         try {
             $sql = "UPDATE tbl_users SET user_firstname=:user_firstname, 
             user_lastname=:user_lastname, 
             user_email=:user_email,
-            user_name=:user_name
+            user_name=:user_name,permission_id=:permission_id
             WHERE user_id=:user_id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(":user_firstname", $tap1);
@@ -1126,6 +1126,7 @@ class Controller
             $stmt->bindParam(":user_email", $tap3);
             $stmt->bindParam(":user_name", $tap4);
             $stmt->bindParam(":user_id", $tap5);
+            $stmt->bindParam(":permission_id", $tap6);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {

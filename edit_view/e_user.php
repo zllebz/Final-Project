@@ -1,4 +1,18 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['user_name'])) {
+  $_SESSION['msg'] = "You must log in first";
+  header('location: ../layout/login.php');
+}
+
+if (isset($_GET['logout'])) {
+  session_destroy();
+  unset($_SESSION['user_name']);
+  header('location: layout/login.php');
+}
+?>
+<?php
 $title = 'แบบฟอร์มกรอกข้อมูลขั้นต้น';
 include('header.php');
 require_once "../db/connect.php";
@@ -27,7 +41,8 @@ if ((isset($_POST["submit"]))) {
     $tap3 = $_POST['user_email'];
     $tap4 = $_POST['user_name'];
     $tap5 = $_POST['user_id'];
-    $status = $controller->updateuser($tap1, $tap2, $tap3, $tap4, $tap5);
+    $tap6 = $_POST['permission_id'];
+    $status = $controller->updateuser($tap1, $tap2, $tap3, $tap4, $tap5,$tap6);
     if ($status) {
         echo '<script>
              setTimeout(function() {
@@ -78,6 +93,24 @@ if ((isset($_POST["submit"]))) {
                         <label for="process" class="form-label">user</label>
                         <input class="form-control" name="user_name" rows="3" value="<?php echo $result1["user_name"] ?>"></input>
                     </div>
+
+                    <div class="col-md-12">
+                        <label class="form-label">ปรับสิทธิการใช้งาน</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="permission_id"   <?=($result1["permission_id"]=="0")?"checked":""?> value="0">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                รอการอนุมัติ
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="permission_id"  <?=($result1["permission_id"]=="1")?"checked":""?> value="1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                อนุมัติการเข้าใช้งาน
+                            </label>
+                        </div>
+                    </div>
+
+
                     <div class="col-12 mt-3 ">
                         <button type="submit" name="submit" class="btn btn-primary">บันทึกข้อมูล</button>
                     </div>

@@ -15,9 +15,11 @@ if (isset($_GET['logout'])) {
   <div class="sidebar">
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div class="info">
-        <a href="#" class="d-block">หน้าผู้ดูแลระบบ</a>
-      </div>
+      <a href="#" class="d-block"><?php if ($_SESSION['position_id'] == 1) {
+                                    echo '<p>เมนูผู้ดูแลระบบ</p>';
+                                  } else {
+                                    echo '<p> เมนูผู้ใช้งาน (รออนุมัติการเข้าใช้งาน)</p>';
+                                  } ?></a>
     </div>
     <!-- Sidebar Menu -->
     <nav class="mt-2">
@@ -29,24 +31,24 @@ if (isset($_GET['logout'])) {
 
         <li class="nav-item">
           <a href="check.php" class="nav-link <?php if ($menu == "check") {
-                                                            echo "active";
-                                                          } ?>">
+                                                echo "active";
+                                              } ?>">
             <i class="nav-icon fas fa-address-card"></i>
             <p>ตรวจสอบสถานะสมาชิก</p>
           </a>
         </li>
 
-   
 
-      <div class="user-panel mt-2 pb-3 mb-2 d-flex">
 
-      </div>
-      <li class="nav-item">
-        <a href="index.php?logout='1'" class="nav-link text-danger">
-          <i class="nav-icon fas fa-power-off"></i>
-          <p>ออกจากระบบ</p>
-        </a>
-      </li>
+        <div class="user-panel mt-2 pb-3 mb-2 d-flex">
+
+        </div>
+        <li class="nav-item">
+          <a href="index.php?logout='1'" class="nav-link text-danger">
+            <i class="nav-icon fas fa-power-off"></i>
+            <p>ออกจากระบบ</p>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>

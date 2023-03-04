@@ -67,9 +67,9 @@ $result = $controller->getsheet1();
                     <a class="btn btn-info btn-xs" href="../edit_view/v_sheet_1.php?id=<?php echo $row["worksheet1_id"]; ?>">
                       <i class="fas fa-eye"></i>
                     </a>
-                    <a class="btn btn-warning btn-xs" href="../edit_view/e_sheet_1.php?id=<?php echo $row["worksheet1_id"]; ?>">
-                      <i class="fas fa-pencil-alt"></i>
-                    </a>
+                    <?php if ($_SESSION['position_id'] == 1) {
+                      echo '<a class="btn btn-warning btn-xs" href="../edit_view/e_sheet_1.php?id=' . $row["worksheet1_id"] . '">' . '<i class="fas fa-pencil-alt"></i></a>';
+                    } ?>
                   </td>
                 </tr>
               <?php } ?>
