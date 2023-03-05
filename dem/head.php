@@ -28,7 +28,6 @@
 
   <link href="https://fonts.googleapis.com/css?family=Kanit:400" rel="stylesheet">
 
-  <link href="assets/plugins/bootstrap-tagsinput/tagsinput.css?v=11" rel="stylesheet" type="text/css">
 
   <!-- ckeditor -->
   <script src="../assets/adminlte/bower_components/ckeditor/ckeditor.js"></script>
