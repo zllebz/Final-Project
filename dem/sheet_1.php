@@ -15,15 +15,17 @@ if (isset($_GET['logout'])) {
   header('location: layout/login.php');
 }
 
-?> 
+?>
 <?php
 $menu = "sheet_1";
 $title = "ใบงานที่ 1";
 require_once "../db/connect.php";
 if ($_SESSION['position_id'] == 1) {
   $result = $controller->getsheet1();
-}elseif ($_SESSION['position_id'] == 2) {
-  $result = $controller->getsheet1if();}
+} elseif ($_SESSION['position_id'] == 2) {
+  $result = $controller->getsheet1if();
+}
+$number = 1;
 ?>
 
 <?php include("../dem/header.php"); ?>
@@ -46,7 +48,8 @@ if ($_SESSION['position_id'] == 1) {
           <table id="example1" class="table table-bordered table-striped dataTable gy-6" role="grid" aria-describedby="example1_info">
             <thead>
               <tr role="row" class="info">
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
+              <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ID</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">รหัสส่วนต้น</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อหมู่บ้าน</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">ที่อยู่</th>
@@ -56,20 +59,21 @@ if ($_SESSION['position_id'] == 1) {
               </tr>
             </thead>
             <tbody>
-                <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
+              <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                 <tr>
+                  <td><?php echo $number++; ?></td>
                   <td><?php echo $row["worksheet1_id"]; ?></td>
                   <td><?php echo $row["first_storage_id"]; ?></td>
                   <td><?php echo $row["villagename"]; ?></td>
                   <td><?php echo $row["location"]; ?></td>
                   <td><?php echo $row["location_map"]; ?></td>
                   <td>
-                  <?php if($row["status"]== 0){
-                    echo '<i class="fas fa-circle" style="color:red;" ></i>';
-                  }else{
-                    echo '<i class="fas fa-circle" style="color:green;" ></i>';
-                  }
-                    ?>    
+                    <?php if ($row["status"] == 0) {
+                      echo '<i class="fas fa-circle" style="color:red;" ></i>';
+                    } else {
+                      echo '<i class="fas fa-circle" style="color:green;" ></i>';
+                    }
+                    ?>
                   <td>
                     <a class="btn btn-info btn-xs" href="../edit_view/v_sheet_1.php?id=<?php echo $row["worksheet1_id"]; ?>">
                       <i class="fas fa-eye"></i>

@@ -30,20 +30,21 @@ $title = 'จัดการข้อมูลสมาชิก';
 include("../dem/header.php");
 require_once "../db/connect.php";
 $result = $controller->getUser();
+$number = 1;
 ?>
 
 <section class="content">
 
-<div class="card">
-<div class="card-header" style="background-color:#652D91">
+  <div class="card">
+    <div class="card-header" style="background-color:#652D91">
 
-      <h3 class="card-title"style="color:white">จัดการข้อมูลสมาชิก</h3>
-    <div align="right">
+      <h3 class="card-title" style="color:white">จัดการข้อมูลสมาชิก</h3>
+      <div align="right">
         <?php if ($_SESSION['position_id'] == 1) {
           echo '<a href="../dem/loguser.php">
           <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#exampleModal">ข้อมูลการเข้าสู่ระบบ</button></a>';
         }
-        ?>  
+        ?>
       </div>
     </div>
     <br>
@@ -56,7 +57,8 @@ $result = $controller->getUser();
           <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
             <thead>
               <tr role="row" class="info">
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ลำดับ</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ID</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อผู้ใช้</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">นามสกุล</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">อีเมล์</th>
@@ -73,21 +75,22 @@ $result = $controller->getUser();
 
               <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                 <tr>
+                  <td><?php echo $number++; ?></td>
                   <td><?php echo $row["user_id"]; ?></td>
                   <td><?php echo $row["user_firstname"]; ?></td>
                   <td><?php echo $row["user_lastname"]; ?></td>
                   <td><?php echo $row["user_email"]; ?></td>
-                  <td><?php if($row["position_id"] == 1){
-                      echo 'ผู้ดูแลระบบ';
-                    }elseif ($row["position_id"] == 2){
-                      echo 'ผู้ใช้งาน';
-                    }?></td>
-                  <td><?php if($row["permission_id"]==0){
-                    echo 'รออนุมัติการเข้าใช้งาน';
-                  }elseif($row["permission_id"]==1){
-                    echo 'สามารถเข้าใช้งาน';
-                  }
-                  ?></td>
+                  <td><?php if ($row["position_id"] == 1) {
+                        echo 'ผู้ดูแลระบบ';
+                      } elseif ($row["position_id"] == 2) {
+                        echo 'ผู้ใช้งาน';
+                      } ?></td>
+                  <td><?php if ($row["permission_id"] == 0) {
+                        echo 'รออนุมัติการเข้าใช้งาน';
+                      } elseif ($row["permission_id"] == 1) {
+                        echo 'สามารถเข้าใช้งาน';
+                      }
+                      ?></td>
                   <td><?php echo $row["user_create"]; ?></td>
 
                   <td>

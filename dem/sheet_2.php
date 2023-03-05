@@ -22,8 +22,10 @@ $title = "ใบงานที่ 2";
 require_once "../db/connect.php";
 if ($_SESSION['position_id'] == 1) {
   $result = $controller->getsheet2();
-}elseif ($_SESSION['position_id'] == 2) {
-  $result = $controller->getsheet2if();}
+} elseif ($_SESSION['position_id'] == 2) {
+  $result = $controller->getsheet2if();
+}
+$number = 1;
 ?>
 
 <?php include("../dem/header.php"); ?>
@@ -31,8 +33,8 @@ if ($_SESSION['position_id'] == 1) {
 <!-- Main content -->
 <section class="content">
   <div class="card">
-  <div class="card-header" style="background-color:#652D91">
-      <h3 class="card-title"style="color:white">ตารางระบบจัดการเอกสารเรื่องการเก็บข้อมูลการประกอบอาชีพในท้องถิ่น</h3>
+    <div class="card-header" style="background-color:#652D91">
+      <h3 class="card-title" style="color:white">ตารางระบบจัดการเอกสารเรื่องการเก็บข้อมูลการประกอบอาชีพในท้องถิ่น</h3>
     </div>
     <br>
     <div class="card-body p-1">
@@ -46,7 +48,8 @@ if ($_SESSION['position_id'] == 1) {
           <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
             <thead>
               <tr role="row" class="info">
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
+              <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ID</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">รหัสส่วนต้น</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ข้อมูลพื้นที่ทำนา</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ข้อมูลการทำประมง</th>
@@ -58,18 +61,19 @@ if ($_SESSION['position_id'] == 1) {
             <tbody>
               <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                 <tr>
+                  <td><?php echo $number++; ?></td>
                   <td><?php echo $row["worksheet2_id"]; ?></td>
                   <td><?php echo $row["first_storage_id"]; ?></td>
                   <td><?php echo $row["agriculture"]; ?></td>
                   <td><?php echo $row["fishing"]; ?></td>
                   <td><?php echo $row["s_industry"]; ?></td>
                   <td>
-                  <?php if($row["status"]== 0){
-                    echo '<i class="fas fa-circle" style="color:red;" ></i>';
-                  }else{
-                    echo '<i class="fas fa-circle" style="color:green;" ></i>';
-                  }
-                    ?>    
+                    <?php if ($row["status"] == 0) {
+                      echo '<i class="fas fa-circle" style="color:red;" ></i>';
+                    } else {
+                      echo '<i class="fas fa-circle" style="color:green;" ></i>';
+                    }
+                    ?>
                   <td>
                     <a class="btn btn-info btn-xs" href="../edit_view/v_sheet_2.php?id=<?php echo $row["worksheet2_id"]; ?>">
                       <i class="fas fa-eye"></i>

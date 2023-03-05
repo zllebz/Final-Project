@@ -25,6 +25,7 @@ if ($_SESSION['position_id'] == 1) {
   $result = $controller->getsheet6();
 }elseif ($_SESSION['position_id'] == 2) {
   $result = $controller->getsheet6if();}
+  $number = 1;
 ?>
 
 <?php include("../dem/header.php"); ?>
@@ -47,7 +48,8 @@ if ($_SESSION['position_id'] == 1) {
             <thead>
 
               <tr role="row" class="info">
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
+              <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ID</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">รหัสส่วนต้น</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ข้อมูลพันธุ์สัตว์</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่พบ</th>
@@ -59,6 +61,7 @@ if ($_SESSION['position_id'] == 1) {
             <tbody>
               <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                 <tr>
+                <td><?php echo $number++; ?></td>
                   <td><?php echo $row["worksheet6_id"]; ?></td>
                   <td><?php echo $row["first_storage_id"]; ?></td>
                   <td><?php echo $row["animal_species"]; ?></td>

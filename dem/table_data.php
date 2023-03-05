@@ -21,6 +21,7 @@ $menu = "table_data";
 $title = "ข้อมูลส่วนต้น";
 require_once "../db/connect.php";
 $result = $controller->getfirst2();
+$number = 1;
 ?>
 
 
@@ -53,7 +54,8 @@ $result = $controller->getfirst2();
           <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
             <thead>
               <tr role="row" class="info">
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
+              <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ID</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ชื่อสถานที่ที่ลงพื้นที่</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ใบงาน</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">คำชี้แจง</th>
@@ -63,6 +65,7 @@ $result = $controller->getfirst2();
             <tbody>
               <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                 <tr>
+                <td><?php echo $number++; ?></td>
                   <td><?php echo $row["first_storage_id"]; ?></td>
                   <td><?php echo $row["data_store_local"]; ?></td>
                   <td><?php if($row["doc_id"]== 1 ){

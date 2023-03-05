@@ -20,6 +20,7 @@ $menu = "table_loc";
 $title = "ข้อมูลสถานที่ที่ลงพื้นที่";
 require_once "../db/connect.php";
 $result = $controller->getDatastore();
+$number = 1;
 ?>
 
 
@@ -59,7 +60,8 @@ $result = $controller->getDatastore();
           <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
             <thead>
               <tr role="row" class="info">
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
+              <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ID</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">สถานที่สำรวจ</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ผู้จัดทำ</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">วันที่</th>
@@ -69,6 +71,7 @@ $result = $controller->getDatastore();
             <tbody>
               <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                 <tr>
+                <td><?php echo $number++; ?></td>
                   <td><?php echo $row["data_store_id"]; ?></td>
                   <td><?php echo $row["data_store_local"]; ?></td>
                   <td><?php echo $row["user_firstname"]; ?></td>

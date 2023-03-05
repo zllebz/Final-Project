@@ -48,7 +48,7 @@ require_once "../db/connect.php";
           <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
             <thead>
               <tr role="row" class="info">
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ลำดับ</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ID</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อผู้ใช้</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อ</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">นามสกุล</th>
