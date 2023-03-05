@@ -18,12 +18,12 @@
       <li class="nav-item ">
         <a href="" class="nav-link ">
           <?php if (isset($_SESSION['user_firstname'])) : ?>
-            <p style="color:white">Welcome <strong><?php echo $_SESSION['user_firstname']; ?></strong></p>
+            <p style="color:white">ยินดีต้อนรับคุณ : <?php echo $_SESSION['user_firstname']; ?> <?php echo $_SESSION['user_lastname']; ?></p>
           <?php endif ?>
+          
         </a>
 
       </li>
     </ul>
   </nav>
-  <!--  http://fordev22.com/ -->
   <!-- /.navbar -->

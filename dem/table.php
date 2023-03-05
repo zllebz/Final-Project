@@ -38,9 +38,11 @@ $result = $controller->getDatastore();
 
       <h3 class="card-title">ตารางระบบจัดการเอกสถานที่</h3>
       <div align="right">
-        <a href="../layout/datastores.php">
-          <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-plus-lg"></i> เพิ่มข้อมูลการลงพื้นที่</button></a>
-
+        <?php if ($_SESSION['position_id'] == 1) {
+          echo '<a href="../layout/datastores.php">
+          <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-plus-lg"></i> เพิ่มข้อมูลการลงพื้นที่</button></a>';
+        }
+        ?>  
       </div>
     </div>
     <br>

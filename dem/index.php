@@ -16,12 +16,14 @@ if (isset($_GET['logout'])) {
   unset($_SESSION['user_name']);
   header('location: layout/login.php');
 }
+
 $menu = "index";
 $title = 'จัดการข้อมูลสมาชิก';
 include("../dem/header.php");
 require_once "../db/connect.php";
 $result = $controller->getUser();
 ?>
+
 
 
 <!-- Content Header (Page header) -->

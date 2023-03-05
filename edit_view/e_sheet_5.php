@@ -6,6 +6,11 @@ if (!isset($_SESSION['user_name'])) {
   header('location: ../layout/login.php');
 }
 
+if ($_SESSION['position_id'] == 2) {
+    $_SESSION['msg'] = "ไม่มีสิทธิเข้าถึง";
+    header('location: ../dem/table.php');
+  }
+
 if (isset($_GET['logout'])) {
   session_destroy();
   unset($_SESSION['user_name']);
