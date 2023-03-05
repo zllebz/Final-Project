@@ -22,7 +22,6 @@
             $query = "SELECT * FROM tbl_users WHERE user_name = '$username' AND user_password = '$password'";
             $result = mysqli_query($conn, $query);
             $objResult = mysqli_fetch_array($result,MYSQLI_ASSOC);
-            mysqli_query($con, "SET NAMES 'utf8' ");
             if (mysqli_num_rows($result) == 1) {
                 $_SESSION['user_name'] = $objResult['user_name'];
                 $_SESSION['user_firstname'] = $objResult['user_firstname'];
@@ -33,9 +32,16 @@
                 $_SESSION['user_id'] = $objResult['user_id'];
                 $_SESSION['user_create'] = $objResult['user_create'];
                 $_SESSION['success'] = "Your are now logged in";
+
+                $check_id = $_SESSION['user_id'];
+                //echo $check_id;
                 if($_SESSION['permission_id'] == 1){
+                    $logadd = "INSERT INTO tbl_logfile (user_id) VALUES ($check_id)";
+                    $result2 = mysqli_query($conn,$logadd);
                     header("location: ../dem/index.php");
                 }else{
+                    $logadd = "INSERT INTO tbl_logfile (user_id) VALUES ($check_id)";
+                    $result2 = mysqli_query($conn,$logadd);
                     header("location: ../dem/check.php");
                 }
                 
