@@ -52,18 +52,19 @@ if ((isset($_POST["submit"]))) {
     $tap11 = $_POST['image2'];
     $tap12 = $_POST['pdf'];
     $tap13 = $_POST['worksheet5_id'];
-    $status = $controller->update5($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12,$tap13);
+    $tap14 = $_POST['status'];
+    $status = $controller->update5($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12,$tap13,$tap14);
     if($status){
         echo '<script>
              setTimeout(function() {
               swal({
                   title: "บันทึกข้อมูลสำเร็จ",
-                  text: "กรุณารอระบบบันทึก",
+                  text: "",
                   type: "success"
               }, function() {
                   window.location = "../dem/sheet_5.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 1000);
+            }, 0);
         </script>';
     }else{
        echo '<script>
@@ -74,7 +75,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = ../edit_view/e_sheet_5.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 1000);
+            }, 0);
         </script>';
     }
 }
@@ -137,6 +138,21 @@ if ((isset($_POST["submit"]))) {
                     <div class="mb-3">
                         <label for="formFile" class="form-label">อัพโหลดเอกสาร PDF</label>
                         <input class="form-control" type="file" name="pdf" value="<?php echo $result1["pdf"] ?>">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label">สถานะเอกสาร</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status"   <?=($result1["status"]=="0")?"checked":""?> value="0">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                ปิด
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status"  <?=($result1["status"]=="1")?"checked":""?> value="1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                เปิด
+                            </label>
+                        </div>
                     </div>
                     <div class="col-12">
                         <button type="submit" name="submit" class="btn btn-primary">บันทึกข้อมูล</button>

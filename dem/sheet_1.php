@@ -20,7 +20,10 @@ if (isset($_GET['logout'])) {
 $menu = "sheet_1";
 $title = "ใบงานที่ 1";
 require_once "../db/connect.php";
-$result = $controller->getsheet1();
+if ($_SESSION['position_id'] == 1) {
+  $result = $controller->getsheet1();
+}elseif ($_SESSION['position_id'] == 2) {
+  $result = $controller->getsheet1if();}
 ?>
 
 <?php include("../dem/header.php"); ?>
@@ -53,7 +56,7 @@ $result = $controller->getsheet1();
               </tr>
             </thead>
             <tbody>
-              <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
+                <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                 <tr>
                   <td><?php echo $row["worksheet1_id"]; ?></td>
                   <td><?php echo $row["first_storage_id"]; ?></td>

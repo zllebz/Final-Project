@@ -174,10 +174,34 @@ class Controller
         }
     }
 
+    function getsheet1if() //แสดงตารางชีต 1
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_1 WHERE status = 1" ;
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
     function getsheet2() //แสดงตารางชีต 2
     {
         try {
             $sql = "SELECT * FROM tbl_worksheet_2";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet2if() //แสดงตารางชีต 2
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_2 WHERE status = 1" ;
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -198,10 +222,34 @@ class Controller
         }
     }
 
+    function getsheet3if() //แสดงตารางชีต 3
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_3 WHERE status = 1" ;
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
     function getsheet4() //แสดงตารางชีต 4
     {
         try {
             $sql = "SELECT * FROM tbl_worksheet_4";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet4if() //แสดงตารางชีต 4
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_4 WHERE status = 1" ;
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -222,10 +270,34 @@ class Controller
         }
     }
 
+    function getsheet5if() //แสดงตารางชีต 5
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_5 WHERE status = 1" ;
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
     function getsheet6() //แสดงตารางชีต 6
     {
         try {
             $sql = "SELECT * FROM tbl_worksheet_6";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet6if() //แสดงตารางชีต 6
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_6 WHERE status = 1" ;
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -246,6 +318,18 @@ class Controller
         }
     }
 
+    function getsheet7if() //แสดงตารางชีต 7
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_7 WHERE status = 1" ;
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
     function getsheet8() //แสดงตารางชีต 8
     {
         try {
@@ -258,10 +342,34 @@ class Controller
         }
     }
 
+    function getsheet8if() //แสดงตารางชีต 8
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_8 WHERE status = 1" ;
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
     function getsheet9() //แสดงตารางชีต 9
     {
         try {
             $sql = "SELECT * FROM tbl_worksheet_9";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    function getsheet9if() //แสดงตารางชีต 9
+    {
+        try {
+            $sql = "SELECT * FROM tbl_worksheet_9 WHERE status = 1" ;
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -846,7 +954,7 @@ class Controller
 
     //---------------------------------------------- ชุดคำสั่ง UPDATE ของใบงาน 1-9 และ สถานที่ + ส่วนต้น -----------------------------------------//
 
-    function update1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14) //เพิ่มข้อมูลใบงานที่ 1
+    function update1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14 ,$tap15) //เพิ่มข้อมูลใบงานที่ 1
     {
         try {
             $sql = "UPDATE tbl_worksheet_1 SET villagename=:villagename, location=:location, 
@@ -855,7 +963,7 @@ class Controller
             education_service=:education_service, education_name=:education_name ,
             local_government=:local_government, hospital=:hospital ,
             police_station=:police_station, image=:image ,
-            pdf=:pdf
+            pdf=:pdf,status=:status
             WHERE worksheet1_id=:worksheet1_id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':villagename', $tap1, PDO::PARAM_STR);
@@ -872,6 +980,7 @@ class Controller
             $stmt->bindParam(':image', $tap12, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap13, PDO::PARAM_STR);
             $stmt->bindParam(':worksheet1_id', $tap14, PDO::PARAM_STR);
+            $stmt->bindParam(':status', $tap15, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -880,7 +989,7 @@ class Controller
     }
 
 
-    function update2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13) //เพิ่มข้อมูลใบงานที่ 2
+    function update2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14) //เพิ่มข้อมูลใบงานที่ 2
     {
         try {
             $sql = "UPDATE tbl_worksheet_2 SET agriculture=:agriculture, garden=:garden, 
@@ -888,7 +997,7 @@ class Controller
             fishing=:fishing, b_industry=:b_industry ,
             m_industry=:m_industry, s_industry=:s_industry ,
             commerce=:commerce, service=:service ,image=:image ,
-            pdf=:pdf
+            pdf=:pdf,status=:status
             WHERE worksheet2_id=:worksheet2_id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':agriculture', $tap1, PDO::PARAM_STR);
@@ -904,6 +1013,7 @@ class Controller
             $stmt->bindParam(':image', $tap11, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap12, PDO::PARAM_STR);
             $stmt->bindParam(':worksheet2_id', $tap13, PDO::PARAM_STR);
+            $stmt->bindParam(':status', $tap14, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -911,7 +1021,7 @@ class Controller
         }
     }
 
-    function update3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14) //เพิ่มข้อมูลใบงานที่ 3
+    function update3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14,$tap15) //เพิ่มข้อมูลใบงานที่ 3
     {
         try {
             $sql = "UPDATE tbl_worksheet_3 SET terrain=:terrain, soilitype=:soilitype, 
@@ -919,7 +1029,7 @@ class Controller
             weir_slows=:weir_slows, rainfall=:rainfall ,
             water_demand=:water_demand, quality_water=:quality_water ,
             temperature=:temperature, amount_light=:amount_light ,geographic=:geographic ,
-            image=:image ,pdf=:pdf
+            image=:image ,pdf=:pdf,status=:status
             WHERE worksheet3_id=:worksheet3_id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':terrain', $tap1, PDO::PARAM_STR);
@@ -936,6 +1046,7 @@ class Controller
             $stmt->bindParam(':image', $tap12, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap13, PDO::PARAM_STR);
             $stmt->bindParam(':worksheet3_id', $tap14, PDO::PARAM_STR);
+            $stmt->bindParam(':status', $tap15, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -943,13 +1054,13 @@ class Controller
         }
     }
 
-    function update4($tap1, $tap2, $tap3, $tap4, $tap5, $tap6) //เพิ่มข้อมูลใบงานที่ 4
+    function update4($tap1, $tap2, $tap3, $tap4, $tap5, $tap6,$tap7) //เพิ่มข้อมูลใบงานที่ 4
     {
         try {
             $sql = "UPDATE tbl_worksheet_4 SET village_history=:village_history, 
             way_life=:way_life, 
             life_recoed_life=:life_recoed_life,
-            image=:image ,pdf=:pdf
+            image=:image ,pdf=:pdf,status=:status
             WHERE worksheet4_id=:worksheet4_id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(":village_history", $tap1);
@@ -958,6 +1069,7 @@ class Controller
             $stmt->bindParam(":image", $tap4);
             $stmt->bindParam(":pdf", $tap5);
             $stmt->bindParam(":worksheet4_id", $tap6);
+            $stmt->bindParam(":status", $tap7);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -965,7 +1077,7 @@ class Controller
         }
     }
 
-    function update5($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13) //เพิ่มข้อมูลใบงานที่ 5
+    function update5($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14) //เพิ่มข้อมูลใบงานที่ 5
     {
         try {
             $sql = "UPDATE tbl_worksheet_5 SET data_plant=:data_plant, 
@@ -976,7 +1088,7 @@ class Controller
             religion=:religion, 
             other=:other, 
             image1=:image1,
-            image2=:image2 ,pdf=:pdf
+            image2=:image2 ,pdf=:pdf,status=:status
             WHERE worksheet5_id=:worksheet5_id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':data_plant', $tap1, PDO::PARAM_STR);
@@ -992,6 +1104,7 @@ class Controller
             $stmt->bindParam(':image2', $tap11, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap12, PDO::PARAM_STR);
             $stmt->bindParam(':worksheet5_id', $tap13, PDO::PARAM_STR);
+            $stmt->bindParam(':status', $tap14, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -1006,14 +1119,14 @@ class Controller
 
 
 
-    function update6($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10) //เพิ่มข้อมูลใบงานที่ 6
+    function update6($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10,$tap11) //เพิ่มข้อมูลใบงานที่ 6
     {
         try {
             $sql = "UPDATE tbl_worksheet_6 SET animal_species=:animal_species, location_meet=:location_meet, 
             quantity=:quantity, history=:history ,
             feature=:feature, animal_owner=:animal_owner ,
             informant_name=:informant_name, image=:image ,
-            pdf=:pdf
+            pdf=:pdf,status=:status
             WHERE worksheet6_id=:worksheet6_id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':animal_species', $tap1, PDO::PARAM_STR);
@@ -1026,6 +1139,7 @@ class Controller
             $stmt->bindParam(':image', $tap8, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap9, PDO::PARAM_STR);
             $stmt->bindParam(':worksheet6_id', $tap10, PDO::PARAM_STR);
+            $stmt->bindParam(':status', $tap11, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -1033,17 +1147,18 @@ class Controller
         }
     }
 
-    function update7($tap1, $tap2, $tap3, $tap4) //เพิ่มข้อมูลใบงานที่ 7
+    function update7($tap1, $tap2, $tap3, $tap4,$tap5) //เพิ่มข้อมูลใบงานที่ 7
     {
         try {
             $sql = "UPDATE tbl_worksheet_7 SET bio_data=:bio_data, image=:image, 
-            pdf=:pdf
+            pdf=:pdf,status=:status
             WHERE worksheet7_id=:worksheet7_id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':bio_data', $tap1, PDO::PARAM_STR);
             $stmt->bindParam(':image', $tap2, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap3, PDO::PARAM_STR);
             $stmt->bindParam(':worksheet7_id', $tap4, PDO::PARAM_STR);
+            $stmt->bindParam(':status', $tap5, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -1051,14 +1166,14 @@ class Controller
         }
     }
 
-    function update8($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12) //เพิ่มข้อมูลใบงานที่ 6
+    function update8($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12,$tap13) //เพิ่มข้อมูลใบงานที่ 6
     {
         try {
             $sql = "UPDATE tbl_worksheet_8 SET branch=:branch, local_name=:local_name, 
             copyright=:copyright, type_wisdom=:type_wisdom,
             local_highlights=:local_highlights, wisdom_details=:wisdom_details,
             public_relations=:public_relations, characteristic=:characteristic,
-            materials=:materials, image=:image, pdf=:pdf
+            materials=:materials, image=:image, pdf=:pdf,status=:status
             WHERE worksheet8_id=:worksheet8_id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':branch', $tap1, PDO::PARAM_STR);
@@ -1073,6 +1188,7 @@ class Controller
             $stmt->bindParam(':image', $tap10, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap11, PDO::PARAM_STR);
             $stmt->bindParam(':worksheet8_id', $tap12, PDO::PARAM_STR);
+            $stmt->bindParam(':status', $tap13, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -1080,12 +1196,12 @@ class Controller
         }
     }
 
-    function update9($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7) //เพิ่มข้อมูลใบงานที่ 9
+    function update9($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7,$tap8) //เพิ่มข้อมูลใบงานที่ 9
     {
         try {
             $sql = "UPDATE tbl_worksheet_9 SET archeology_site=:archeology_site, important_resources=:important_resources, 
             archeology_record=:archeology_record, name_resources=:name_resources,
-            image=:image, pdf=:pdf
+            image=:image, pdf=:pdf, status=:status
             WHERE worksheet9_id=:worksheet9_id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':archeology_site', $tap1, PDO::PARAM_STR);
@@ -1095,6 +1211,7 @@ class Controller
             $stmt->bindParam(':image', $tap5, PDO::PARAM_STR);
             $stmt->bindParam(':pdf', $tap6, PDO::PARAM_STR);
             $stmt->bindParam(':worksheet9_id', $tap7, PDO::PARAM_STR);
+            $stmt->bindParam(':status', $tap8, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {

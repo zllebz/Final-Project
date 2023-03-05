@@ -21,7 +21,10 @@ if (isset($_GET['logout'])) {
 $menu = "sheet_9";
 $title = "ใบงานที่ 9";
 require_once "../db/connect.php";
-$result = $controller->getsheet9();
+if ($_SESSION['position_id'] == 1) {
+  $result = $controller->getsheet9();
+}elseif ($_SESSION['position_id'] == 2) {
+  $result = $controller->getsheet9if();}
 ?>
 
 <?php include("../dem/header.php"); ?>

@@ -95,7 +95,7 @@ $result = $controller->prefixv();
                         }, function() {
                             window.location = "register.php"; //หน้าที่ต้องการให้กระโดดไป
                         });
-                      }, 1000);
+                      }, 0);
                 </script>';
       }else{ //ถ้า username ไม่ซ้ำ เก็บข้อมูลลงตาราง
               //sql insert
@@ -113,12 +113,12 @@ $result = $controller->prefixv();
                        setTimeout(function() {
                         swal({
                             title: "สมัครสมาชิกสำเร็จ",
-                            text: "กรุณารอระบบ Login ใน Workshop ต่อไป",
+                            text: "",
                             type: "success"
                         }, function() {
                             window.location = "login.php"; //หน้าที่ต้องการให้กระโดดไป
                         });
-                      }, 1000);
+                      }, 0);
                   </script>';
               }else{
                  echo '<script>
@@ -129,7 +129,7 @@ $result = $controller->prefixv();
                         }, function() {
                             window.location = "register.php"; //หน้าที่ต้องการให้กระโดดไป
                         });
-                      }, 1000);
+                      }, 0);
                   </script>';
               }
               $pdo = null; //close connect db

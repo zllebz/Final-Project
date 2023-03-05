@@ -56,12 +56,12 @@ if ((isset($_POST["submit"]))) {
              setTimeout(function() {
               swal({
                   title: "บันทึกข้อมูลสำเร็จ",
-                  text: "กรุณารอระบบบันทึก",
+                  text: "",
                   type: "success"
               }, function() {
                   window.location = "../dem/table_data.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 1000);
+            }, 0);
         </script>';
     } else {
         echo '<script>
@@ -72,7 +72,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = "../edit_view/e_first.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 1000);
+            }, 0);
         </script>';
     }
 }
