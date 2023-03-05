@@ -5,7 +5,10 @@ if (!isset($_SESSION['user_name'])) {
   $_SESSION['msg'] = "You must log in first";
   header('location: ../layout/login.php');
 }
-
+if ($_SESSION['permission_id'] == 0) {
+    $_SESSION['msg'] = "ไม่มีสิทธิเข้าถึง";
+    header('location: ../dem/check.php');
+  }
 if ($_SESSION['position_id'] == 2) {
     $_SESSION['msg'] = "ไม่มีสิทธิเข้าถึง";
     header('location: ../dem/table.php');

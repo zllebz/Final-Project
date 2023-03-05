@@ -3,20 +3,12 @@
 
     if (!isset($_SESSION['user_name'])) {
         $_SESSION['msg'] = "You must log in first";
-        header('location: ../layout/login.php');
-    }
-
-    if (isset($_SESSION['user_name'])) {
-        $sql = "SELECT * FROM tbl_users WHERE user_id = ";
-    }
-
-
-    
-
+        header('location: layout/login.php');
+    }    
     if (isset($_GET['logout'])) {
         session_destroy();
         unset($_SESSION['user_name']);
-        header('location: ../layout/login.php');
+        header('location: layout/login.php');
     }
 
 ?>

@@ -5,9 +5,9 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link <?php if ($menu == "index") {
+        <a class="nav-link <?php if ($menu == "") {
                               echo "active";
-                            } ?>" href="index.php"><i class="fas fa-home"></i> Home</a>
+                            } ?>" href=""><i class="fas fa-home"></i> Home</a>
       </li>
 
     </ul>
