@@ -77,8 +77,17 @@ $result = $controller->getUser();
                   <td><?php echo $row["user_firstname"]; ?></td>
                   <td><?php echo $row["user_lastname"]; ?></td>
                   <td><?php echo $row["user_email"]; ?></td>
-                  <td><?php echo $row["position_id"]; ?></td>
-                  <td><?php echo $row["permission_id"]; ?></td>
+                  <td><?php if($row["position_id"] == 1){
+                      echo 'ผู้ดูแลระบบ';
+                    }elseif ($row["position_id"] == 2){
+                      echo 'ผู้ใช้งาน';
+                    }?></td>
+                  <td><?php if($row["permission_id"]==0){
+                    echo 'รออนุมัติการเข้าใช้งาน';
+                  }elseif($row["permission_id"]==1){
+                    echo 'สามารถเข้าใช้งาน';
+                  }
+                  ?></td>
                   <td><?php echo $row["user_create"]; ?></td>
 
                   <td>

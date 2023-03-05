@@ -15,7 +15,7 @@ if (isset($_GET['logout'])) {
   header('location: layout/login.php');
 }
 
-?>
+?> 
 <?php
 $menu = "sheet_1";
 $title = "ใบงานที่ 1";
