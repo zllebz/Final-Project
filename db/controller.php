@@ -110,6 +110,19 @@ class Controller
         }
     }
 
+    function getlogall() //แสดงข้อมูลผู้ใช้ แอดมิน
+    {
+        try {
+            $sql = "SELECT * FROM tbl_logfile a INNER JOIN tbl_users b ON 
+            a.user_id = b.user_id ORDER BY a.logfile_id";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
     function getDatastore() //ตารางข้อมูลสถานที่ที่สำรวจ
     {
         try {
@@ -448,7 +461,6 @@ class Controller
             return false;
         }
     }
-
 
 
 

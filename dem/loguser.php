@@ -18,25 +18,26 @@ if (isset($_GET['logout'])) {
 }
 
 $menu = "index";
-$title = 'จัดการข้อมูลสมาชิก';
+$title = 'ข้อมูลการเข้าสู่ระบบ';
 include("../dem/header.php");
 require_once "../db/connect.php";
-$result = $controller->getUser();
+$result = $controller->getlogall();
 ?>
-
 <section class="content">
 
-<div class="card">
-    <div class="card-header bg-navy ">
 
-      <h3 class="card-title">จัดการข้อมูลสมาชิก</h3>
+
+  <div class="card">
+    <div class="card-header bg-navy">
+
+    <h3 class="card-title">ข้อมูลการเข้าสู่ระบบ</h3>
     <div align="right">
         <?php if ($_SESSION['position_id'] == 1) {
-          echo '<a href="../dem/loguser.php">
-          <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#exampleModal">ข้อมูลการเข้าสู่ระบบ</button></a>';
+          echo '<a href="../dem/index.php">
+          <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#exampleModal">จัดการข้อมูลสมาชิก</button></a>';
         }
-        ?>  
-      </div>
+        ?>
+        </div>
     </div>
     <br>
     <div class="card-body p-1">
@@ -49,36 +50,31 @@ $result = $controller->getUser();
             <thead>
               <tr role="row" class="info">
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ลำดับ</th>
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อผู้ใช้</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อผู้ใช้งาน</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อ</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">นามสกุล</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">อีเมล์</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ตำแหน่ง</th>
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สิทธิ</th>
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">เวลา</th>
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">จัดการ</th>
-
-
-
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">เวลาเข้าสู่ระบบ</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">รายงาน</th>
               </tr>
             </thead>
             <tbody>
 
               <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                 <tr>
-                  <td><?php echo $row["user_id"]; ?></td>
+                  <td><?php echo $row["logfile_id"]; ?></td>
+                  <td><?php echo $row["user_name"]; ?></td>
                   <td><?php echo $row["user_firstname"]; ?></td>
                   <td><?php echo $row["user_lastname"]; ?></td>
                   <td><?php echo $row["user_email"]; ?></td>
                   <td><?php echo $row["position_id"]; ?></td>
-                  <td><?php echo $row["permission_id"]; ?></td>
-                  <td><?php echo $row["user_create"]; ?></td>
+                  <td><?php echo $row["date_time"]; ?></td>
 
                   <td>
                     <?php if ($_SESSION['position_id'] == 1) {
-                      echo '<a class="btn btn-warning btn-xs" href="../edit_view/e_user.php?id=' . $row["user_id"] . '">' . '<i class="fas fa-pencil-alt"></i></a>';
+                      echo '<a class="btn btn-primary btn-xs" href="../layout/logfile.php"><i class="fas fa-file-alt"></i></a>';
                     } ?>
-
-
 
                   </td>
                 </tr>
