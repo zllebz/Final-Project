@@ -33,9 +33,9 @@ $result = $controller->getDatastore();
 
 
   <div class="card">
-    <div class="card-header bg-navy ">
+  <div class="card-header" style="background-color:#652D91">
 
-      <h3 class="card-title">ตารางระบบจัดการเอกสถานที่</h3>
+      <h3 class="card-title"style="color:white">ตารางระบบจัดการเอกสถานที่</h3>
       <div align="right">
         <?php if ($_SESSION['position_id'] == 1) {
           echo '<a href="../layout/datastores.php">

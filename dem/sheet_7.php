@@ -31,8 +31,8 @@ if ($_SESSION['position_id'] == 1) {
 <!-- Main content -->
 <section class="content">
   <div class="card">
-    <div class="card-header bg-navy">
-      <h3 class="card-title">ตารางระบบจัดการเอกสารเรื่องการเก็บข้อมูลการใช้ประโยชน์ของชีวภาพอื่นๆ ในท้องถิ่น</h3>
+  <div class="card-header" style="background-color:#652D91">
+      <h3 class="card-title"style="color:white">ตารางระบบจัดการเอกสารเรื่องการเก็บข้อมูลการใช้ประโยชน์ของชีวภาพอื่นๆ ในท้องถิ่น</h3>
     </div>
     <br>
     <div class="card-body p-1">

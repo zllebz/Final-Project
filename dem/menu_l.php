@@ -6,9 +6,9 @@ if (isset($_GET['logout'])) {
   header('location: ../layout/login.php');
 }
 ?>
-<aside class="main-sidebar sidebar-light-navy elevation-4">
+<aside class="main-sidebar sidebar-light-purple elevation-4" >
   <!-- Brand Logo -->
-  <a href="" class="brand-link bg-navy">
+  <a href="" class="brand-link " style="background-color:#f4f6f9" >
     <span class="brand-text font-weight-light">Dashboard</span>
   </a>
   <!-- Sidebar -->
@@ -32,7 +32,7 @@ if (isset($_GET['logout'])) {
         <li class="nav-header">เมนู</li>
 
 
-        <li class="nav-item">
+        <li class="nav-item ">
           <a href="index.php" class="nav-link <?php if ($menu == "index") {
                                                             echo "active";
                                                           } ?>">
@@ -74,9 +74,9 @@ if (isset($_GET['logout'])) {
             </p>
           </a>
           <ul class="nav nav-treeview" style="display: block;">
-            <li class="nav-item">
-              <a href="sheet_1.php" class="nav-link <?php if ($menu == "sheet_1") {
-                                                      echo "active";
+            <li class="nav-item ">
+              <a href="sheet_1.php" class="nav-link  <?php if ($menu == "sheet_1") {
+                                                      echo "active bg-purple";
                                                     } ?>">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>ใบงานที่ 1</p>
@@ -84,7 +84,7 @@ if (isset($_GET['logout'])) {
             </li>
             <li class="nav-item">
               <a href="sheet_2.php" class="nav-link <?php if ($menu == "sheet_2") {
-                                                      echo "active";
+                                                      echo "active bg-purple";
                                                     } ?>">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>ใบงานที่ 2</p>
@@ -93,7 +93,7 @@ if (isset($_GET['logout'])) {
         </li>
         <li class="nav-item">
           <a href="sheet_3.php" class="nav-link <?php if ($menu == "sheet_3") {
-                                                  echo "active";
+                                                  echo "active bg-purple";
                                                 } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 3</p>
@@ -102,7 +102,7 @@ if (isset($_GET['logout'])) {
 
         <li class="nav-item">
           <a href="sheet_4.php " class="nav-link <?php if ($menu == "sheet_4") {
-                                                    echo "active";
+                                                    echo "active bg-purple";
                                                   } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 4</p>
@@ -110,7 +110,7 @@ if (isset($_GET['logout'])) {
         </li>
         <li class="nav-item">
           <a href="sheet_5.php " class="nav-link <?php if ($menu == "sheet_5") {
-                                                    echo "active";
+                                                    echo "active bg-purple";
                                                   } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 5</p>
@@ -118,7 +118,7 @@ if (isset($_GET['logout'])) {
         </li>
         <li class="nav-item">
           <a href="sheet_6.php " class="nav-link <?php if ($menu == "sheet_6") {
-                                                    echo "active";
+                                                    echo "active bg-purple";
                                                   } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 6</p>
@@ -126,7 +126,7 @@ if (isset($_GET['logout'])) {
         </li>
         <li class="nav-item">
           <a href="sheet_7.php" class="nav-link <?php if ($menu == "sheet_7") {
-                                                  echo "active";
+                                                  echo "active bg-purple";
                                                 } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 7</p>
@@ -134,7 +134,7 @@ if (isset($_GET['logout'])) {
         </li>
         <li class="nav-item">
           <a href="sheet_8.php" class="nav-link <?php if ($menu == "sheet_8") {
-                                                  echo "active";
+                                                  echo "active bg-purple";
                                                 } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 8</p>
@@ -142,7 +142,7 @@ if (isset($_GET['logout'])) {
         </li>
         <li class="nav-item">
           <a href="sheet_9.php " class="nav-link <?php if ($menu == "sheet_9") {
-                                                    echo "active";
+                                                    echo "active bg-purple";
                                                   } ?>">
             <i class="nav-icon fas fa-copy"></i>
             <p>ใบงานที่ 9</p>
@@ -153,7 +153,7 @@ if (isset($_GET['logout'])) {
 
       <li class="nav-item">
         <a href="doc.php" class="nav-link <?php if ($menu == "doc") {
-                                            echo "active";
+                                            echo "active bg-purple";
                                           } ?> ">
           <i class="nav-icon fas fa-file-pdf"></i>
           <p>รูปแบบเอกสาร</p>

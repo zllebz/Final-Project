@@ -33,9 +33,9 @@ $result = $controller->getfirst2();
 
 
   <div class="card">
-    <div class="card-header bg-navy ">
+  <div class="card-header" style="background-color:#652D91">
 
-      <h3 class="card-title">ข้อมูลส่วนต้นเอกสาร</h3>
+      <h3 class="card-title"style="color:white">ข้อมูลส่วนต้นเอกสาร</h3>
 
     </div>
     <br>

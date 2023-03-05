@@ -35,9 +35,9 @@ $result = $controller->getUser();
 <section class="content">
 
 <div class="card">
-    <div class="card-header bg-navy ">
+<div class="card-header" style="background-color:#652D91">
 
-      <h3 class="card-title">จัดการข้อมูลสมาชิก</h3>
+      <h3 class="card-title"style="color:white">จัดการข้อมูลสมาชิก</h3>
     <div align="right">
         <?php if ($_SESSION['position_id'] == 1) {
           echo '<a href="../dem/loguser.php">

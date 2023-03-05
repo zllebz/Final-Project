@@ -34,9 +34,9 @@ $result = $controller->getlogall();
 
 
   <div class="card">
-    <div class="card-header bg-navy">
+  <div class="card-header" style="background-color:#652D91">
 
-      <h3 class="card-title">ข้อมูลการเข้าสู่ระบบ</h3>
+      <h3 class="card-title"style="color:white">ข้อมูลการเข้าสู่ระบบ</h3>
       <div align="right">
         <?php if ($_SESSION['position_id'] == 1) {
           echo '<a class="btn btn-primary btn-xs" href="../layout/logfile.php"><i class="fas fa-file-alt"></i></a>';

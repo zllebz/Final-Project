@@ -6,9 +6,9 @@ if (isset($_GET['logout'])) {
   header('location: ../layout/login.php');
 }
 ?>
-<aside class="main-sidebar sidebar-light-navy elevation-4">
+<aside class="main-sidebar sidebar-light-purple elevation-4">
   <!-- Brand Logo -->
-  <a href="" class="brand-link bg-navy">
+  <a href="" class="brand-link"style="background-color:#f4f6f9">
     <span class="brand-text font-weight-light">Dashboard</span>
   </a>
   <!-- Sidebar -->
