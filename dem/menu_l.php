@@ -16,7 +16,7 @@ if (isset($_GET['logout'])) {
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="info">
-        <a href="#" class="d-block"><?php if ($_SESSION['position_id'] == 1) {
+        <a href="../dem/index.php" class="d-block"><?php if ($_SESSION['position_id'] == 1) {
              echo '<p>เมนูผู้ดูแลระบบ</p>';
             }else{
               echo '<p>เมนูผู้ใช้งาน</p>';

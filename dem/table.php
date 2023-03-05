@@ -22,12 +22,7 @@ $result = $controller->getDatastore();
 <?php include("../dem/header.php"); ?>
 
 
-<!-- Content Header (Page header) -->
-<section class="content-header">
-  <div class="container-fluid">
-    <h1>หน้าจัดการเอกสารสถานที่ <i class="fas fa-file-alt"></i></h1>
-  </div><!-- /.container-fluid -->
-</section>
+
 
 <!-- Main content -->
 <section class="content">

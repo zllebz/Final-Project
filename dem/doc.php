@@ -34,9 +34,7 @@ $title = "ระบบจัดการแบบฟอร์มเอกสา�
 
 
       <div align="right">
-        <a href="#">
-          <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#exampleModal"></i> เพิ่มเอกสาร</button></a>
-
+        
       </div>
     </div>
     <br>

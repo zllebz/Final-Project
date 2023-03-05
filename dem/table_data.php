@@ -23,10 +23,7 @@ $result = $controller->getfirst2();
 
 
 <!-- Content Header (Page header) -->
-<section class="content-header">
-  <div class="container-fluid">
-    <h1>ข้อมูลส่วนต้นเอกสาร <i class="fas fa-file-alt"></i></h1>
-  </div><!-- /.container-fluid -->
+<section class="content">
 
 
 
