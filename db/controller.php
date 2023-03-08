@@ -114,7 +114,7 @@ class Controller
     {
         try {
             $sql = "SELECT * FROM tbl_logfile a INNER JOIN tbl_users b ON 
-            a.user_id = b.user_id ORDER BY a.logfile_id";
+            a.user_id = b.user_id ORDER BY a.logfile_id DESC";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -124,10 +124,15 @@ class Controller
     }
 
     function getDatastore() //ตารางข้อมูลสถานที่ที่สำรวจ
-    {
+    { 
         try {
-            $sql = "SELECT * FROM tbl_dataStores a INNER JOIN tbl_users b ON 
-            a.user_id = b.user_id ORDER BY a.data_store_id";
+            $sql = "SELECT *,concat( f.name_th ,' ', d.name_th ,' ', c.name_th ,' ', f.zip_code)as data_store_local
+            FROM tbl_datastores a
+            INNER JOIN tbl_users b on a.user_id = b.user_id
+            LEFT JOIN tbl_provinces c ON c.code = left(substring_index(right(a.data_store_local,12),' ',1),2)
+            LEFT JOIN tbl_amphures d ON d.code = left(substring_index(right(a.data_store_local,12),' ',1),4)
+            LEFT JOIN tbl_districts f ON f.districts_id = left(substring_index(right(a.data_store_local,12),' ',1),6)
+            ";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -135,6 +140,7 @@ class Controller
             return false;
         }
     }
+
 
     function getfirst() //ส่วนต้น
     {
@@ -609,16 +615,15 @@ class Controller
         }
     }
 
-    function insertdata($tap1) //ส่วนต้น
+    function insertdata($tap1,$tap2) //สถานที่
     {
         try {
-            $sql = "INSERT INTO tbl_datastores (data_store_local)
-            VALUE (:data_store_local)
+            $sql = "INSERT INTO tbl_datastores (data_store_local,user_id)
+            VALUE (:data_store_local,:user_id)
             ";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(":data_store_local", $tap1);
-
-
+            $stmt->bindParam(":user_id", $tap2);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {

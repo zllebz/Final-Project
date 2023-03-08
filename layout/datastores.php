@@ -2,22 +2,22 @@
 session_start();
 
 if (!isset($_SESSION['user_name'])) {
-  $_SESSION['msg'] = "You must log in first";
-  header('location: ../layout/login.php');
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../layout/login.php');
 }
 if ($_SESSION['permission_id'] == 0) {
     $_SESSION['msg'] = "ไม่มีสิทธิเข้าถึง";
     header('location: ../dem/check.php');
-  }
+}
 if ($_SESSION['position_id'] == 2) {
     $_SESSION['msg'] = "ไม่มีสิทธิเข้าถึง";
     header('location: ../dem/table.php');
-  }
+}
 
 if (isset($_GET['logout'])) {
-  session_destroy();
-  unset($_SESSION['user_name']);
-  header('location: layout/login.php');
+    session_destroy();
+    unset($_SESSION['user_name']);
+    header('location: layout/login.php');
 }
 ?>
 <?php
@@ -35,9 +35,11 @@ echo '
 if ((isset($_POST["submit"]))) {
     $tap1 = $_POST['data_store_local'];
     $tap1 = implode(" ", $tap1);
-
+    $tap2 = $_POST['user_id'];
+    echo $tap1;
+    exit;
     //$tap13 = $_GET['pdf'];
-    $status = $controller->insertdata($tap1);
+    $status = $controller->insertdata($tap1,$tap2);
     if ($status) {
         echo '<script>
                  setTimeout(function() {
@@ -86,6 +88,7 @@ $query = mysqli_query($con, $sql_provinces);
             <div class="card border-0 shadow">
                 <form class="row  my-3" method="POST">
                     <div class="col-md-12 my-2">
+                        <input type="hidden" name ="user_id" value="<?php echo $_SESSION["user_id"]?>">
                         <label for="exampleFormControlInput1 " class="my-2">ข้อมูลพื้นที่ที่สำรวจ</label>
                         <textarea class="form-control" name="data_store_local[]" rows="3"></textarea>
                     </div>

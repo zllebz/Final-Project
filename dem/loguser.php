@@ -58,7 +58,7 @@ $number = 1;
         <div class="col-sm-12 col-md-12">
           <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
             <thead>
-              <tr role="row" class="info">
+              <tr role="row" class="info" >
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ID</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">ชื่อผู้ใช้งาน</th>
