@@ -126,7 +126,7 @@ class Controller
     function getDatastore() //ตารางข้อมูลสถานที่ที่สำรวจ
     { 
         try {
-            $sql = "SELECT *,concat( f.name_th ,' ', d.name_th ,' ', c.name_th ,' ', f.zip_code)as data_store_local
+            $sql = "SELECT *,concat( left(substring_index(left(a.data_store_local,255),',',1),255),' ',f.name_th ,' ', d.name_th ,' ', c.name_th ,' ', f.zip_code)as data_store_local
             FROM tbl_datastores a
             INNER JOIN tbl_users b on a.user_id = b.user_id
             LEFT JOIN tbl_provinces c ON c.code = left(substring_index(right(a.data_store_local,12),' ',1),2)
@@ -145,7 +145,8 @@ class Controller
     function getfirst() //ส่วนต้น
     {
         try {
-            $sql = "SELECT * FROM tbl_firststorages a INNER JOIN tbl_documents b ON 
+            $sql = "SELECT * 
+            FROM tbl_firststorages a INNER JOIN tbl_documents b ON 
             a.doc_id = b.doc_id ORDER BY a.first_storage_id";
             $result = $this->db->query($sql);
             return $result;
@@ -158,8 +159,12 @@ class Controller
     function getfirst2() //ส่วนต้น
     {
         try {
-            $sql = "SELECT * FROM tbl_firststorages a INNER JOIN tbl_datastores b ON 
-            a.data_store_id = b.data_store_id ORDER BY a.first_storage_id";
+            $sql = "SELECT * , concat( left(substring_index(left(b.data_store_local,255),',',1),255),' ',f.name_th ,' ', d.name_th ,' ', c.name_th ,' ', f.zip_code)as data_store_local
+            FROM tbl_firststorages a 
+            INNER JOIN tbl_datastores b 
+            LEFT JOIN tbl_provinces c ON c.code = left(substring_index(right(b.data_store_local,12),' ',1),2)
+            LEFT JOIN tbl_amphures d ON d.code = left(substring_index(right(b.data_store_local,12),' ',1),4)
+            LEFT JOIN tbl_districts f ON f.districts_id = left(substring_index(right(b.data_store_local,12),' ',1),6)";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {

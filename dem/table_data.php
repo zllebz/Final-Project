@@ -56,8 +56,8 @@ $number = 1;
               <tr role="row" class="info">
               <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ลำดับ</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 1%;">ID</th>
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ชื่อสถานที่ที่ลงพื้นที่</th>
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">ใบงาน</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ที่สำรวจ</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 3%;">ใบงาน</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">คำชี้แจง</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">จัดการ</th>
               </tr>

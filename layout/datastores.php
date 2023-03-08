@@ -36,8 +36,8 @@ if ((isset($_POST["submit"]))) {
     $tap1 = $_POST['data_store_local'];
     $tap1 = implode(" ", $tap1);
     $tap2 = $_POST['user_id'];
-    echo $tap1;
-    exit;
+    //echo $tap1;
+    //exit;
     //$tap13 = $_GET['pdf'];
     $status = $controller->insertdata($tap1,$tap2);
     if ($status) {
@@ -91,10 +91,12 @@ $query = mysqli_query($con, $sql_provinces);
                         <input type="hidden" name ="user_id" value="<?php echo $_SESSION["user_id"]?>">
                         <label for="exampleFormControlInput1 " class="my-2">ข้อมูลพื้นที่ที่สำรวจ</label>
                         <textarea class="form-control" name="data_store_local[]" rows="3"></textarea>
+                        <input type="hidden" name="data_store_local[]" value="," >
                     </div>
+
                     <div class="form-group ">
                         <label for="sel1" class="my-2">จังหวัด:</label>
-                        <select class="form-control" name="data_store_local[]" id="provinces">
+                        <select class="form-control" name="province_joke" id="provinces">
                             <option value="" selected disabled>-กรุณาเลือกจังหวัด-</option>
                             <?php foreach ($query as $value) { ?>
                                 <option value="<?php echo $value["provinces_id"]; ?>"><?php echo $value["name_th"] ?></option>
@@ -102,7 +104,7 @@ $query = mysqli_query($con, $sql_provinces);
                         </select>
 
                         <label for="sel1" class="my-2">อำเภอ:</label>
-                        <select class="form-control" name="data_store_local[]" id="amphures">
+                        <select class="form-control" name="amphrues_joke" id="amphures">
 
                         </select>
 
