@@ -164,7 +164,7 @@ if ((isset($_POST["submit"]))) {
                     <div class="mb-3">
                         <label for="formFile" class="form-label">แผนที่หมู่บ้าน</label>
                         <font color="red">*อัพโหลดได้เฉพาะ .jpeg , .jpg , .png </font>
-                        <input type="file" name="image" id="image" required class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
+                        <input type="file" name="image" id="image"  class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
                         <img loading="lazy" width="20%" id="previewImg" alt="">
                     </div>
                     <div class="mb-3">

@@ -101,11 +101,11 @@ if (!isset($_GET["id"])) {
                         </p>
                         <p><b>รูปภาพที่ 1 : </b>
                             <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <?php echo $result1["image1"] ?>
+                            <img width="100%" hight="auto" src="../images/<?php echo $result1['image'] ?>">
                         </p>
                         <p><b>รูปภาพที่ 2 : </b>
                             <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <?php echo $result1["image2"] ?>
+                            <img width="100%" hight="auto" src="../images/<?php echo $result1['image'] ?>">
                         </p>
                         
                     </div>

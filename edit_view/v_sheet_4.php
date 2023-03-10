@@ -76,7 +76,7 @@ if (!isset($_GET["id"])) {
                         </p>
                         <p><b>รูปภาพ : </b>
                             <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <?php echo $result1["image"] ?>
+                            <img width="100%" hight="auto" src="../images/<?php echo $result1['image'] ?>">
                         </p>
                     </div>
                     <div class="col-12">

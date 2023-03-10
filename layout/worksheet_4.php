@@ -100,7 +100,7 @@ if ((isset($_POST["submit"]))) {
         <div class="row">
             <h3 class="my-3 text-center">ใบงานที่ 4 <br>เรื่อง การเก็บข้อมูลประวัติหมู่บ้าน ชุมชน วิถีชุมชน</h3>
             <div class="card border-0 shadow">
-            <form class="row g-3 my-3" method="POST">
+            <form class="row g-3 my-3" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="first_storage_id" value="<?php echo $result1["first_storage_id"] ?>" />
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1">ประวัติหมู่บ้าน</label>

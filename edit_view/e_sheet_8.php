@@ -262,14 +262,7 @@ if ((isset($_POST["submit"]))) {
                     <div class="col-md-12">
                         <textarea class="form-control" name="materials" rows="3"><?php echo $result8["materials"]?></textarea>
                     </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">รูปภาพ</label>
-                        <input class="form-control" type="file" name="image" value="<?php echo $result8["image"] ?>" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">อัพโหลดเอกสาร PDF</label>
-                        <input class="form-control" type="file" name="pdf" value="<?php echo $result8["pdf"] ?>" />
-                    </div>
+
                     <div class="col-md-12">
                         <label class="form-label">สถานะเอกสาร</label>
                         <div class="form-check">

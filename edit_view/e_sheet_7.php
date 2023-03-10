@@ -86,14 +86,7 @@ if ((isset($_POST["submit"]))) {
                         <label for="exampleFormControlInput1">ข้อมูลชีวภาพ</label>
                         <textarea class="form-control" name="bio_data" rows="3"><?php echo $result7["bio_data"]?></textarea>
                     </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">รูปภาพ</label>
-                        <input class="form-control" type="file" name="image" value="<?php echo $result7["image"] ?>">
-                    </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">อัพโหลดเอกสาร PDF</label>
-                        <input class="form-control" type="file" name="pdf" value="<?php echo $result7["pdf"] ?>">
-                    </div>
+
                     <div class="col-md-12">
                         <label class="form-label">สถานะเอกสาร</label>
                         <div class="form-check">

@@ -116,14 +116,7 @@ if ((isset($_POST["submit"]))) {
                         <label class="form-label">ชื่อผู้ให้ข้อมูล</label>
                         <input type="text" class="form-control" name="informant_name"value="<?php echo $result6["informant_name"] ?>">
                     </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">รูปภาพ</label>
-                        <input class="form-control" type="file" name="image" value="<?php echo $result6["image"] ?>">
-                    </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">อัพโหลดเอกสาร PDF</label>
-                        <input class="form-control" type="file" name="pdf" value="<?php echo $result6["pdf"] ?>">
-                    </div>
+
                     <div class="col-md-12">
                         <label class="form-label">สถานะเอกสาร</label>
                         <div class="form-check">

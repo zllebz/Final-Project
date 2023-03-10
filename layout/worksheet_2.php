@@ -61,6 +61,7 @@ if ((isset($_POST["submit"]))) {
         move_uploaded_file($nn['tmp_name'], $filePath1);
     }
 
+
     $tap1 = $_POST['agriculture'];
     $tap2 = $_POST['garden'];
     $tap3 = $_POST['farming'];
@@ -74,6 +75,7 @@ if ((isset($_POST["submit"]))) {
     $tap11 = $fileNew;
     $tap12 = $fileNew1;
     $tap13 = $_POST['first_storage_id'];
+
     $status = $controller->insert2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13);
     if ($status) {
         echo '<script>
@@ -107,7 +109,7 @@ if ((isset($_POST["submit"]))) {
         <div class="row">
             <h3 class="my-3 text-center">ใบงานที่ 2 <br>เรื่อง การเก็บข้อมูลการประกอบอาชีพในท้องถิ่น</h3>
             <div class="card border-0 shadow">
-                <form class="row g-3 my-3" method="POST">
+            <form class="row g-3 my-3" method="POST" enctype="multipart/form-data">
                     <h4>การประกอบอาชีพ</h4>
                     <input type="hidden" name="first_storage_id" value="<?php echo $result1["first_storage_id"] ?>" />
                     <div class="col-md-12">
@@ -160,7 +162,7 @@ if ((isset($_POST["submit"]))) {
                     <div class="mb-3">
                         <label for="formFile" class="form-label">รูปภาพ</label>
                         <font color="red">*อัพโหลดได้เฉพาะ .jpeg , .jpg , .png </font>
-                        <input type="file" name="image" id="image" required class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
+                        <input type="file" name="image" id="image" class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
                         <img loading="lazy" width="20%" id="previewImg" alt="">
                     </div>
                     <div class="mb-3">
