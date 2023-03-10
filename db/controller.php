@@ -23,7 +23,7 @@ class Controller
 
 
 
-    
+
 
     function prefixv() //คำนำหน้า register.php
     {
@@ -124,7 +124,7 @@ class Controller
     }
 
     function getDatastore() //ตารางข้อมูลสถานที่ที่สำรวจ
-    { 
+    {
         try {
             $sql = "SELECT *,concat( left(substring_index(left(a.data_store_local,255),',',1),255),' ',f.name_th ,' ', d.name_th ,' ', c.name_th ,' ', f.zip_code)as data_store_local
             FROM tbl_datastores a
@@ -188,7 +188,7 @@ class Controller
     function getsheet1if() //แสดงตารางชีต 1
     {
         try {
-            $sql = "SELECT * FROM tbl_worksheet_1 WHERE status = 1" ;
+            $sql = "SELECT * FROM tbl_worksheet_1 WHERE status = 1";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -212,7 +212,7 @@ class Controller
     function getsheet2if() //แสดงตารางชีต 2
     {
         try {
-            $sql = "SELECT * FROM tbl_worksheet_2 WHERE status = 1" ;
+            $sql = "SELECT * FROM tbl_worksheet_2 WHERE status = 1";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -236,7 +236,7 @@ class Controller
     function getsheet3if() //แสดงตารางชีต 3
     {
         try {
-            $sql = "SELECT * FROM tbl_worksheet_3 WHERE status = 1" ;
+            $sql = "SELECT * FROM tbl_worksheet_3 WHERE status = 1";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -260,7 +260,7 @@ class Controller
     function getsheet4if() //แสดงตารางชีต 4
     {
         try {
-            $sql = "SELECT * FROM tbl_worksheet_4 WHERE status = 1" ;
+            $sql = "SELECT * FROM tbl_worksheet_4 WHERE status = 1";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -284,7 +284,7 @@ class Controller
     function getsheet5if() //แสดงตารางชีต 5
     {
         try {
-            $sql = "SELECT * FROM tbl_worksheet_5 WHERE status = 1" ;
+            $sql = "SELECT * FROM tbl_worksheet_5 WHERE status = 1";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -308,7 +308,7 @@ class Controller
     function getsheet6if() //แสดงตารางชีต 6
     {
         try {
-            $sql = "SELECT * FROM tbl_worksheet_6 WHERE status = 1" ;
+            $sql = "SELECT * FROM tbl_worksheet_6 WHERE status = 1";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -332,7 +332,7 @@ class Controller
     function getsheet7if() //แสดงตารางชีต 7
     {
         try {
-            $sql = "SELECT * FROM tbl_worksheet_7 WHERE status = 1" ;
+            $sql = "SELECT * FROM tbl_worksheet_7 WHERE status = 1";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -356,7 +356,7 @@ class Controller
     function getsheet8if() //แสดงตารางชีต 8
     {
         try {
-            $sql = "SELECT * FROM tbl_worksheet_8 WHERE status = 1" ;
+            $sql = "SELECT * FROM tbl_worksheet_8 WHERE status = 1";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -380,7 +380,7 @@ class Controller
     function getsheet9if() //แสดงตารางชีต 9
     {
         try {
-            $sql = "SELECT * FROM tbl_worksheet_9 WHERE status = 1" ;
+            $sql = "SELECT * FROM tbl_worksheet_9 WHERE status = 1";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -620,7 +620,7 @@ class Controller
         }
     }
 
-    function insertdata($tap1,$tap2) //สถานที่
+    function insertdata($tap1, $tap2) //สถานที่
     {
         try {
             $sql = "INSERT INTO tbl_datastores (data_store_local,user_id)
@@ -637,9 +637,11 @@ class Controller
     }
 
 
-    function insert1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14) //เพิ่มข้อมูลใบงานที่ 1
+    function insert1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14) //เพิ่มข้อมูลใบงานที่ 1
     {
         try {
+
+
             $sql = "INSERT INTO tbl_worksheet_1 (villagename, location, location_map, religion, population, numarea, education_service, education_name
             , local_government, hospital, police_station, image, pdf ,first_storage_id)
             VALUES (:villagename, :location, :location_map, :religion, :population, :numarea, :education_service, :education_name
@@ -656,9 +658,9 @@ class Controller
             $stmt->bindParam(':local_government', $tap9, PDO::PARAM_STR);
             $stmt->bindParam(':hospital', $tap10, PDO::PARAM_STR);
             $stmt->bindParam(':police_station', $tap11, PDO::PARAM_STR);
-            $stmt->bindParam(':image', $tap12, PDO::PARAM_STR);
-            $stmt->bindParam(':pdf', $tap13, PDO::PARAM_STR);
-            $stmt->bindParam(':first_storage_id', $tap13, PDO::PARAM_STR);
+            $stmt->bindParam(':image', $tap12);
+            $stmt->bindParam(':pdf', $tap13);
+            $stmt->bindParam(':first_storage_id', $tap14, PDO::PARAM_STR);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -667,7 +669,7 @@ class Controller
     }
 
 
-    function insert2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12,$tap13) //เพิ่มข้อมูลใบงานที่ 2
+    function insert2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13) //เพิ่มข้อมูลใบงานที่ 2
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_2 (
@@ -700,8 +702,8 @@ class Controller
             $stmt->bindParam(':s_industry', $tap8, PDO::PARAM_STR);
             $stmt->bindParam(':commerce', $tap9, PDO::PARAM_STR);
             $stmt->bindParam(':service', $tap10, PDO::PARAM_STR);
-            $stmt->bindParam(':image', $tap11, PDO::PARAM_STR);
-            $stmt->bindParam(':pdf', $tap12, PDO::PARAM_STR);
+            $stmt->bindParam(':image', $tap11);
+            $stmt->bindParam(':pdf', $tap12);
             $stmt->bindParam(':first_storage_id', $tap13, PDO::PARAM_STR);
             $stmt->execute();
             return true;
@@ -711,7 +713,7 @@ class Controller
     }
 
 
-    function insert3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14) //เพิ่มข้อมูลใบงานที่ 3
+    function insert3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14) //เพิ่มข้อมูลใบงานที่ 3
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_3 (
@@ -757,7 +759,7 @@ class Controller
     }
 
 
-    function insert4($tap1, $tap2, $tap3, $tap4, $tap5,$tap6) //เพิ่มข้อมูลใบงานที่ 4
+    function insert4($tap1, $tap2, $tap3, $tap4, $tap5, $tap6) //เพิ่มข้อมูลใบงานที่ 4
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_4 (village_history, way_life, life_recoed_life, image, pdf,first_storage_id)
@@ -778,7 +780,7 @@ class Controller
     }
 
 
-    function insert5($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12,$tap13) //เพิ่มข้อมูลใบงานที่ 5
+    function insert5($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13) //เพิ่มข้อมูลใบงานที่ 5
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_5 (
@@ -828,7 +830,7 @@ class Controller
     }
 
 
-    function insert6($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9,$tap10) //เพิ่มข้อมูลใบงานที่ 6
+    function insert6($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10) //เพิ่มข้อมูลใบงานที่ 6
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_6 (
@@ -871,7 +873,7 @@ class Controller
     }
 
 
-    function insert7($tap1, $tap2, $tap3,$tap4) //เพิ่มข้อมูลใบงานที่ 7
+    function insert7($tap1, $tap2, $tap3, $tap4) //เพิ่มข้อมูลใบงานที่ 7
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_7 (bio_data, image, pdf,first_storage_id)
@@ -890,7 +892,7 @@ class Controller
     }
 
 
-    function insert8($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11,$tap12) //เพิ่มข้อมูลใบงานที่ 8
+    function insert8($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12) //เพิ่มข้อมูลใบงานที่ 8
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_8 (
@@ -938,7 +940,7 @@ class Controller
     }
 
 
-    function insert9($tap1, $tap2, $tap3, $tap4, $tap5, $tap6,$tap7) //เพิ่มข้อมูลใบงานที่ 9
+    function insert9($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7) //เพิ่มข้อมูลใบงานที่ 9
     {
         try {
             $sql = "INSERT INTO tbl_worksheet_9 (archeology_site,important_resources,archeology_record, name_resources, image, pdf,first_storage_id)
@@ -964,7 +966,7 @@ class Controller
 
     //---------------------------------------------- ชุดคำสั่ง UPDATE ของใบงาน 1-9 และ สถานที่ + ส่วนต้น -----------------------------------------//
 
-    function update1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14 ,$tap15) //เพิ่มข้อมูลใบงานที่ 1
+    function update1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14, $tap15) //เพิ่มข้อมูลใบงานที่ 1
     {
         try {
             $sql = "UPDATE tbl_worksheet_1 SET villagename=:villagename, location=:location, 
@@ -999,7 +1001,7 @@ class Controller
     }
 
 
-    function update2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14) //เพิ่มข้อมูลใบงานที่ 2
+    function update2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14) //เพิ่มข้อมูลใบงานที่ 2
     {
         try {
             $sql = "UPDATE tbl_worksheet_2 SET agriculture=:agriculture, garden=:garden, 
@@ -1031,7 +1033,7 @@ class Controller
         }
     }
 
-    function update3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14,$tap15) //เพิ่มข้อมูลใบงานที่ 3
+    function update3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14, $tap15) //เพิ่มข้อมูลใบงานที่ 3
     {
         try {
             $sql = "UPDATE tbl_worksheet_3 SET terrain=:terrain, soilitype=:soilitype, 
@@ -1064,7 +1066,7 @@ class Controller
         }
     }
 
-    function update4($tap1, $tap2, $tap3, $tap4, $tap5, $tap6,$tap7) //เพิ่มข้อมูลใบงานที่ 4
+    function update4($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7) //เพิ่มข้อมูลใบงานที่ 4
     {
         try {
             $sql = "UPDATE tbl_worksheet_4 SET village_history=:village_history, 
@@ -1087,7 +1089,7 @@ class Controller
         }
     }
 
-    function update5($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14) //เพิ่มข้อมูลใบงานที่ 5
+    function update5($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13, $tap14) //เพิ่มข้อมูลใบงานที่ 5
     {
         try {
             $sql = "UPDATE tbl_worksheet_5 SET data_plant=:data_plant, 
@@ -1129,7 +1131,7 @@ class Controller
 
 
 
-    function update6($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10,$tap11) //เพิ่มข้อมูลใบงานที่ 6
+    function update6($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11) //เพิ่มข้อมูลใบงานที่ 6
     {
         try {
             $sql = "UPDATE tbl_worksheet_6 SET animal_species=:animal_species, location_meet=:location_meet, 
@@ -1157,7 +1159,7 @@ class Controller
         }
     }
 
-    function update7($tap1, $tap2, $tap3, $tap4,$tap5) //เพิ่มข้อมูลใบงานที่ 7
+    function update7($tap1, $tap2, $tap3, $tap4, $tap5) //เพิ่มข้อมูลใบงานที่ 7
     {
         try {
             $sql = "UPDATE tbl_worksheet_7 SET bio_data=:bio_data, image=:image, 
@@ -1176,7 +1178,7 @@ class Controller
         }
     }
 
-    function update8($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12,$tap13) //เพิ่มข้อมูลใบงานที่ 6
+    function update8($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13) //เพิ่มข้อมูลใบงานที่ 6
     {
         try {
             $sql = "UPDATE tbl_worksheet_8 SET branch=:branch, local_name=:local_name, 
@@ -1206,7 +1208,7 @@ class Controller
         }
     }
 
-    function update9($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7,$tap8) //เพิ่มข้อมูลใบงานที่ 9
+    function update9($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8) //เพิ่มข้อมูลใบงานที่ 9
     {
         try {
             $sql = "UPDATE tbl_worksheet_9 SET archeology_site=:archeology_site, important_resources=:important_resources, 
@@ -1251,7 +1253,7 @@ class Controller
         }
     }
 
-    function updateuser($tap1, $tap2, $tap3, $tap4, $tap5,$tap6) //เพิ่มข้อมูลใบงานที่ 4
+    function updateuser($tap1, $tap2, $tap3, $tap4, $tap5, $tap6) //เพิ่มข้อมูลใบงานที่ 4
     {
         try {
             $sql = "UPDATE tbl_users SET user_firstname=:user_firstname, 
@@ -1272,11 +1274,4 @@ class Controller
             return false;
         }
     }
-
-
-
-
-
-
 }
-?>

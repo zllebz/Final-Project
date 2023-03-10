@@ -38,6 +38,42 @@ echo '
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
 
 if ((isset($_POST["submit"]))) {
+
+    $mm = $_FILES['image1'];
+
+    $allow = array('jpg', 'jpeg', 'png');
+    $extension = explode('.', $mm['name']);
+    $fileActExt = strtolower(end($extension));
+    $fileNew = rand() . "." . $fileActExt;  // rand function create the rand number 
+    $filePath = '../images/' . $fileNew;
+    if (in_array($fileActExt, $allow)) {
+        move_uploaded_file($mm['tmp_name'], $filePath);
+    }
+
+
+    $mb = $_FILES['image2'];
+
+    $allow2 = array('jpg', 'jpeg', 'png');
+    $extension2 = explode('.', $mb['name']);
+    $fileActExt2 = strtolower(end($extension2));
+    $fileNew2 = rand() . "." . $fileActExt2;  // rand function create the rand number 
+    $filePath2 = '../images/' . $fileNew2;
+    if (in_array($fileActExt2, $allow2)) {
+        move_uploaded_file($mb['tmp_name'], $filePath2);
+    }
+
+    $nn = $_FILES['pdf'];
+
+    $allow1 = array('pdf');
+    $extension1 = explode('.', $nn['name']);
+    $fileActExt1 = strtolower(end($extension1));
+    $fileNew1 = rand() . "." . $fileActExt1;  // rand function create the rand number 
+    $filePath1 = '../upPDF/' . $fileNew1;
+    if (in_array($fileActExt1, $allow1)) {
+        move_uploaded_file($nn['tmp_name'], $filePath1);
+    }
+
+
     $tap1 = $_POST['data_plant'];
     $tap2 = $_POST['food'];
     $tap3 = $_POST['medicine_people'];
@@ -47,9 +83,9 @@ if ((isset($_POST["submit"]))) {
     $tap7 = $_POST['cultures'];
     $tap8 = $_POST['religion'];
     $tap9 = $_POST['other'];
-    $tap10 = $_POST['image1'];
-    $tap11 = $_POST['image2'];
-    $tap12 = $_POST['pdf'];
+    $tap10 = $fileNew;
+    $tap11 = $fileNew2;
+    $tap12 = $fileNew1;
     $tap13 = $_POST['first_storage_id'];
     //$tap13 = $_GET['pdf'];
     $status = $controller->insert5($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12,$tap13);
@@ -72,7 +108,7 @@ if ((isset($_POST["submit"]))) {
                   title: "เกิดข้อผิดพลาด",
                   type: "error"
               }, function() {
-                  window.location = "../layout/worksheet_5.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "../dem/table_data.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 0);
         </script>';
@@ -127,15 +163,20 @@ if ((isset($_POST["submit"]))) {
                         <input type="text" class="form-control" name="other">
                     </div>
                     <div class="mb-3">
-                        <label for="formFile" class="form-label">รูปภาพ</label>
-                        <input class="form-control" type="file" name="image1">
+                        <label for="formFile" class="form-label">รูปภาพที่ 1</label>
+                        <font color="red">*อัพโหลดได้เฉพาะ .jpeg , .jpg , .png </font>
+                        <input type="file" name="image1" id="image1" required class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
+                        <img loading="lazy" width="20%" id="previewImg" alt="">
                     </div>
                     <div class="mb-3">
-                        <label for="formFile" class="form-label">รูปภาพ</label>
-                        <input class="form-control" type="file" name="image2">
+                        <label for="formFile" class="form-label">รูปภาพที่ 2</label>
+                        <font color="red">*อัพโหลดได้เฉพาะ .jpeg , .jpg , .png </font>
+                        <input type="file" name="image2" id="image2" required class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
+                        <img loading="lazy" width="20%" id="previewImg2" alt="">
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">อัพโหลดเอกสาร PDF</label>
+                        <font color="red">*อัพโหลดได้เฉพาะ .pdf </font>
                         <input class="form-control" type="file" name="pdf">
                     </div>
                     <div class="col-12">
@@ -145,5 +186,29 @@ if ((isset($_POST["submit"]))) {
             </div>
         </div>
     </div>
+
 </body>
+<script>
+    let image = document.getElementById('image1');
+    let previewImg = document.getElementById('previewImg');
+
+    image.onchange = evt => {
+        const [file] = image.files;
+        if (file) {
+            previewImg.src = URL.createObjectURL(file)
+        }
+    }
+</script>
+<script>
+    let image2 = document.getElementById('image2');
+    let previewImg2 = document.getElementById('previewImg2');
+
+    image2.onchange = evt => {
+        const [file] = image2.files;
+        if (file) {
+            previewImg2.src = URL.createObjectURL(file)
+        }
+    }
+</script>
+
 </html>

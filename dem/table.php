@@ -36,7 +36,7 @@ $number = 1;
   <div class="card">
   <div class="card-header" style="background-color:#652D91">
 
-      <h3 class="card-title"style="color:white">ตารางระบบจัดการเอกสถานที่</h3>
+      <h3 class="card-title"style="color:white">ตารางระบบจัดการสถานที่</h3>
       <div align="right">
         <?php if ($_SESSION['position_id'] == 1) {
           echo '<a href="../layout/datastores.php">
@@ -77,14 +77,8 @@ $number = 1;
                   <td><?php echo $row["user_firstname"]; ?></td>
                   <td><?php echo $row["data_store_date"]; ?></td>
                   <td>
-                    <a class="btn btn-info btn-xs" href="#" target="_blank">
-                      <i class="fas fa-eye"></i>
-                    </a>
                     <?php if ($_SESSION['position_id'] == 1) {
-                      echo '<a class="btn btn-warning btn-xs" href="../edit_view/?id=' . $row["data_store_id"] . '">' . '<i class="fas fa-pencil-alt"></i></a>';
-                    } ?>
-                    <?php if ($_SESSION['position_id'] == 1) {
-                      echo '<a class="btn btn-success btn-xs" href="../layout/firststorage.php?id=' . $row["data_store_id"] . '">' . '<i class="bi bi-plus-lg"></i></a>';
+                      echo '<a class="btn btn-success btn-xs" href="../layout/firststorage.php?id=' . $row["data_store_id"] . '">' . '<i class="bi bi-plus-lg">จำทำข้อมูลส่วนต้น</i></a>';
                     } ?>
                     </a>
                   </td>

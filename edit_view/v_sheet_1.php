@@ -2,17 +2,17 @@
 session_start();
 
 if (!isset($_SESSION['user_name'])) {
-  $_SESSION['msg'] = "You must log in first";
-  header('location: ../layout/login.php');
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../layout/login.php');
 }
 if ($_SESSION['permission_id'] == 0) {
     $_SESSION['msg'] = "ไม่มีสิทธิเข้าถึง";
     header('location: ../dem/check.php');
-  }
+}
 if (isset($_GET['logout'])) {
-  session_destroy();
-  unset($_SESSION['user_name']);
-  header('location: layout/login.php');
+    session_destroy();
+    unset($_SESSION['user_name']);
+    header('location: layout/login.php');
 }
 ?>
 <?php
@@ -64,36 +64,42 @@ if (!isset($_GET["id"])) {
                             <?php echo $result1["villagename"] ?>
                         </p>
                         <p><b>ที่ตั้งหมู่บ้าน : </b>
-                        <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <?php echo $result1["location"] ?>
                         </p>
                         <p><b>พิกัดหมู่บ้าน :</b>
                             <?php echo $result1["location_map"] ?>
                         </p>
                         <p><b>ข้อมูลทางศาสนา : </b>
-                            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <?php echo $result1["religion"] ?>
                         </p>
                         <p><b>จำนวนประชากร : </b>
                             <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <?php echo $result1["population"] ?></p>
+                            <?php echo $result1["population"] ?>
+                        </p>
                         <p><b>จำนวนพื้นที่ (ไร่) : </b>
                             <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <?php echo $result1["numarea"] ?></p>
+                            <?php echo $result1["numarea"] ?>
+                        </p>
                         <p><b>ข้อมูลสถานศึกษาที่เปิดให้บริการ : </b>
                             <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <?php echo $result1["education_name"] ?></p>
+                            <?php echo $result1["education_name"] ?>
+                        </p>
                         <p><b>ข้อมูลการบริหารขององค์กรปกครองส่วนท้องถิ่น : </b>
                             <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <?php echo $result1["local_government"] ?></p>
+                            <?php echo $result1["local_government"] ?>
+                        </p>
                         <p><b>ศูนย์สุขภาพชุมชน/โรงพยาบาล (แห่ง) : </b>
                             <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <?php echo $result1["hospital"] ?></p>
+                            <?php echo $result1["hospital"] ?>
+                        </p>
                         <p><b>สถานนีตำรวจ (แห่ง) : </b>
                             <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <?php echo $result1["police_station"] ?></p>
-                        <p><b>แผนที่หมู่บ้าน : </b>
-                            <?php echo $result1["image"] ?></p>
+                            <?php echo $result1["police_station"] ?>
+                        </p>
+                        <p><b>แผนที่หมู่บ้าน : </b></p>
+                        <img width="100%" hight="auto" src="../images/<?php echo $result1['image'] ?>">
                     </div>
                     <div class="col-12">
                         <?php

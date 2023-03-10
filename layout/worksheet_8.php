@@ -38,6 +38,27 @@ echo '
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
 
 if ((isset($_POST["submit"]))) {
+    $mm = $_FILES['image'];
+
+    $allow = array('jpg', 'jpeg', 'png');
+    $extension = explode('.', $mm['name']);
+    $fileActExt = strtolower(end($extension));
+    $fileNew = rand() . "." . $fileActExt;  // rand function create the rand number 
+    $filePath = '../images/' . $fileNew;
+    if (in_array($fileActExt, $allow)) {
+        move_uploaded_file($mm['tmp_name'], $filePath);
+    }
+
+    $nn = $_FILES['pdf'];
+
+    $allow1 = array('pdf');
+    $extension1 = explode('.', $nn['name']);
+    $fileActExt1 = strtolower(end($extension1));
+    $fileNew1 = rand() . "." . $fileActExt1;  // rand function create the rand number 
+    $filePath1 = '../upPDF/' . $fileNew1;
+    if (in_array($fileActExt1, $allow1)) {
+        move_uploaded_file($nn['tmp_name'], $filePath1);
+    }
     $tap1 = $_POST['branch'];
     $tap2 = $_POST['local_name'];
     $tap3 = $_POST['copyright'];
@@ -47,8 +68,8 @@ if ((isset($_POST["submit"]))) {
     $tap7 = $_POST['public_relations'];
     $tap8 = $_POST['characteristic'];
     $tap9 = $_POST['materials'];
-    $tap10 = $_POST['image'];
-    $tap11 = $_POST['pdf'];
+    $tap10 = $fileNew;
+    $tap11 = $fileNew1;
     $tap12 = $_POST['first_storage_id'];
 
 
@@ -73,7 +94,7 @@ if ((isset($_POST["submit"]))) {
                   title: "เกิดข้อผิดพลาด",
                   type: "error"
               }, function() {
-                  window.location = "../layout/worksheet_8.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "../dem/table_data.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 0);
         </script>';
@@ -232,19 +253,34 @@ if ((isset($_POST["submit"]))) {
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">รูปภาพ</label>
-                        <input class="form-control" type="file" name="image">
+                        <font color="red">*อัพโหลดได้เฉพาะ .jpeg , .jpg , .png </font>
+                        <input type="file" name="image" id="image" required class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
+                        <img loading="lazy" width="20%" id="previewImg" alt="">
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">อัพโหลดเอกสาร PDF</label>
+                        <font color="red">*อัพโหลดได้เฉพาะ .pdf </font>
                         <input class="form-control" type="file" name="pdf">
                     </div>
                     <div class="col-12">
-                    <button type="submit" name="submit" class="btn btn-primary">บันทึกข้อมูล</button>
+                        <button type="submit" name="submit" class="btn btn-primary">บันทึกข้อมูล</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
 </body>
+<script>
+    let image = document.getElementById('image');
+    let previewImg = document.getElementById('previewImg');
+
+    image.onchange = evt => {
+        const [file] = image.files;
+        if (file) {
+            previewImg.src = URL.createObjectURL(file)
+        }
+    }
+</script>
 
 </html>

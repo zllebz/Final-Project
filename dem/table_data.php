@@ -59,7 +59,7 @@ $number = 1;
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ที่สำรวจ</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 3%;">ใบงาน</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">คำชี้แจง</th>
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 5%;">จัดการ</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">จัดการ</th>
               </tr>
             </thead>
             <tbody>
@@ -98,7 +98,7 @@ $number = 1;
                       echo '<a class="btn btn-warning btn-xs" href="../edit_view/e_first.php?id=' . $row["first_storage_id"] . '">' . '<i class="fas fa-pencil-alt"></i></a>';
                     } ?>
                     <?php if ($_SESSION['position_id'] == 1) {
-                      echo '<a class="btn btn-success btn-xs" href="../layout/worksheet_'.$row['doc_id'].'.php?id=' . $row["first_storage_id"] . '">' . '<i class="bi bi-plus-lg"></i></a>';
+                      echo '<a class="btn btn-success btn-xs" href="../layout/worksheet_'.$row['doc_id'].'.php?id=' . $row["first_storage_id"] . '">' . '<i class="bi bi-plus-lg">จัดทำใบงาน</i></a>';
                     } ?>
                   </td>
                 </tr>
