@@ -162,9 +162,9 @@ class Controller
     function getfirst2() //ส่วนต้น
     {
         try {
-            $sql = "SELECT a.first_storage_id, b.data_store_local , concat( left(substring_index(left(b.data_store_local,255),',',1),255),' ',f.name_th ,' ', d.name_th ,' ', c.name_th ,' ', f.zip_code)as data_store_local
+            $sql = "SELECT * , b.data_store_local , concat( left(substring_index(left(b.data_store_local,255),',',1),255),' ',f.name_th ,' ', d.name_th ,' ', c.name_th ,' ', f.zip_code)as data_store_local
             FROM tbl_firststorages a
-            INNER JOIN tbl_datastores b
+            INNER JOIN tbl_datastores b ON a.data_store_id = b.data_store_id
             INNER JOIN tbl_provinces c ON c.code = left(substring_index(right(b.data_store_local,12),' ',1),2)
             INNER JOIN tbl_amphures d ON d.code = left(substring_index(right(b.data_store_local,12),' ',1),4)
             INNER JOIN tbl_districts f ON f.districts_id = left(substring_index(right(b.data_store_local,12),' ',1),6)";
