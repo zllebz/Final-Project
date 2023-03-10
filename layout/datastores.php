@@ -24,7 +24,7 @@ if (isset($_GET['logout'])) {
 $title = 'แบบฟอร์มกรอกข้อมูลขั้นต้น';
 include('header.php');
 require_once "../db/connect.php";
-$result = $controller->provinces();
+
 
 echo '
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
@@ -113,7 +113,7 @@ $query = mysqli_query($con, $sql_provinces);
                         </select>
 
                         <label for="sel1" class="my-2">รหัสไปรษณีย์:</label>
-                        <input type="text" name="data_store_local[]" id="zip_code" class="form-control">
+                        <input type="text" maxlength="5" name="data_store_local[]" id="zip_code" class="form-control">
                         <div class="col-12 my-3">
                             <button type="submit" name="submit" class="btn btn-primary">บันทึกข้อมูล</button>
                         </div>

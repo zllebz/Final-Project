@@ -20,7 +20,7 @@ if (isset($_GET['logout'])) {
 $menu = "table_data";
 $title = "ข้อมูลส่วนต้น";
 require_once "../db/connect.php";
-$result = $controller->getfirst2();
+$result = $controller->getfirst();
 $number = 1;
 ?>
 
@@ -67,7 +67,7 @@ $number = 1;
                 <tr>
                 <td><?php echo $number++; ?></td>
                   <td><?php echo $row["first_storage_id"]; ?></td>
-                  <td><?php echo $row["data_store_local"]; ?></td>
+                  <td><?php echo $row["data_store_id"]; ?></td>
                   <td><?php if($row["doc_id"]== 1 ){
                     echo "ใบงานที่ 1";
                   } elseif($row["doc_id"]== 2 ){
