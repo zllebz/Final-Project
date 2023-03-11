@@ -30,7 +30,8 @@ require_once "../db/connect.php";
 
 
   <div class="card">
-    <div class="card-header bg-navy">
+  <div class="card-header" style="background-color:#652D91">
+
 
 
       <div align="right">

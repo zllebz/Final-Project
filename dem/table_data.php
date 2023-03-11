@@ -59,7 +59,7 @@ $number = 1;
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">สถานที่ที่สำรวจ</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 3%;">ใบงาน</th>
                 <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">คำชี้แจง</th>
-                <th tabindex="0" rowspan="1" colspan="1" style="width: 10%;">จัดการ</th>
+                <th tabindex="0" rowspan="1" colspan="1" style="width: 15%;">จัดการ</th>
               </tr>
             </thead>
             <tbody>

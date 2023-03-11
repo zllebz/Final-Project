@@ -52,12 +52,11 @@ if ((isset($_POST["submit"]))) {
     $tap9 = $_POST['local_government'];
     $tap10 = $_POST['hospital'];
     $tap11 = $_POST['police_station'];
-    $tap12 = $_POST['image'];
-    $tap13 = $_POST['pdf'];
+
     $tap14 = $_POST['worksheet1_id'];
     $tap15 = $_POST['status'];
 
-    $status = $controller->update1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14,$tap15);
+    $status = $controller->update1($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11,$tap14,$tap15);
     if($status){
         echo '<script>
              setTimeout(function() {
