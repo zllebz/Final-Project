@@ -21,7 +21,7 @@ if (isset($_GET['logout'])) {
 }
 ?>
 <?php
-$title = 'แบบฟอร์มกรอกข้อมูลขั้นต้น';
+$title = 'แก้ไขข้อมูลผู้ใช้งาน';
 include('header.php');
 require_once "../db/connect.php";
 
@@ -81,7 +81,7 @@ if ((isset($_POST["submit"]))) {
 <body>
     <div class="container">
         <div class="row">
-            <h3 class="my-5 text-center">แบบฟอร์มกรอกข้อมูลขั้นต้น</h3>
+            <h3 class="my-5 text-center">แก้ไขข้อมูลผู้ใช้งาน</h3>
             <div class="card border-0 shadow">
                 <form class="row g-3 my-3" method="POST">
                     <input type="hidden" name="user_id" value="<?php echo $result1["user_id"] ?>" />

@@ -69,9 +69,8 @@ if ((isset($_POST["submit"]))) {
 
 
 <?php
-$con = mysqli_connect("localhost", "root", "", "bellba") or die("Error: " . mysqli_error($con));
+$con = mysqli_connect("localhost", "plantgenetic", "gvJBju6D", "plantgenetic");
 mysqli_query($con, "SET NAMES 'utf8' ");
-error_reporting(error_reporting() & ~E_NOTICE);
 date_default_timezone_set('Asia/Bangkok');
 
 $sql_provinces = "SELECT * FROM tbl_provinces";

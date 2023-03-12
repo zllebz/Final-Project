@@ -49,11 +49,9 @@ if ((isset($_POST["submit"]))) {
     $tap5 = $_POST['feature'];
     $tap6 = $_POST['animal_owner'];
     $tap7 = $_POST['informant_name'];
-    $tap8 = $_POST['image'];
-    $tap9 = $_POST['pdf'];
     $tap10 = $_POST['worksheet6_id'];
     $tap11 = $_POST['status'];
-    $status = $controller->update6($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10,$tap11);
+    $status = $controller->update6($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap10,$tap11);
     if($status){
         echo '<script>
              setTimeout(function() {
@@ -120,13 +118,13 @@ if ((isset($_POST["submit"]))) {
                     <div class="col-md-12">
                         <label class="form-label">สถานะเอกสาร</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status"   <?=($result1["status"]=="0")?"checked":""?> value="0">
+                            <input class="form-check-input" type="radio" name="status"   <?=($result6["status"]=="0")?"checked":""?> value="0">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 ปิด
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status"  <?=($result1["status"]=="1")?"checked":""?> value="1">
+                            <input class="form-check-input" type="radio" name="status"  <?=($result6["status"]=="1")?"checked":""?> value="1">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 เปิด
                             </label>

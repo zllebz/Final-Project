@@ -52,7 +52,6 @@ if ((isset($_POST["submit"]))) {
     $tap9 = $_POST['local_government'];
     $tap10 = $_POST['hospital'];
     $tap11 = $_POST['police_station'];
-
     $tap14 = $_POST['worksheet1_id'];
     $tap15 = $_POST['status'];
 

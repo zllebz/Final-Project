@@ -50,11 +50,9 @@ if ((isset($_POST["submit"]))) {
     $tap9 = $_POST['temperature'];
     $tap10 = $_POST['amount_light'];
     $tap11 = $_POST['geographic'];
-    $tap12 = $_POST['image'];
-    $tap13 = $_POST['pdf'];
     $tap14 = $_POST['worksheet3_id'];
     $tap15 = $_POST['status'];
-    $status = $controller->update3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap12, $tap13,$tap14,$tap15);
+    $status = $controller->update3($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap11, $tap14,$tap15);
     if($status){
         echo '<script>
              setTimeout(function() {
