@@ -62,7 +62,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = "../dem/table_data.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 0);
+            }, 1000);
         </script>';
     } else {
         echo '<script>
@@ -73,7 +73,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = "../layout/firststorage.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 0);
+            }, 1000);
         </script>';
     }
 }
@@ -88,11 +88,11 @@ if ((isset($_POST["submit"]))) {
                     <input type="hidden" name="data_store_id" value="<?php echo $result1["data_store_id"] ?>" />
                     <div class="col-12">
                         <label for="statement" class="form-label">คำชี้แจง</label>
-                        <textarea class="form-control" name="statement" rows="3"></textarea>
+                        <textarea class="form-control" name="statement" rows="3" required></textarea>
                     </div>
                     <div class="col-12">
                         <label for="inputState" class="form-label">ใบงาน</label>
-                        <select name="doc_id" id="inputState" class="form-select">
+                        <select name="doc_id" id="inputState" class="form-select" required>
                             <option value="" selected disabled>-- กรุณาเลือก --</option>
                             <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                                 <option value="<?php echo $row["doc_id"]; ?>"><?php echo $row["doc_name"] ?></option>
@@ -101,19 +101,19 @@ if ((isset($_POST["submit"]))) {
                     </div>
                     <div class="col-12">
                         <label for="objective" class="form-label">วัตถุประสงค์</label>
-                        <textarea class="form-control" name="objective" rows="3"></textarea>
+                        <textarea class="form-control" name="objective" rows="3" required></textarea>
                     </div>
                     <div class="col-12">
                         <label for="equipment" class="form-label">อุปกรณ์</label>
-                        <textarea class="form-control" name="equipment" rows="3"></textarea>
+                        <textarea class="form-control" name="equipment" rows="3" required></textarea>
                     </div>
                     <div class="col-12">
                         <label for="process" class="form-label">วิธีการ</label>
-                        <textarea class="form-control" name="process" rows="3"></textarea>
+                        <textarea class="form-control" name="process" rows="3" required></textarea>
                     </div>
                     <div class="col-12 mt-3">
                         <label for="exp_benefits" class="form-label">สิ่งที่ได้รับจากใบงาน</label>
-                        <textarea class="form-control" name="exp_benefits" rows="3"></textarea>
+                        <textarea class="form-control" name="exp_benefits" rows="3" required></textarea>
                     </div>
                     <div class="col-12 mt-3 ">
                         <button type="submit" name="submit" class="btn btn-primary">บันทึกข้อมูล</button>

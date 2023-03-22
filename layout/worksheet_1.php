@@ -93,7 +93,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = "../dem/sheet_1.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 0);
+            }, 1000);
         </script>';
     } else {
         echo '<script>
@@ -104,7 +104,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = "../dem/table_data.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 0);
+            }, 1000);
         </script>';
     }
 }
@@ -119,47 +119,47 @@ if ((isset($_POST["submit"]))) {
                     <input type="hidden" name="first_storage_id" value="<?php echo $result1["first_storage_id"] ?>" />
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1" class="form-label">ชื่อหมู่บ้าน</label>
-                        <input type="text" class="form-control" placeholder="" name="villagename">
+                        <input type="text" class="form-control" placeholder="" name="villagename" required>
                     </div>
                     <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">ที่ตั้งหมู่บ้าน</label>
-                        <input type="text" class="form-control" placeholder="" name="location">
+                        <input type="text" class="form-control" placeholder="" name="location" required>
                     </div>
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1" class="form-label">พิกัดหมู่บ้าน</label>
-                        <input type="text" class="form-control" placeholder="" name="location_map">
+                        <input type="text" class="form-control" placeholder="" name="location_map" required>
                     </div>
                     <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">ข้อมูลทางศาสนา</label>
-                        <input type="text" class="form-control" placeholder="" name="religion">
+                        <input type="text" class="form-control" placeholder="" name="religion" required>
                     </div>
                     <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">จำนวนประชากร</label>
-                        <input type="text" class="form-control" placeholder="" name="population">
+                        <input type="text" class="form-control" placeholder="" name="population" required>
                     </div>
                     <div class="col-md-12">
                         <label for="" class="form-label">จำนวนพื้นที่ (ไร่)</label>
-                        <input type="text" class="form-control" name="numarea">
+                        <input type="text" class="form-control" name="numarea" required>
                     </div>
                     <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">ข้อมูลสถานศึกษาที่เปิดให้บริการ</label>
-                        <input type="text" class="form-control" placeholder="" name="education_service">
+                        <input type="text" class="form-control" placeholder="" name="education_service" required>
                     </div>
                     <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">ชื่อสถานศึกษาที่เปิดให้บริการ</label>
-                        <input type="text" class="form-control" placeholder="" name="education_name">
+                        <input type="text" class="form-control" placeholder="" name="education_name" required>
                     </div>
                     <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">ข้อมูลการบริหารขององค์กรปกครองส่วนท้องถิ่น</label>
-                        <input type="text" class="form-control" placeholder="" name="local_government">
+                        <input type="text" class="form-control" placeholder="" name="local_government" required>
                     </div>
                     <div class="col-md-6">
                         <label for="inputZip" class="form-label">ศูนย์สุขภาพชุมชน/โรงพยาบาล (แห่ง)</label>
-                        <input type="text" class="form-control" name="hospital">
+                        <input type="text" class="form-control" name="hospital" required>
                     </div>
                     <div class="col-md-6">
                         <label for="inputZip" class="form-label">สถานนีตำรวจ (แห่ง)</label>
-                        <input type="text" class="form-control" name="police_station">
+                        <input type="text" class="form-control" name="police_station" required>
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">แผนที่หมู่บ้าน</label>

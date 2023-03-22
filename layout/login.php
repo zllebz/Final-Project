@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (isset($_SESSION['user_name'])) {
+  $_SESSION['msg'] = "";
+  header('location: ../dem/index.php');
+}
 include('../db/server.php');
 
 ?>
@@ -17,32 +21,32 @@ include('../db/server.php');
 
 <body>
   <div class="container">
-  <h5>เข้าสู่ระบบ</h5>
-  <form action="login_db.php" method="post">
-    <?php if (isset($_SESSION['error'])) : ?>
-      <div class="error">
-        <h3>
-          <?php
-          echo $_SESSION['error'];
-          unset($_SESSION['error']);
-          ?>
-        </h3>
+    <h5>เข้าสู่ระบบ</h5>
+    <form action="login_db.php" method="post">
+      <?php if (isset($_SESSION['error'])) : ?>
+        <div class="error">
+          <h3>
+            <?php
+            echo $_SESSION['error'];
+            unset($_SESSION['error']);
+            ?>
+          </h3>
+        </div>
+      <?php endif ?>
+      <div class="form-control">
+        <label for="email">ชื่อผู้ใช้</label>
+        <input type="text" name="user_name" autocomplete="off" required>
       </div>
-    <?php endif ?>
-    <div class="form-control">
-      <label for="email">ชื่อผู้ใช้</label>
-      <input type="text" name="user_name" autocomplete="off" required>
-    </div>
-    <div class="form-control">
-      <label for="password">รหัสผ่าน</label>
-      <input type="password" id="password" name="user_password" required>
-      <i class="fa-solid fa-eye" id="eye"></i>
-    </div>
-    <div class="form-control">
-      <button type="submit" name="login_user" class="btn">เข้าสู่ระบบ</button>
-    </div>
-    <a href="register.php">สมัครสมาชิก</a>
-  </form>
+      <div class="form-control">
+        <label for="password">รหัสผ่าน</label>
+        <input type="password" id="password" name="user_password" required>
+        <i class="fa-solid fa-eye" id="eye"></i>
+      </div>
+      <div class="form-control">
+        <button type="submit" name="login_user" class="btn">เข้าสู่ระบบ</button>
+      </div>
+      <a href="register.php">สมัครสมาชิก</a>
+    </form>
   </div>
   <script src="js/app.js"></script>
 </body>

@@ -50,7 +50,7 @@ if ((isset($_POST["submit"]))) {
                   }, function() {
                       window.location = "../dem/table.php"; //หน้าที่ต้องการให้กระโดดไป
                   });
-                }, 0);
+                }, 1000);
             </script>';
     } else {
         echo '<script>
@@ -61,7 +61,7 @@ if ((isset($_POST["submit"]))) {
                   }, function() {
                       window.location = "../layout/datastores.php"; //หน้าที่ต้องการให้กระโดดไป
                   });
-                }, 0);
+                }, 1000);
             </script>';
     }
 }
@@ -89,13 +89,13 @@ $query = mysqli_query($con, $sql_provinces);
                     <div class="col-md-12 my-2">
                         <input type="hidden" name ="user_id" value="<?php echo $_SESSION["user_id"]?>">
                         <label for="exampleFormControlInput1 " class="my-2">ข้อมูลพื้นที่ที่สำรวจ</label>
-                        <textarea class="form-control" name="data_store_local[]" rows="3"></textarea>
+                        <textarea class="form-control" name="data_store_local[]" rows="3" required></textarea>
                         <input type="hidden" name="data_store_local[]" value="," >
                     </div>
 
                     <div class="form-group ">
                         <label for="sel1" class="my-2">จังหวัด:</label>
-                        <select class="form-control" name="province_joke" id="provinces">
+                        <select class="form-control" name="province_joke" id="provinces" required>
                             <option value="" selected disabled>-กรุณาเลือกจังหวัด-</option>
                             <?php foreach ($query as $value) { ?>
                                 <option value="<?php echo $value["provinces_id"]; ?>"><?php echo $value["name_th"] ?></option>
@@ -103,16 +103,16 @@ $query = mysqli_query($con, $sql_provinces);
                         </select>
 
                         <label for="sel1" class="my-2">อำเภอ:</label>
-                        <select class="form-control" name="amphrues_joke" id="amphures">
+                        <select class="form-control" name="amphrues_joke" id="amphures" required>
 
                         </select>
 
                         <label for="sel1" class="my-2">ตำบล:</label>
-                        <select class="form-control" name="data_store_local[]" id="districts">
+                        <select class="form-control" name="data_store_local[]" id="districts" required>
                         </select>
 
                         <label for="sel1" class="my-2">รหัสไปรษณีย์:</label>
-                        <input type="text" maxlength="5" name="data_store_local[]" id="zip_code" class="form-control">
+                        <input type="text" maxlength="5" name="data_store_local[]" id="zip_code" class="form-control" >
                         <div class="col-12 my-3">
                             <button type="submit" name="submit" class="btn btn-primary">บันทึกข้อมูล</button>
                         </div>

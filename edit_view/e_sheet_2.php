@@ -51,7 +51,7 @@ if ((isset($_POST["submit"]))) {
     $tap10 = $_POST['service'];
     $tap13 = $_POST['worksheet2_id'];
     $tap14 = $_POST['status'];
-    $status = $controller->update2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap13,$tap14);
+    $status = $controller->update2($tap1, $tap2, $tap3, $tap4, $tap5, $tap6, $tap7, $tap8, $tap9, $tap10, $tap13 , $tap14);
     if($status){
         echo '<script>
              setTimeout(function() {

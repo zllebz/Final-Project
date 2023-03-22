@@ -85,7 +85,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = "../dem/sheet_3.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 0);
+            }, 1000);
         </script>';
     }else{
        echo '<script>
@@ -96,7 +96,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = "../dem/table_data.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 0);
+            }, 1000);
         </script>';
     }
 }
@@ -111,27 +111,27 @@ if ((isset($_POST["submit"]))) {
                 <input type="hidden" name="first_storage_id" value="<?php echo $result1["first_storage_id"] ?>" />
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1">สภาพภูมิประเทศ</label>
-                        <input type="text" class="form-control" name="terrain" placeholder="เช่น เป็นที่ราบ ลุ่ม ลาดเอียง ภูเขา ป่าพรุ ป่าชายหาด ป่าชายเลน">
+                        <input type="text" class="form-control" name="terrain" placeholder="เช่น เป็นที่ราบ ลุ่ม ลาดเอียง ภูเขา ป่าพรุ ป่าชายหาด ป่าชายเลน" required>
                     </div>
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1" class="form-label">ลักษณะดิน</label>
-                        <textarea class="form-control" name="soilitype" rows="3"></textarea>
+                        <textarea class="form-control" name="soilitype" rows="3" required></textarea>
                     </div>
                     <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">แหล่งน้ำธรรมชาติ</label>
-                        <textarea class="form-control" name="natural_water" rows="3"></textarea>
+                        <textarea class="form-control" name="natural_water" rows="3" required></textarea>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label">แหล่งน้ำชลประทาน</label>
-                        <textarea class="form-control" name="irrigation_water" rows="3"></textarea>
+                        <textarea class="form-control" name="irrigation_water" rows="3" required></textarea>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">ฝายชะลอความชุ่มชื้น</label>
-                        <input type="text" class="form-control" name="weir_slows">
+                        <input type="text" class="form-control" name="weir_slows" required>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label">ปริมาณน้ำฝนเฉลี่ยต่อปี</label>
-                        <textarea class="form-control" name="rainfall" rows="3"></textarea>
+                        <textarea class="form-control" name="rainfall" rows="3"required></textarea>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label">ปริมาณความต้องการใช้น้ำเปรียบเทียบกับปริมาณน้ำที่มีในพื้นที่</label>
@@ -177,21 +177,21 @@ if ((isset($_POST["submit"]))) {
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">อุณภูมิ (องศาเซลเชียส) </label>
-                        <input type="text" class="form-control" name="temperature">
+                        <input type="text" class="form-control" name="temperature" required>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">ปริมาณแสง (เปอร์เซ็นต์ความเข้มแสง)</label>
-                        <input type="text" class="form-control" name="amount_light">
+                        <input type="text" class="form-control" name="amount_light" required>
                     </div>
                     <h5>พิกัดทางภูมิศาสตร์ (GIS)</h5>
                     <div class="col-md-12">
                         <label class="form-label">ค่า X และค่า  Y </label>
-                        <input type="text" class="form-control" name="geographic">
+                        <input type="text" class="form-control" name="geographic" required>
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">รูปภาพ</label>
                         <font color="red">*อัพโหลดได้เฉพาะ .jpeg , .jpg , .png </font>
-                        <input type="file" name="image" id="image" required class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
+                        <input type="file" name="image" id="image"  class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
                         <img loading="lazy" width="20%" id="previewImg" alt="">
                     </div>
                     <div class="mb-3">

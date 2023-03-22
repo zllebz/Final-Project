@@ -81,7 +81,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = "../dem/sheet_9.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 0);
+            }, 1000);
         </script>';
     } else {
         echo '<script>
@@ -92,7 +92,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = "../dem/table_data.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 0);
+            }, 1000);
         </script>';
     }
 }
@@ -107,25 +107,25 @@ if ((isset($_POST["submit"]))) {
             <form class="row g-3 my-3" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="first_storage_id" value="<?php echo $result1["first_storage_id"] ?>" />
                     <div class="col-md-12">
-                        <label for="exampleFormControlInput1">แหล่งโบราณคดี (ถ้ามี)</label>
-                        <textarea class="form-control" name="archeology_site" rows="3"></textarea>
+                        <label for="exampleFormControlInput1">แหล่งโบราณคดี</label>
+                        <textarea class="form-control" name="archeology_site" rows="3"required></textarea>
                     </div>
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1" class="form-label">แหล่งทรัพยากรที่สำคัญ</label>
-                        <textarea class="form-control" name="important_resources" rows="3" placeholder="(เช่น อุทยานฯ น้ำตก สวนเฉลิมพระเกียรติ สวนพฤกษศาสตร์ สวนป่า ฯ)"></textarea>
+                        <textarea class="form-control" name="important_resources" rows="3"required placeholder="(เช่น อุทยานฯ น้ำตก สวนเฉลิมพระเกียรติ สวนพฤกษศาสตร์ สวนป่า ฯ)"></textarea>
                     </div>
                     <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">ข้อมูลแหล่งโบราณคดี</label>
-                        <textarea class="form-control" name="archeology_record" rows="3"></textarea>
+                        <textarea class="form-control" name="archeology_record" rows="3"required></textarea>
                     </div>
                     <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">แหล่งทรัพยากรที่สำคัญ</label>
-                        <textarea class="form-control" name="name_resources" rows="3"></textarea>
+                        <textarea class="form-control" name="name_resources" rows="3"required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">รูปภาพ</label>
                         <font color="red">*อัพโหลดได้เฉพาะ .jpeg , .jpg , .png </font>
-                        <input type="file" name="image" id="image" required class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
+                        <input type="file" name="image" id="image"  class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
                         <img loading="lazy" width="20%" id="previewImg" alt="">
                     </div>
                     <div class="mb-3">

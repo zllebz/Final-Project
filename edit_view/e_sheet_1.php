@@ -152,7 +152,7 @@ if ((isset($_POST["submit"]))) {
                     </div>
 
                     <div class="col-12">
-                        <button type="submit" name="submit" value="อัพเดต" class="btn btn-primary">บันทึกข้อมูล</button>
+                        <button type="submit" name="submit" class="btn btn-primary">บันทึกข้อมูล</button>
                     </div>
                 </form>
             </div>

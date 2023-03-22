@@ -99,7 +99,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = "../dem/sheet_5.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 0);
+            }, 1000);
         </script>';
     }else{
        echo '<script>
@@ -110,7 +110,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = "../dem/table_data.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 0);
+            }, 1000);
         </script>';
     }
 }
@@ -127,36 +127,36 @@ if ((isset($_POST["submit"]))) {
                         <h3>ข้อมูลพืช</h3>
                         <p>พืชที่มีความสำคัญ หรือมีลักษณะพิเศษ เช่น พืชที่เป็นไม้ผล ผักพื้นเมือง พืชสมุนไพร พืชใช้เนื้อไม้
 พืชเศรษฐกิจ ปาล์ม ไผ่ หญ้า ฯลฯ</p>
-                        <textarea class="form-control" name="data_plant" rows="3"></textarea>
+                        <textarea class="form-control" name="data_plant" rows="3"required></textarea>
                     </div>
                     <div class="col-md-12">
                         <h3>การใช้ประโยชน์ในท้องถิ่น (ระบุส่วนที่ใช้และวิธีการใช้)</h3>
                         <label for="exampleFormControlInput1" class="form-label">อาหาร</label>
-                        <input type="text" class="form-control" name="food">
+                        <input type="text" class="form-control" name="food"required>
                     </div>
                     <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">ยารักษาโรค ใช้กับคน</label>
-                        <input type="text" class="form-control" name="medicine_people">
+                        <input type="text" class="form-control" name="medicine_people"required>
                     </div>
                     <div class="col-12">
                         <label for="exampleFormControlTextarea1" class="form-label">ยารักษาโรค ใช้กับสัตว์</label>
-                        <input type="text" class="form-control" name="medicine_animal">
+                        <input type="text" class="form-control" name="medicine_animal"required>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label">เครื่องเรือน เครื่องใช้อื่นๆ</label>
-                        <input type="text" class="form-control" name="furniture">
+                        <input type="text" class="form-control" name="furniture"required>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label">ยาฆ่าแมลง ยาปราบศัตรูพืช</label>
-                        <input type="text" class="form-control" name="insecticide">
+                        <input type="text" class="form-control" name="insecticide"required>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label">ความเกี่ยวข้องกับประเพณี วัฒนธรรม</label>
-                        <input type="text" class="form-control" name="cultures">
+                        <input type="text" class="form-control" name="cultures"required>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label">ความเกี่ยวข้องกับความเชื่อทางศาสนา</label>
-                        <input type="text" class="form-control" name="religion">
+                        <input type="text" class="form-control" name="religion"required>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label">อื่นๆ </label>
@@ -165,13 +165,13 @@ if ((isset($_POST["submit"]))) {
                     <div class="mb-3">
                         <label for="formFile" class="form-label">รูปภาพที่ 1</label>
                         <font color="red">*อัพโหลดได้เฉพาะ .jpeg , .jpg , .png </font>
-                        <input type="file" name="image1" id="image1" required class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
+                        <input type="file" name="image1" id="image1"  class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
                         <img loading="lazy" width="20%" id="previewImg" alt="">
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">รูปภาพที่ 2</label>
                         <font color="red">*อัพโหลดได้เฉพาะ .jpeg , .jpg , .png </font>
-                        <input type="file" name="image2" id="image2" required class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
+                        <input type="file" name="image2" id="image2"  class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
                         <img loading="lazy" width="20%" id="previewImg2" alt="">
                     </div>
                     <div class="mb-3">

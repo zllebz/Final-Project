@@ -14,7 +14,7 @@ $result = $controller->prefixv();
                 <form class="row g-3 my-3" method="post">
                 <div class="col-md-2">
                         <label for="inputState" class="form-label">คำนำหน้า</label>
-                        <select name="prefix_id" id="inputState" class="form-select">
+                        <select name="prefix_id" id="inputState" class="form-select" required>
                         <option value="" selected disabled>-- กรุณาเลือก --</option>
                         <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
                             <option value="<?php echo $row["prefix_id"]; ?>"><?php echo $row["prefix_name"] ?></option>
@@ -23,23 +23,23 @@ $result = $controller->prefixv();
                     </div>
                     <div class="col-md-5">
                         <label class="form-label">ชื่อจริง</label>
-                        <input type="text" name="user_firstname" class="form-control">
+                        <input type="text" name="user_firstname" class="form-control" required>
                     </div>
                     <div class="col-md-5">
                         <label class="form-label">นามสกุล</label>
-                        <input type="text" name="user_lastname" class="form-control">
+                        <input type="text" name="user_lastname" class="form-control" required>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label">ที่อยู่อีเมล</label>
-                        <input type="email" name="user_email" class="form-control">
+                        <input type="email" name="user_email" class="form-control" required>
                     </div>
                     <div class="col-md-6">
                         <label for="" class="form-label">ชื่อผู้ใช้</label>
-                        <input type="text" name="user_name" class="form-control">
+                        <input type="text" name="user_name" class="form-control" required>
                     </div>
                     <div class="col-md-6">
                         <label for="" class="form-label">รหัสผ่าน</label>
-                        <input type="password" name="user_password" class="form-control">
+                        <input type="password" name="user_password" class="form-control" required>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary my-2">ยืนยันข้อมูล</button>

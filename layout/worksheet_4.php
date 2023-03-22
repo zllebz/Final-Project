@@ -78,7 +78,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = "../dem/sheet_4.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 0);
+            }, 1000);
         </script>';
     }else{
        echo '<script>
@@ -89,7 +89,7 @@ if ((isset($_POST["submit"]))) {
               }, function() {
                   window.location = "../dem/table_data.php"; //หน้าที่ต้องการให้กระโดดไป
               });
-            }, 0);
+            }, 1000);
         </script>';
     }
 }
@@ -104,21 +104,21 @@ if ((isset($_POST["submit"]))) {
                     <input type="hidden" name="first_storage_id" value="<?php echo $result1["first_storage_id"] ?>" />
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1">ประวัติหมู่บ้าน</label>
-                        <textarea class="form-control" name="village_history" rows="3"></textarea>
+                        <textarea class="form-control" name="village_history" rows="3" required></textarea>
                     </div>
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1" class="form-label">วิถีชีวิต</label>
-                        <textarea class="form-control" name="way_life" rows="3"></textarea>
+                        <textarea class="form-control" name="way_life" rows="3" required></textarea>
                     </div>
                     <h5 class="md-3">แบบบันทึกข้อมูลวิถีชีวิต</h5>
                     <p>คำชี้แจง ให้แต่ละกลุ่มสอบถาม/สัมภาษณ์ วิถีชีวิต รอบวัน/รอบสัปดาห์/รอบเดือน/รอบปี</p>
                     <div class="col-12">
-                        <textarea class="form-control" name="life_recoed_life" rows="3" placeholder="ผู้ให้ข้อมูล"></textarea>
+                        <textarea class="form-control" name="life_recoed_life" rows="3" placeholder="ผู้ให้ข้อมูล" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">รูปภาพ</label>
                         <font color="red">*อัพโหลดได้เฉพาะ .jpeg , .jpg , .png </font>
-                        <input type="file" name="image" id="image" required class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
+                        <input type="file" name="image" id="image"  class="form-control" accept="image/jpeg, image/png, image/jpg"> <br>
                         <img loading="lazy" width="20%" id="previewImg" alt="">
                     </div>
                     <div class="mb-3">
